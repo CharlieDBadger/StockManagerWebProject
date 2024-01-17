@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+    <persistence-unit name="HibernateMysql" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- entidades o entities -->
+        <class>entities.Address</class>
+        <class>entities.Store</class>
+        <class>entities.User</class>
+   		<class>entities.Supplier</class>
+        <class>entities.Customer</class>
+         <class>entities.Item</class>
+        <class>entities.Envoice</class>
+        <class>entities.EnvoiceDetails</class>
+        <class>entities.Receipt</class>
+        <class>entities.ReceiptDetails</class>
+        
+        
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/curso"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="password"/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+ 			<property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+        </persistence-unit>
+        
+<persistence-unit name="HibernateOracle" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <!-- entidades o entities -->
+        <class>entities.Address</class>
+        <class>entities.Store</class>
+		<class>entities.Supplier</class>
+		<class>entities.User</class>
+		<class>entities.Item</class>
+		
+        
+       <exclude-unlisted-classes>true</exclude-unlisted-classes>
+       <properties>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+            <property name="jakarta.persistence.jdbc.user" value="curso"/>
+            <property name="jakarta.persistence.jdbc.password" value="password"/>
+            <property name="jakarta.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+ 			<property name="hibernate.hbm2ddl.auto" value="create"/>
+        </properties>
+    </persistence-unit>
+</persistence>
