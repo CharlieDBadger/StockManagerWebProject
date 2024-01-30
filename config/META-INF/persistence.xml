@@ -32,9 +32,15 @@
         <!-- entidades o entities -->
         <class>entities.Address</class>
         <class>entities.Store</class>
+        <class>entities.StockMov</class>
 		<class>entities.Supplier</class>
+		<class>entities.Customer</class>
 		<class>entities.User</class>
 		<class>entities.Item</class>
+		<class>entities.Receipt</class>
+		<class>entities.ReceiptDetails</class>
+		<class>entities.Envoice</class>
+		<class>entities.EnvoiceDetails</class>		
 		
         
        <exclude-unlisted-classes>true</exclude-unlisted-classes>
