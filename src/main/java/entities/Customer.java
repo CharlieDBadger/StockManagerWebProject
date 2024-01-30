@@ -20,7 +20,7 @@ public class Customer {
 	@Id
 	@SequenceGenerator(name = "CUSTOMERGEN", sequenceName = "CUSTOMER_GEN", initialValue = 1, allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUSTOMERGEN")
-	@Column(name = "ID", nullable = false, updatable = false)
+	@Column(name = "IDc", nullable = false, updatable = false)
 	private long id;
 
 	@Column(columnDefinition = "VARCHAR(40)", name = "CUSTOMER_NAME")
