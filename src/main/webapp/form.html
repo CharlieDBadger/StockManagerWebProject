@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Alta - StockManager</title>
+    <!--Stilos CSS.-->
+    <link rel="stylesheet" href="./assets/estilo.css">
+    <!--JavaScrip & JQuery-->
+    <script src='./assets/jquery.min.js'></script>
+    <script src="./assets/script.js"></script>
+</head>
+
+<body>
+    <div class="contenedor cf">
+        <div class="logo"></div>
+			<form id="AltaAlumno" action="/ProyectoWeb/AltaAlumno" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required><br>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required><br>
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" required><br>
+            <label for="sexo">Sexo:</label><br>
+            <input type="radio" id="masculino" name="sexo" value="masculino" required>
+            <label for="masculino">Masculino</label><br>
+            <input type="radio" id="femenino" name="sexo" value="femenino" required>
+            <label for="femenino">Femenino</label><br>
+            <input type="radio" id="otro" name="sexo" value="otro" required>
+            <label for="otro">Otro</label><br><br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required><br>
+            <label for="rol">Rol de Usuario</label>
+            <select id="rol" name="rol" required>
+                <option value="user">Usuario</option>
+                <option value="admin">Administrador</option>
+            </select><br><br>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+
+</html>
