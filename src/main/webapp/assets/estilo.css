@@ -40,7 +40,7 @@ body {
   -webkit-pointer-events: none;
   -moz-pointer-events: none;
   pointer-events: none;
-  background: url('/Java/ProyectoWeb/src/main/webapp/caja.png') no-repeat center center;
+  background: url('/webapp/caja.png') no-repeat center center;
   background-size: cover; 
 }
 .contenedor .logo:before {
