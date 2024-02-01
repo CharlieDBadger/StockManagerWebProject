@@ -10,7 +10,7 @@
 
 	<h1>Listado</h1>
 	<%
-// 	List <String> colores = request.getAttribute("listaColores");
+// 	List <String> colores = request.getAttribute("listaColores"); 
 	
 	%>
 </body>
