@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -32,6 +33,8 @@ public class ServletPrueba extends HttpServlet {
 		System.out.println("Resultado " + resultado + " tu id es: " + request.getRequestId());
 
 		response.getWriter().append("<H1>Tu numero " + resultado + "</h1");
+	
+		
 	}
 
 	/**

@@ -38,6 +38,9 @@ public class User {
 	@Column(columnDefinition = "VARCHAR(15)", name = "USER_PHONE")
 	private String phone;
 
+	@Column(columnDefinition = "VARCHAR(6)", name = "USER_GENDER")
+	private String gender;
+
 	@Column(name = "USER_BIRTH")
 	private Date birth;
 
@@ -58,7 +61,8 @@ public class User {
 	 * @param city
 	 * @param costalCode
 	 */
-	public User(String name, String lastName, String password, String role, String mail, String phone, Date birth) {
+	public User(String name, String lastName, String password, String role, String mail, String phone, String gender,
+			Date birth) {
 		super();
 		this.name = name;
 		this.lastName = lastName;
@@ -66,6 +70,7 @@ public class User {
 		this.role = role;
 		this.mail = mail;
 		this.phone = phone;
+		this.gender = gender;
 		this.birth = birth;
 	}
 
@@ -79,7 +84,7 @@ public class User {
 	 * @param costalCode
 	 */
 	public User(long id, String name, String lastName, String password, String role, String mail, String phone,
-			Date birth) {
+			String gender, Date birth) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -88,13 +93,16 @@ public class User {
 		this.role = role;
 		this.mail = mail;
 		this.phone = phone;
+		this.gender = gender;
 		this.birth = birth;
 	}
+
+	
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", lastName=" + lastName + ", password=" + password + ", role="
-				+ role + ", mail=" + mail + ", phone=" + phone + ", birth=" + birth + "]";
+				+ role + ", mail=" + mail + ", phone=" + phone + ", gender=" + gender + ", birth=" + birth + "]";
 	}
 
 	public long getId() {
@@ -161,4 +169,13 @@ public class User {
 		this.birth = birth;
 	}
 
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	
 }
