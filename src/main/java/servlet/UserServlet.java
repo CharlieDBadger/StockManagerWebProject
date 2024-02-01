@@ -40,18 +40,18 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		UserDAO userDAO = new UserDAO (em);
-		
-		List <User> userList = userDAO.selectUser();
-
-		// Si necesitamos pasar un objeto o listado, usamos el atributo.
-		request.setAttribute("userList", userList);
-
-		// Redirección a JSP
-		RequestDispatcher rd = request.getRequestDispatcher("UserList.jsp?numero=8");
-
-		// Se envia al JSP
-		rd.forward(request, response);
+//		UserDAO userDAO = new UserDAO (em);
+//		
+//		List <User> userList = userDAO.selectUser();
+//
+//		// Si necesitamos pasar un objeto o listado, usamos el atributo.
+//		request.setAttribute("userList", userList);
+//
+//		// Redirección a JSP
+//		RequestDispatcher rd = request.getRequestDispatcher("UserList.jsp?numero=8");
+//
+//		// Se envia al JSP
+//		rd.forward(request, response);
 	}
 
 	/**
