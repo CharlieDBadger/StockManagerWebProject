@@ -4,7 +4,9 @@ import java.util.List;
 
 import entities.Address;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 
 public class AddressDAO {
 	private EntityManager em;
@@ -80,6 +82,38 @@ public class AddressDAO {
 
 			em.getTransaction().commit();
 		} catch (Exception e) {
+			em.getTransaction().rollback();
+		}
+	}
+	
+	/**
+	 * 
+	 * @param id
+	 * @param addressModified This method receives the Address object from the
+	 *                        Servlet with the values collected in the HTML form.
+	 */
+	public void updateAddress(long AddressModifiedId, Address addressModified) {
+
+		TypedQuery<Address> query = em.createQuery("from Address where id=?1", Address.class);
+		query.setParameter(1, AddressModifiedId);
+
+		try {
+			Address updatedAddress = query.getSingleResult();
+			em.getTransaction().begin();
+			updatedAddress.setName(addressModified.getName());
+			updatedAddress.setProvince(addressModified.getProvince());
+			updatedAddress.setCity(addressModified.getCity());
+			updatedAddress.setPostalCode(addressModified.getPostalCode());
+			;
+
+			em.merge(updatedAddress);
+
+			em.getTransaction().commit();
+		} catch (NoResultException nre) {
+			System.out.println("Calle no encontrada");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
 			em.getTransaction().rollback();
 		}
 

@@ -90,6 +90,15 @@ public class StockManagerMain {
 		
 		List <Address> addressByNameList = addressDAO.getAddressByName("CalleDelete");
 		
+		a1.setCity("Calle Actualizada");
+		
+		addressDAO.updateAddress(a1.getId(), a1);
+		
+		List <Address> updatedList = addressDAO.selectAddress();
+		
+		for (Address address : updatedList) {
+			System.out.println(address);
+		}
 		
 //		addressDAO.deleteAddressByName("CalleDelete");
 		

@@ -23,7 +23,7 @@ public class Customer {
 	@Column(name = "IDc", nullable = false, updatable = false)
 	private long id;
 
-	@Column(columnDefinition = "VARCHAR(40)", name = "CUSTOMER_NAME")
+	@Column(columnDefinition = "VARCHAR(70)", name = "CUSTOMER_NAME")
 	private String name;
 
 	@Column(columnDefinition = "VARCHAR(8)", name = "CUSTOMER_DNI")

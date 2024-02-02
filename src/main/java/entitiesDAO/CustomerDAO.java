@@ -2,9 +2,12 @@ package entitiesDAO;
 
 import java.util.List;
 
+import entities.Address;
 import entities.Customer;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 
 public class CustomerDAO {
 	private EntityManager em;
@@ -43,7 +46,7 @@ public class CustomerDAO {
 	public List<Customer> selectCustomer() {
 		return em.createQuery("from Customer", Customer.class).getResultList();
 	}
-	
+
 	public List<Customer> getCustomerByDNI(String customerName) {
 		List<Customer> customers;
 
@@ -72,7 +75,7 @@ public class CustomerDAO {
 	public void deleteCustomerByDNI(String customerDNI) {
 		em.getTransaction().begin();
 		try {
-			List <Customer> customersList = getCustomerByDNI(customerDNI);
+			List<Customer> customersList = getCustomerByDNI(customerDNI);
 
 			for (Customer customer : customersList) {
 				em.remove(customer);
@@ -80,6 +83,42 @@ public class CustomerDAO {
 
 			em.getTransaction().commit();
 		} catch (Exception e) {
+			em.getTransaction().rollback();
+		}
+	}
+
+	/**
+	 * 
+	 * @param id
+	 * @param addressModified This method receives the Customer object from the
+	 *                        Servlet with the values collected in the HTML form.
+	 */
+	public void updateAddress(long customerModifiedId, Customer customerModified, Address addressModified,
+			EntityManager em) {
+
+		TypedQuery<Customer> query = em.createQuery("from Customer where id=?1", Customer.class);
+		query.setParameter(1, customerModifiedId);
+
+		AddressDAO addressDAO = new AddressDAO(em);
+
+		try {
+			Customer updatedCustomer = query.getSingleResult();
+			em.getTransaction().begin();
+			updatedCustomer.setName(customerModified.getName());
+			updatedCustomer.setDni(null);
+			updatedCustomer.setMobile(null);
+			// We use this function to modify the address.
+			addressDAO.updateAddress(addressModified.getId(), addressModified);
+			updatedCustomer.setObservation(null);
+
+			em.merge(updatedCustomer);
+
+			em.getTransaction().commit();
+		} catch (NoResultException nre) {
+			System.out.println("Customer not found.");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
 			em.getTransaction().rollback();
 		}
 

@@ -28,7 +28,7 @@ public class Address {
 	private String city;
 	
 	@Column(columnDefinition = "VARCHAR(6)", name = "POSTAL_CODE")
-	private String costalCode;
+	private String postalCode;
 
 	// CONSTRUCTORS
 
@@ -47,12 +47,12 @@ public class Address {
 	 * @param city
 	 * @param costalCode
 	 */
-	public Address( String name, String province, String city, String costalCode) {
+	public Address( String name, String province, String city, String postalCode) {
 		super();
 		this.name = name;
 		this.province = province;
 		this.city = city;
-		this.costalCode = costalCode;
+		this.postalCode = postalCode;
 	}
 
 	/**
@@ -64,13 +64,13 @@ public class Address {
 	 * @param city
 	 * @param costalCode
 	 */
-	public Address(long id, int addressCode, String name, String province, String city, String costalCode) {
+	public Address(long id, int addressCode, String name, String province, String city, String postalCode) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.province = province;
 		this.city = city;
-		this.costalCode = costalCode;
+		this.postalCode = postalCode;
 	}
 
 	
@@ -80,7 +80,7 @@ public class Address {
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", name=" + name + ", province=" + province
-				+ ", city=" + city + ", costalCode=" + costalCode + "]";
+				+ ", city=" + city + ", costalCode=" + postalCode + "]";
 	}
 
 	
@@ -118,11 +118,11 @@ public class Address {
 		this.city = city;
 	}
 
-	public String getCostalCode() {
-		return costalCode;
+	public String getPostalCode() {
+		return postalCode;
 	}
 
-	public void setCostalCode(String costalCode) {
-		this.costalCode = costalCode;
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
 	}
 }
