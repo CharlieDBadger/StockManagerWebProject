@@ -7,7 +7,7 @@ colaborar en el desarrollo de software de manera efectiva y coordinada.
 
 Desarrollar una aplicación web para la gestión de un inventario estandar.
 
-## DESARROLLO-FRONT-END:
+## DESARROLLO:FRONT-END:
 
 - Los ficheros se harán usando ficheros JSP (HTML dinamicos).
 - La nomenclatura de los name="" y los id="" de las etiquetas del HTML pueden ser en español.
@@ -62,9 +62,15 @@ Se mostrarán todos los datos y al hacer clic en uno de ellos se enviará al for
 
   
 
-BACK-END JAVA
+## DESARROLLO:BACK-END JAVA
 
-12 Marzo fin de curso.
+SERVLETS:
+
+Se crea un Servlet por cada Objeto, de la misma forma que un DAO.
+
+DAOS:
+
+Faltan los metodos de UPDATE
 
 
 
