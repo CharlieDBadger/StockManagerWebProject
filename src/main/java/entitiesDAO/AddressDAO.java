@@ -92,10 +92,10 @@ public class AddressDAO {
 	 * @param addressModified This method receives the Address object from the
 	 *                        Servlet with the values collected in the HTML form.
 	 */
-	public void updateAddress(long AddressModifiedId, Address addressModified) {
+	public void updateAddress(long addressModifiedId, Address addressModified) {
 
 		TypedQuery<Address> query = em.createQuery("from Address where id=?1", Address.class);
-		query.setParameter(1, AddressModifiedId);
+		query.setParameter(1, addressModifiedId);
 
 		try {
 			Address updatedAddress = query.getSingleResult();
@@ -116,6 +116,5 @@ public class AddressDAO {
 			e.printStackTrace();
 			em.getTransaction().rollback();
 		}
-
 	}
 }

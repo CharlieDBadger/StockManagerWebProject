@@ -23,7 +23,7 @@ public class Item {
 	@Column(name = "ID", nullable = false, updatable = false)
 	private long id;
 
-	@Column(columnDefinition = "VARCHAR(6)", name = "ITEM_CODE", nullable = false, updatable = true)
+	@Column(columnDefinition = "VARCHAR(6)", name = "ITEM_CODE", nullable = false, updatable = true, unique = true)
 	private String code;
 
 	@Column(columnDefinition = "VARCHAR(40)", name = "ITEM_NAME", nullable = false, updatable = true)
@@ -43,6 +43,20 @@ public class Item {
 	 */
 	public Item() {
 		super();
+	}
+
+	/**
+	 * Only for Inserts, the Object cant be use before has been insert in table
+	 * 
+	 * @param code
+	 * @param name
+	 * @param kind
+	 */
+	public Item(String code, String name, String kind) {
+		super();
+		this.code = code;
+		this.name = name;
+		this.kind = kind;
 	}
 
 	/**

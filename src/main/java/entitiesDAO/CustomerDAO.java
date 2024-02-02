@@ -93,7 +93,7 @@ public class CustomerDAO {
 	 * @param addressModified This method receives the Customer object from the
 	 *                        Servlet with the values collected in the HTML form.
 	 */
-	public void updateAddress(long customerModifiedId, Customer customerModified, Address addressModified,
+	public void updateCustomer(long customerModifiedId, Customer customerModified, Address addressModified,
 			EntityManager em) {
 
 		TypedQuery<Customer> query = em.createQuery("from Customer where id=?1", Customer.class);
