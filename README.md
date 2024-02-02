@@ -71,7 +71,11 @@ Se crea un Servlet por cada Objeto, de la misma forma que un DAO.
 DAOS:
 
 Faltan los metodos de UPDATE
-
+Listos:
+- Address
+- Customer
+- User
+- Item
 
 
 
