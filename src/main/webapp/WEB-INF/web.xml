@@ -38,7 +38,13 @@
   	<display-name>UserServlet</display-name>
   	<description></description>
   	<servlet-class>servlet.UserServlet</servlet-class>
+  	<init-param>
+  		<param-name>persistenceUnit</param-name>
+  		<param-value>&quot;HibernateOracle&quot;</param-value>
+  		<description></description>
+  	</init-param>
   </servlet>
+
   
 <!--   mapping -->
   
@@ -68,6 +74,7 @@
   	<servlet-name>UserServlet</servlet-name>
   	<url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
+
 
 
 </web-app>

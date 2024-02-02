@@ -3,16 +3,11 @@ package servlet;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
-import java.util.List;
 
 import entities.User;
-import entitiesDAO.UserDAO;
 import jakarta.persistence.EntityManager;
-import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebInitParam;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -22,25 +17,27 @@ import tools.Tools;
 /**
  * Servlet implementation class UserServlet
  */
-@WebInitParam(name = "persistenceUnit", value = "HibernateOracle")
-public class UserServlet extends HttpServlet {
+public class PruebaServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	
+	
+	public void init(ServletConfig config) throws ServletException {
+		 EntityManager em = JpaUtil.getEM("HibernateOracle");
+	}
+
+	
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public PruebaServ() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
-	 * @see Servlet#init(ServletConfig)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-//	public void init(ServletConfig config) throws ServletException {
-//		 EntityManager em = JpaUtil.getEM("HibernateOracle");
-//	}
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -66,11 +63,10 @@ public class UserServlet extends HttpServlet {
 			throws ServletException, IOException {
 	User user;
 		
-//		String id = request.getParameter("id");
-//		long idLong = Long.parseLong(id);
+		String id = request.getParameter("id");
+		long idLong = Long.parseLong(id);
 		
 		String name = request.getParameter("name");
-		System.out.println(name);
 		String lastName = request.getParameter("lastName");
 		String password = request.getParameter("password");
 		String role = request.getParameter("role");
@@ -88,11 +84,11 @@ public class UserServlet extends HttpServlet {
 		}
 
 		//id verification in DDBB
-//		if (id == null) {
+		if (id == null) {
 			user = new User(name, lastName, password, role, mail, phone, gender, dateBirth);
-//		}else {
-//			user = new User(idLong,name, lastName, password, role, mail, phone, gender, dateBirth);
-//		}
+		}else {
+			user = new User(idLong,name, lastName, password, role, mail, phone, gender, dateBirth);
+		}
 		
 		response.getWriter().append("<H1>Tu numero "+user+"</h1");
 		
