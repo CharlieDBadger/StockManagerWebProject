@@ -47,10 +47,20 @@ Desarrollar una aplicación web para la gestión de un inventario estandar.
 - MovimientoDeArticulo / StockMov:
   
   Se deben poder añadir de forma dinamica a la lista de movimientos del objeto DetallesDeMovimiento. <br>
-  El usuario debe poder poner el nombre o el codigo del articulo en su respectivo input para consultar que si existe dicho articulo y en caso de que no, saltar una alarma que avise de la inexistencia del mismo.
+  El usuario debe poder poner el nombre o el codigo del articulo en su respectivo input para consultar que si existe dicho articulo y en caso de que no, saltar una alarma que avise   de la inexistencia del mismo.
     
-INTERFACES DE BUSQUEDA DE OBJETO
+INTERFACES DE BUSQUEDA DE OBJETO / TABLAS DINÁMICAS
 
+- Usuario:
+
+Se mostrarán los nombres, apellidos, rol y numero telefonico >>> Se redireccionará al formulario de Usuario solo si el Usuario que hace la consulta especifica es administrador.
+
+- Compradores:
+
+Se mostrarán todos los datos y al hacer clic en uno de ellos se enviará al formulario para poder modificar datos.
+
+
+  
 
 BACK-END JAVA
 
