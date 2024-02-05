@@ -39,7 +39,7 @@ public class ConexionJSPServlet extends HttpServlet {
 		request.setAttribute("listaColores", colores);
 		
 		//Redirección a JSP
-		RequestDispatcher rd = request.getRequestDispatcher("ConexionJSP.jsp?numero=8");
+		RequestDispatcher rd = request.getRequestDispatcher("ConexionJSP.jsp");
 		
 		//Se envia al JSP
 		rd.forward(request, response);
