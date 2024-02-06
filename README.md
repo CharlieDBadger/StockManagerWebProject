@@ -68,12 +68,24 @@ SERVLETS:
 
 Se crea un Servlet por cada Objeto, de la misma forma que un DAO.
 
-DAOS:
 
-Faltan los metodos de UPDATE
+
+Se modifican los Address dentro de Customer, Supplier y Store con la etiqueta CascadeType.REFRESH
+
+Faltan los metodos de UPDATE de Envoice y Receipt, se van a hacer con la etiqueta CascadeType.REFRESH en cadena pasando por Envoice/ReceiptDet y los StockMovs.
+
+DAOS:
+CREATE - CHECK
+REMOVE - CHECK
+UPDATE - Faltan Envoice y Receipt con Cascada hasta E/R-Details y StockMov.
+
+
+
 Listos:
 - Address
 - Customer
+- Supplier
+- Store
 - User
 - Item
 
