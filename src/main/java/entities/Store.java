@@ -29,7 +29,7 @@ public class Store {
 	@Column(columnDefinition = "VARCHAR(15)", name = "MOBILE")
 	private String mobile;
 
-	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, fetch = FetchType.LAZY)
+	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH }, fetch = FetchType.LAZY)
 	@JoinColumn(name = "STORE_ADDRESS", referencedColumnName = "id", nullable = false)
 	private Address storeAddres;
 

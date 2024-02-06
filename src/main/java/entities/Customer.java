@@ -1,6 +1,5 @@
 package entities;
 
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,7 +31,7 @@ public class Customer {
 	@Column(columnDefinition = "VARCHAR(15)", name = "MOBILE")
 	private String mobile;
 
-	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, fetch = FetchType.LAZY)
+	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH }, fetch = FetchType.LAZY)
 	@JoinColumn(name = "CUSTOMER_ADDRESS", nullable = true)
 	private Address address;
 

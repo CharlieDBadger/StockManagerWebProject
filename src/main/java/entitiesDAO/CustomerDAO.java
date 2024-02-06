@@ -89,9 +89,13 @@ public class CustomerDAO {
 
 	/**
 	 * 
-	 * @param id
-	 * @param addressModified This method receives the Customer object from the
-	 *                        Servlet with the values collected in the HTML form.
+	 * @param customerModifiedId
+	 * @param customerModified 
+	 * @param addressModified
+	 * @param em
+	 * @param This method receives the Customer object from the
+	 *        Servlet with the values collected in the HTML form.
+	 * 
 	 */
 	public void updateCustomer(long customerModifiedId, Customer customerModified, Address addressModified,
 			EntityManager em) {
@@ -99,28 +103,25 @@ public class CustomerDAO {
 		TypedQuery<Customer> query = em.createQuery("from Customer where id=?1", Customer.class);
 		query.setParameter(1, customerModifiedId);
 
-		AddressDAO addressDAO = new AddressDAO(em);
 
 		try {
 			Customer updatedCustomer = query.getSingleResult();
 			em.getTransaction().begin();
 			updatedCustomer.setName(customerModified.getName());
-			updatedCustomer.setDni(null);
-			updatedCustomer.setMobile(null);
-			// We use this function to modify the address.
-			addressDAO.updateAddress(addressModified.getId(), addressModified);
-			updatedCustomer.setObservation(null);
+			updatedCustomer.setDni(customerModified.getDni());
+			updatedCustomer.setMobile(customerModified.getMobile());
+			updatedCustomer.setAddress(addressModified);
+			updatedCustomer.setObservation(customerModified.getObservation());
 
 			em.merge(updatedCustomer);
 
 			em.getTransaction().commit();
 		} catch (NoResultException nre) {
-			System.out.println("Customer not found.");
+			System.out.println("Customer NOT found.");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 			em.getTransaction().rollback();
 		}
-
 	}
 }

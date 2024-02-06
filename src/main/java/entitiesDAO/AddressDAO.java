@@ -110,7 +110,7 @@ public class AddressDAO {
 
 			em.getTransaction().commit();
 		} catch (NoResultException nre) {
-			System.out.println("Calle no encontrada");
+			System.out.println("Calle not found.");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();

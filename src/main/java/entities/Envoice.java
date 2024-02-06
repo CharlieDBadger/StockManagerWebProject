@@ -30,9 +30,6 @@ public class Envoice {
 	@Column(name = "ENVOICE_CODE", nullable = false, updatable = false)
 	private long envoiceCode;
 
-	@Column(name = "OUTPUT_DATE", nullable = false)
-	private Date dateOutput;
-
 	@Column(name = "INPUT_DATE", nullable = true)
 	private Date dateInput;
 
@@ -44,8 +41,8 @@ public class Envoice {
 	@JoinColumn(name = "FK_USER", nullable = false, updatable = false)
 	private User user;
 
-	@OneToOne(cascade = { CascadeType.PERSIST,
-			CascadeType.REMOVE }, targetEntity = EnvoiceDetails.class, fetch = FetchType.EAGER)
+	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE.ALL,
+			CascadeType.REFRESH }, targetEntity = EnvoiceDetails.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "ENVOICE_DETAILS", nullable = false)
 	private EnvoiceDetails envoiceDetails;
 
@@ -69,10 +66,8 @@ public class Envoice {
 	 * @param city
 	 * @param costalCode
 	 */
-	public Envoice(Date dateOutput, Date dateInput, Customer customer, User user, EnvoiceDetails envoiceDetails,
-			String observation) {
+	public Envoice(Date dateInput, Customer customer, User user, EnvoiceDetails envoiceDetails, String observation) {
 		super();
-		this.dateOutput = dateOutput;
 		this.dateInput = dateInput;
 		this.customer = customer;
 		this.user = user;
@@ -89,12 +84,11 @@ public class Envoice {
 	 * @param city
 	 * @param costalCode
 	 */
-	public Envoice(long id, long envoiceCode, Date dateOutput, Date dateInput, Customer customer, User user,
+	public Envoice(long id, long envoiceCode, Date dateInput, Customer customer, User user,
 			EnvoiceDetails envoiceDetails, String observation) {
 		super();
 		this.id = id;
 		this.envoiceCode = envoiceCode;
-		this.dateOutput = dateOutput;
 		this.dateInput = dateInput;
 		this.customer = customer;
 		this.user = user;
@@ -104,9 +98,8 @@ public class Envoice {
 
 	@Override
 	public String toString() {
-		return "Envoice [id=" + id + ", dateOutput=" + dateOutput + ", dateInput=" + dateInput + ", customer="
-				+ customer + ", user=" + user + ", envoiceDetails=" + envoiceDetails + ", observation=" + observation
-				+ "]";
+		return "Envoice [id=" + id + ", dateInput=" + dateInput + ", customer=" + customer + ", user=" + user
+				+ ", envoiceDetails=" + envoiceDetails + ", observation=" + observation + "]";
 	}
 
 	public long getId() {
@@ -115,14 +108,6 @@ public class Envoice {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public Date getDateOutput() {
-		return dateOutput;
-	}
-
-	public void setDateOutput(Date dateOutput) {
-		this.dateOutput = dateOutput;
 	}
 
 	public Date getDateInput() {

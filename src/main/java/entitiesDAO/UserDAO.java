@@ -11,8 +11,8 @@ import jakarta.persistence.TypedQuery;
 
 public class UserDAO {
 	private EntityManager em;
-	
-	//CONSTRUCTOR
+
+	// CONSTRUCTOR
 	public UserDAO(EntityManager em) {
 		super();
 		this.em = em;
@@ -41,11 +41,11 @@ public class UserDAO {
 			em.getTransaction().rollback();
 		}
 	}
-	
+
 	public List<User> selectUser() {
 		return em.createQuery("from User", User.class).getResultList();
 	}
-	
+
 	public List<User> getUserByName(String userName) {
 		List<User> users;
 
@@ -74,7 +74,7 @@ public class UserDAO {
 	public void deleteUserByName(String userName) {
 		em.getTransaction().begin();
 		try {
-			List <User> usersList = getUserByName(userName);
+			List<User> usersList = getUserByName(userName);
 
 			for (User users : usersList) {
 				em.remove(users);
@@ -85,12 +85,12 @@ public class UserDAO {
 			em.getTransaction().rollback();
 		}
 	}
-	
+
 	/**
 	 * 
 	 * @param id
-	 * @param addressModified This method receives the User object from the
-	 *                        Servlet with the values collected in the HTML form.
+	 * @param userModified This method receives the User object from the Servlet
+	 *                     with the values collected in the HTML form.
 	 */
 	public void updateUser(long userModifiedId, User userModified) {
 

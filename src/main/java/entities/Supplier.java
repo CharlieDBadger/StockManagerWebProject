@@ -31,10 +31,10 @@ public class Supplier {
 	@Column(columnDefinition = "VARCHAR(15)", name = "MOBILE")
 	private String mobile;
 
-	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, fetch = FetchType.LAZY)
+	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH }, fetch = FetchType.LAZY)
 	@JoinColumn(name = "SUPPLIER_ADDRESS", nullable = true)
 	private Address address;
-	
+
 	@Column(columnDefinition = "VARCHAR(100)", name = "DESCRIPTION")
 	private String description;
 
@@ -64,7 +64,6 @@ public class Supplier {
 		this.address = address;
 	}
 
-	
 	/**
 	 * Only for Inserts, the Object cant be use before has been insert in table
 	 * 
@@ -153,6 +152,5 @@ public class Supplier {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	
+
 }
