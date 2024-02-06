@@ -30,7 +30,7 @@ public class EnvoiceDetails {
 	@JoinColumn(name = "ENVOICE", nullable = false)
 	private Envoice envoice;
 
-	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE },targetEntity = StockMov.class, fetch = FetchType.EAGER)
+	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH },targetEntity = StockMov.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "ENVOICE_ITEMS", nullable = false)
 	private List<StockMov> StockMov = new ArrayList<StockMov>();
 

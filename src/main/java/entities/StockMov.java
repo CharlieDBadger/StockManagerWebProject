@@ -20,7 +20,7 @@ public class StockMov {
 	@Column(name = "ID", nullable = false, updatable = false)
 	private long id;
 
-	@Column(columnDefinition = "DECIMAL (7,2)", name = "ITEM_PRICE", nullable = true, updatable = true)
+	@Column(columnDefinition = "DECIMAL (7,2)", name = "ITEM_PRICE", nullable = true, updatable = false)
 	private double price;
 
 	@Column(name = "UNITS", nullable = false)
@@ -31,7 +31,7 @@ public class StockMov {
 	private Item item;
 
 	@ManyToOne(targetEntity = Store.class, fetch = FetchType.LAZY)
-	@JoinColumn(name = "FK_STORE", nullable = false, updatable = false)
+	@JoinColumn(name = "FK_STORE", nullable = false, updatable = true)
 	private Store store;
 
 	@Column(columnDefinition = "VARCHAR (100)", name = "OBSERVATION")
