@@ -30,7 +30,7 @@ public class ReceiptDetails {
 	private Receipt receipt;
 
 	@OneToMany(cascade = { CascadeType.PERSIST,
-			CascadeType.REMOVE }, targetEntity = StockMov.class, fetch = FetchType.EAGER)
+			CascadeType.REMOVE, CascadeType.REFRESH }, targetEntity = StockMov.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "RECEIPT_ITEMS", nullable = false)
 	private List<StockMov> StockMov = new ArrayList<StockMov>();
 

@@ -41,7 +41,7 @@ public class Receipt {
 	@JoinColumn(name = "FK_USER", nullable = false, updatable = false)
 	private User user;
 
-	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE },targetEntity = ReceiptDetails.class, fetch = FetchType.EAGER)
+	@OneToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.REFRESH },targetEntity = ReceiptDetails.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "RECEIPT_DETAILS", nullable = false)
 	private ReceiptDetails receiptDetails;
 

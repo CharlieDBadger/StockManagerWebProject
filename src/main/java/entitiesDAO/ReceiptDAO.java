@@ -2,11 +2,11 @@ package entitiesDAO;
 
 import java.util.List;
 
-import entities.Envoice;
 import entities.Receipt;
-import entities.User;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 
 public class ReceiptDAO {
 	private EntityManager em;
@@ -79,6 +79,37 @@ public class ReceiptDAO {
 			}
 			em.getTransaction().commit();
 		} catch (Exception e) {
+			em.getTransaction().rollback();
+		}
+	}
+	
+	/**
+	 * 
+	 * @param envoiceModifiedId
+	 * @param envoiceModified
+	 * @param em
+	 * @return 
+	 */
+	public void updateReceipt(long receiptModifiedId, Receipt receiptModified, EntityManager em) {
+
+		TypedQuery<Receipt> query = em.createQuery("from Receipt where id=?1", Receipt.class);
+		query.setParameter(1, receiptModifiedId);
+
+		try {
+			Receipt updatedReceipt = query.getSingleResult();
+			em.getTransaction().begin();
+			
+			updatedReceipt.setReceiptDetails(receiptModified.getReceiptDetails());
+			updatedReceipt.setObservation(receiptModified.getObservation());
+
+			em.merge(updatedReceipt);
+
+			em.getTransaction().commit();
+		} catch (NoResultException nre) {
+			System.out.println("Receipt NOT found.");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
 			em.getTransaction().rollback();
 		}
 	}

@@ -90,11 +90,11 @@ public class CustomerDAO {
 	/**
 	 * 
 	 * @param customerModifiedId
-	 * @param customerModified 
+	 * @param customerModified
 	 * @param addressModified
 	 * @param em
-	 * @param This method receives the Customer object from the
-	 *        Servlet with the values collected in the HTML form.
+	 * @return This method receives the Customer object from the Servlet with the
+	 *         values collected in the HTML form.
 	 * 
 	 */
 	public void updateCustomer(long customerModifiedId, Customer customerModified, Address addressModified,
@@ -102,7 +102,6 @@ public class CustomerDAO {
 
 		TypedQuery<Customer> query = em.createQuery("from Customer where id=?1", Customer.class);
 		query.setParameter(1, customerModifiedId);
-
 
 		try {
 			Customer updatedCustomer = query.getSingleResult();

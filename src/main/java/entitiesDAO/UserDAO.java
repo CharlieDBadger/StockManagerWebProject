@@ -2,7 +2,6 @@ package entitiesDAO;
 
 import java.util.List;
 
-import entities.Address;
 import entities.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;

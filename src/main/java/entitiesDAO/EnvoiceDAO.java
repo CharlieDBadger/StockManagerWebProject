@@ -84,6 +84,12 @@ public class EnvoiceDAO {
 		}
 	}
 
+	/**
+	 * 
+	 * @param envoiceModifiedId
+	 * @param envoiceModified
+	 * @param em
+	 */
 	public void updateEnvoice(long envoiceModifiedId, Envoice envoiceModified, EntityManager em) {
 
 		TypedQuery<Envoice> query = em.createQuery("from Envoice where id=?1", Envoice.class);
@@ -93,6 +99,7 @@ public class EnvoiceDAO {
 			Envoice updatedEnvoice = query.getSingleResult();
 			em.getTransaction().begin();
 			
+			updatedEnvoice.setEnvoiceDetails(envoiceModified.getEnvoiceDetails());
 			updatedEnvoice.setObservation(envoiceModified.getObservation());
 
 			em.merge(updatedEnvoice);
