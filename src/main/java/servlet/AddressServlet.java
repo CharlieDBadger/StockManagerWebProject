@@ -2,10 +2,10 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import entities.Address;
 import entitiesDAO.AddressDAO;
@@ -53,7 +53,7 @@ public class AddressServlet extends HttpServlet {
 		String postalCode = request.getParameter("codigoPostalDireccion");
 
 		Address address = new Address(name, province, city, postalCode);
-
+		System.out.println(address.getCity());
 		AddressDAO addressDAO = new AddressDAO(em);
 
 		if (id == 0) {
@@ -63,7 +63,8 @@ public class AddressServlet extends HttpServlet {
 			addressDAO.updateAddress(id, address);
 		}
 		
-		doGet(request, response);
+		response.getWriter().append("pasa");
+
 	}
 
 }

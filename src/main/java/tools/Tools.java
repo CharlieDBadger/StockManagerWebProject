@@ -48,9 +48,14 @@ public class Tools {
 		return opcion;
 	}
 	
-    public static Date convertStringToDate(String dateString) throws ParseException {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
-        return dateFormat.parse(dateString);
+    public static Date convertStringToDate(String dateString) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            return sdf.parse(dateString);
+        } catch (ParseException e) {
+      
+            e.printStackTrace();
+            return new Date(); 
+        }
     }
 }
