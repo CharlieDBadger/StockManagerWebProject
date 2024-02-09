@@ -30,7 +30,7 @@ public class ConexionJSPServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
-		List <String> colores = new <String> ArrayList();
+		List <String> colores = new ArrayList<String>();
 		colores.add("Rojo");
 		colores.add("Verde");
 		colores.add("Azul");
