@@ -15,6 +15,19 @@ Desarrollar una aplicación web para la gestión de un inventario estandar.
 - Las URL para la comunicación con los Servlets type="post" y type="get" tendrán la raíz action="/StockManagerWebProject/FormularioObjeto", sin importar si el servlets está creado o no, @CarlosB revisará las URL.
 - La nomenclatura se hará en español y cuando se comprueba la correcta funcionalidad de cada evento, esta se traducirá al ingles por @CarlosB.
 <br>
+
+#LOGIN/INDEX
+
+#MENÚ
+
+1. Alta/consulta  Articulo (Item).
+   -  Consulta Movimientos de Stock de articulo (StockMov).
+2. Alta Factura de venta (Envoice).
+3. Alta  Factua de compra (Receipt).
+4. Alta/consulta comprador (Customer).
+5. Alta/consulta proveedor (Supplier).
+6. Alta usuario.
+
 1.   FORMULARIOS PARA DAR DE ALTA:
 
 FORMULARIO COMPRADOR (CUSTOMER)
@@ -46,15 +59,15 @@ FORMULARIO DE FACTURA-DETALLESFACTURA-MOVIMIENTO ARTICULO
   - Factura / Envoice:
  
    El Codigo de factura (EnvoiceCode) Se genera automaticamente con una secuencia en la base de datos.
-  Se genera automaticamente el mismo día que se ingresa.
-   El comprador es el primer dato a comprobar que existe en la base de datos, si no existe debe alertar al usuario. <br>
-   Los datos de usuario se añaden automaticamente consultando por debajo la información del usuario que haya iniciado sesión dentro del sistema.<br>
+   La fecha se genera automaticamente el mismo día que se ingresa la factura.
+   El comprador se verifica con el numero de DNI al dar enter, en caso de que no haya una respuesta debe avisar al Usuario y Mandarlo al formulario de alta del comprador. <br>
+   Los datos de usuario se añaden automaticamente consultando por debajo la información del usuario que haya iniciado sesión   dentro del sistema, lo que dentro del formulario debería pintar el nombre de usuario responsable.<br>
    La observación es una caja de texto opcional.
 
 - DetallesFactura / Envoice Details:
   
   Se debe poder ingresar varios MovimientoDeArticulo(StockMov) como un listado, dentro del formulario.
-  La fianza(fiance) es de ingreso manual
+  La fianza(fiance) es de ingreso manual.
   
 - MovimientoDeArticulo / StockMov:
 
@@ -74,8 +87,6 @@ Se mostrarán los nombres, apellidos, rol y numero telefonico >>> Se redireccion
 
 Se mostrarán todos los datos y al hacer clic en uno de ellos se enviará al formulario para poder modificar datos.
 
-
-  
 
 ## DESARROLLO:BACK-END JAVA
 
