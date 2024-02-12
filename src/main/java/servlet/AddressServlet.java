@@ -2,6 +2,8 @@ package servlet;
 
 import java.io.IOException;
 
+import jakarta.servlet.RequestDispatcher;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -33,8 +35,25 @@ public class AddressServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+;		
+	    String nombreCalle = request.getParameter("nombreCalle");
+
+	    if (nombreCalle != null && !nombreCalle.isEmpty()) {
+	        AddressDAO addressDAO = new AddressDAO(em);
+	        Address address = addressDAO.getOneAddressByName(nombreCalle);
+
+	        if (address != null) {
+	            request.setAttribute("direccionEncontrada", address);
+
+	            // Redirigir la solicitud al JSP para mostrar la dirección
+	            RequestDispatcher dispatcher = request.getRequestDispatcher("mostrarDireccion.jsp");
+	            dispatcher.forward(request, response);
+	        } else {
+	            response.sendRedirect("direccionNoEncontrada.jsp");
+	        }
+	    } else {
+	        response.sendRedirect("error.jsp");
+	    }
 	}
 
 	/**
@@ -62,7 +81,7 @@ public class AddressServlet extends HttpServlet {
 			address.setId(id);
 			addressDAO.updateAddress(id, address);
 		}
-		
+
 		response.getWriter().append("pasa");
 
 	}

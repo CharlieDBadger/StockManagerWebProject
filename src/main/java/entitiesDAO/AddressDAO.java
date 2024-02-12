@@ -86,6 +86,30 @@ public class AddressDAO {
 		}
 	}
 	
+	public Address getOneAddressByName(String addressName) {
+
+		Address address = null;
+		
+		TypedQuery<Address> query = em.createQuery("from Address where id=?1", Address.class);
+		query.setParameter(1, addressName);
+
+		try {
+			Address updatedAddress = query.getSingleResult();
+			em.getTransaction().begin();
+
+			em.getTransaction().commit();
+		} catch (NoResultException nre) {
+			System.out.println("Calle not found.");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			em.getTransaction().rollback();
+		}
+		return address;
+	}
+	
+	
+	
 	/**
 	 * 
 	 * @param id
