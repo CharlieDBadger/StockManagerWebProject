@@ -75,12 +75,12 @@ public class AddressServlet extends HttpServlet {
 		System.out.println(address.getCity());
 		AddressDAO addressDAO = new AddressDAO(em);
 
-		if (id == 0) {
+//		if (id == 0) {
 			addressDAO.insertAddress(address);
-		} else if (id < 0) {
-			address.setId(id);
-			addressDAO.updateAddress(id, address);
-		}
+//		} else if (id < 0) {
+//			address.setId(id);
+//			addressDAO.updateAddress(id, address);
+//		}
 
 		response.getWriter().append("pasa");
 

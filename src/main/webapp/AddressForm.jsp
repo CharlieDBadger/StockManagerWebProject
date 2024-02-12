@@ -9,7 +9,7 @@
 <body>
     <h2>Formulario de Dirección</h2>
     <form id="AddressForm" action="/StockManagerWebProject/AddressServlet" method="post">
-        <input type="hidden" name="idDireccion" value="a" />
+        <input type="hidden" name="idDireccion" value="999" />
         <label for="nombreDireccion">Nombre:</label>
         <input type="text" id="nombreDireccion" name="nombreDireccion" value="a" required /><br><br>
         <label for="provinciaDireccion">Provincia:</label>

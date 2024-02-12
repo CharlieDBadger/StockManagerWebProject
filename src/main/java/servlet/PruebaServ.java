@@ -19,13 +19,11 @@ import tools.Tools;
  */
 public class PruebaServ extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	public void init(ServletConfig config) throws ServletException {
-		 EntityManager em = JpaUtil.getEM("HibernateOracle");
+		EntityManager em = JpaUtil.getEM("HibernateOracle");
 	}
 
-	
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -61,11 +59,11 @@ public class PruebaServ extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	User user;
-		
+		User user;
+
 		String id = request.getParameter("id");
 		long idLong = Long.parseLong(id);
-		
+
 		String name = request.getParameter("name");
 		String lastName = request.getParameter("lastName");
 		String password = request.getParameter("password");
@@ -73,9 +71,10 @@ public class PruebaServ extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String phone = request.getParameter("phone");
 		String gender = request.getParameter("gender");
-		
+
 		String birth = request.getParameter("birth");
 		Date dateBirth = null;
+
 		try {
 			dateBirth = Tools.convertStringToDate(birth);
 		} catch (ParseException e) {
@@ -83,15 +82,15 @@ public class PruebaServ extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		//id verification in DDBB
+		// id verification in DDBB
 		if (id == null) {
 			user = new User(name, lastName, password, role, mail, phone, gender, dateBirth);
-		}else {
-			user = new User(idLong,name, lastName, password, role, mail, phone, gender, dateBirth);
+		} else {
+			user = new User(idLong, name, lastName, password, role, mail, phone, gender, dateBirth);
 		}
-		
-		response.getWriter().append("<H1>Tu numero "+user+"</h1");
-		
-	}	
+
+		response.getWriter().append("<H1>Tu numero " + user + "</h1");
+
+	}
 
 }
