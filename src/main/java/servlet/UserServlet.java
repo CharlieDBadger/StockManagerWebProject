@@ -3,11 +3,12 @@ package servlet;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
-import java.util.List;
 
 import entities.User;
 import entitiesDAO.UserDAO;
+import enums.UserENUM;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
@@ -44,18 +45,28 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		// Modificación, recibe los datos de UserList
+
 		UserDAO userDAO = new UserDAO(em);
 
-		List<User> userList = userDAO.selectUser();
+		User searchUser = null;
 
-		// Si necesitamos pasar un objeto o listado, usamos el atributo.
-		request.setAttribute("userList", userList);
+		try {
+			searchUser = userDAO.selectUserByDNI(request.getParameter("dni"));
+		} catch (NoResultException e) {
+			searchUser = null;
+		}
 
-		// Redirección a JSP
-		RequestDispatcher rd = request.getRequestDispatcher("UserList.jsp?numero=8");
+		if (searchUser != null) {
+			request.setAttribute("searchUser", searchUser);
+			// Redirección a JSP
+			RequestDispatcher rd = request.getRequestDispatcher("UserForm.jsp");
+			// Se envia al JSP
+			rd.forward(request, response);
+		} else {
+			doPost(request, response);
+		}
 
-		// Se envia al JSP
-		rd.forward(request, response);
 	}
 
 	/**
@@ -64,35 +75,62 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		User user;
-
-//		String id = request.getParameter("id");
-//		long idLong = Long.parseLong(id);
-
-		String name = request.getParameter("name");
-		System.out.println(name);
-		String lastName = request.getParameter("lastName");
-		System.out.println(lastName);
-		String password = request.getParameter("password");
-		String role = request.getParameter("role");
-		String mail = request.getParameter("mail");
-		String phone = request.getParameter("phone");
-		String gender = request.getParameter("gender");
-
-		String birth = request.getParameter("birth");
-		Date dateBirth = new Date();
-		
-		System.out.println(birth);
-
-		
-		user = new User(name, lastName, password, role, mail, phone, gender, dateBirth);
-
-
+		// Conexión
 		UserDAO userDAO = new UserDAO(em);
 
-		userDAO.insertUser(user);
+		if (request.getParameter("delete") != null) {
+			userDAO.deleteUserByDni(request.getParameter("delete"));
+			System.out.println("Usuario Eliminado");
+		} else {
+			// Recolección de datos.
+			String id = request.getParameter("idUser");
+			long idLong = 0;
+			try {
+				idLong = Long.parseLong(id);
+			} catch (NumberFormatException e) {
+			}
 
-		response.getWriter().append("<H1>Tu numero " + user + "</h1");
+			String name = request.getParameter("name");
+			String lastName = request.getParameter("lastName");
+			String dni = request.getParameter("dni");
+			String password = request.getParameter("password");
+			String role = request.getParameter("role");
+			String mail = request.getParameter("email");
+			String phone = request.getParameter("telephone");
+			String gender = request.getParameter("gender");
+
+			String birth = request.getParameter("birth");
+
+			Date dateBirth;
+			try {
+				dateBirth = Tools.convertStringToDate(birth);
+			} catch (ParseException e) {
+				dateBirth = null;
+				e.printStackTrace();
+			}
+
+//		System.out.println("Formato cumpleaños" + birth);
+
+			// Creación de Objeto
+			user = new User(name, lastName, dni, password, role, mail, phone, gender, dateBirth);
+
+			// Inserción o actualización a DDBB
+			if (idLong == 0) {
+				userDAO.insertUser(user);
+			} else if (idLong != 0) {
+				user.setId(idLong);
+				userDAO.updateUser(idLong, user);
+			}
+			// Redirección a JSP
+			request.setAttribute("userSelected", user);
+
+			RequestDispatcher rd = request.getRequestDispatcher("UserInserted.jsp");
+			// Se envia al JSP
+			rd.forward(request, response);
+
+		}
 
 	}
 

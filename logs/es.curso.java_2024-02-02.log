@@ -1,0 +1,13 @@
+19:53:21.230 [main] DEBUG org.jboss.logging logProvider - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+19:53:21.394 [main] INFO  org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: HibernateOracle]
+19:53:21.509 [main] INFO  org.hibernate.Version logVersion - HHH000412: Hibernate ORM core version 5.6.12.Final
+19:53:21.866 [main] INFO  org.hibernate.annotations.common.Version <clinit> - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+19:53:22.084 [main] WARN  org.hibernate.orm.connections.pooling configure - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+19:53:22.130 [main] INFO  org.hibernate.orm.connections.pooling buildCreator - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:XE]
+19:53:22.130 [main] INFO  org.hibernate.orm.connections.pooling buildCreator - HHH10001001: Connection properties: {password=****, user=curso}
+19:53:22.131 [main] INFO  org.hibernate.orm.connections.pooling buildCreator - HHH10001003: Autocommit mode: false
+19:53:22.135 [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl <init> - HHH000115: Hibernate connection pool size: 20 (min=1)
+19:53:22.504 [main] INFO  org.hibernate.dialect.Dialect <init> - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+19:53:23.715 [main] INFO  org.hibernate.orm.connections.access getIsolatedConnection - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2407a36c] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+19:53:24.162 [main] INFO  org.hibernate.orm.connections.access getIsolatedConnection - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@75e80a97] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+19:53:24.406 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]

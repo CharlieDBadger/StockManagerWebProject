@@ -56,11 +56,35 @@ public class UserDAO {
 		return users;
 	}
 
+	public User selectUserByDNI(String userDNI) throws NoResultException {
+
+		TypedQuery<User> query = em.createQuery("from User where dni=?1", User.class);
+		query.setParameter(1, userDNI);
+		
+		User searchUser = query.getSingleResult();
+		
+		return searchUser;
+	}
+
 	public void deleteUserById(long id) {
 		try {
 			User search = em.find(User.class, id);
 			em.getTransaction().begin();
 			em.remove(search);
+			em.getTransaction().commit();
+		} catch (Exception e) {
+			em.getTransaction().rollback();
+			e.printStackTrace();
+		} finally {
+			em.close();
+		}
+	}
+	
+	public void deleteUserByDni(String dni) {
+		try {
+			User searchUser = selectUserByDNI(dni);
+			em.getTransaction().begin();
+			em.remove(searchUser);
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			em.getTransaction().rollback();

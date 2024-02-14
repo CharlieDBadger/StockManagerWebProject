@@ -15,9 +15,9 @@ import jakarta.persistence.Table;
 public class User {
 
 	@Id
-	@SequenceGenerator(name = "ADDRESSGEN", sequenceName = "ADDRESS_GEN", initialValue = 1, allocationSize = 1)
+	@SequenceGenerator(name = "ADDRESSGEN", sequenceName = "USER_SEQ", initialValue = 1, allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ADDRESSGEN")
-	@Column(name = "ID", nullable = false, updatable = false)
+	@Column(name = "ID", nullable = false, updatable = true)
 	private long id;
 
 	@Column(columnDefinition = "VARCHAR(30)", name = "USER_NAME")
@@ -25,6 +25,9 @@ public class User {
 
 	@Column(columnDefinition = "VARCHAR(30)", name = "USER_LASTNAME")
 	private String lastName;
+
+	@Column(columnDefinition = "VARCHAR(10)", unique = true, name = "USER_DNI")
+	private String dni;
 
 	@Column(columnDefinition = "VARCHAR(30)", name = "USER_PASSWORD")
 	private String password;
@@ -61,11 +64,12 @@ public class User {
 	 * @param city
 	 * @param costalCode
 	 */
-	public User(String name, String lastName, String password, String role, String mail, String phone, String gender,
-			Date birth) {
+	public User(String name, String lastName, String dni, String password, String role, String mail, String phone,
+			String gender, Date birth) {
 		super();
 		this.name = name;
 		this.lastName = lastName;
+		this.dni = dni;
 		this.password = password;
 		this.role = role;
 		this.mail = mail;
@@ -83,12 +87,13 @@ public class User {
 	 * @param city
 	 * @param costalCode
 	 */
-	public User(long id, String name, String lastName, String password, String role, String mail, String phone,
-			String gender, Date birth) {
+	public User(long id, String name, String lastName, String dni, String password, String role, String mail,
+			String phone, String gender, Date birth) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.lastName = lastName;
+		this.dni = dni;
 		this.password = password;
 		this.role = role;
 		this.mail = mail;
@@ -97,12 +102,11 @@ public class User {
 		this.birth = birth;
 	}
 
-	
-
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", lastName=" + lastName + ", password=" + password + ", role="
-				+ role + ", mail=" + mail + ", phone=" + phone + ", gender=" + gender + ", birth=" + birth + "]";
+		return "User [id=" + id + ", name=" + name + ", lastName=" + lastName + ", dni=" + dni + ", password="
+				+ password + ", role=" + role + ", mail=" + mail + ", phone=" + phone + ", gender=" + gender
+				+ ", birth=" + birth + "]";
 	}
 
 	public long getId() {
@@ -175,6 +179,14 @@ public class User {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 	

@@ -49,7 +49,7 @@ public class Tools {
 	}
 	
     public static Date convertStringToDate(String dateString) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
             return sdf.parse(dateString);
         }

@@ -83,13 +83,13 @@ public class PruebaServ extends HttpServlet {
 		}
 
 		// id verification in DDBB
-		if (id == null) {
-			user = new User(name, lastName, password, role, mail, phone, gender, dateBirth);
-		} else {
-			user = new User(idLong, name, lastName, password, role, mail, phone, gender, dateBirth);
-		}
+//		if (id == null) {
+//			user = new User(name, lastName, password, role, mail, phone, gender, dateBirth);
+//		} else {
+//			user = new User(idLong, name, lastName, password, role, mail, phone, gender, dateBirth);
+//		}
 
-		response.getWriter().append("<H1>Tu numero " + user + "</h1");
+//		response.getWriter().append("<H1>Tu numero " + user + "</h1");
 
 	}
 

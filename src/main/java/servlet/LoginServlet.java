@@ -1,7 +1,11 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
+import entities.User;
+import enums.UserENUM;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
@@ -34,7 +38,24 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		
+		String loginName = request.getParameter("userName");
+		String loginPassword = request.getParameter("userPassword");
+		
+		List <User> userList = UserENUM.INSTANCE.getUserList();
+		
+		for (User user : userList) {
+			if(user.getName().equals(loginName) & user.getPassword().equals(loginPassword)) {
+				// Redirección a JSP
+				request.setAttribute("userLogged", user);
+
+				RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
+				// Se envia al JSP
+				rd.forward(request, response);
+				break;
+			}
+		}
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -43,17 +64,6 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String nombre = request.getParameter("nombre");
-		String contraseña = request.getParameter("contraseña");
-		
-		response.setContentType("text/html");
-
-		if (nombre != null && contraseña != null) {
-			response.getWriter().append("Lectura de response como HTML");
-			response.getWriter()
-					.append("<p style=color:red;> Nombre: " + nombre + "</p>" + "<br>Contraseña: " + contraseña);
-		}
-
 	}
 
 }

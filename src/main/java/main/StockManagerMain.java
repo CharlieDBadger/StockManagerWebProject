@@ -150,13 +150,13 @@ public class StockManagerMain {
 //
 //		// USER TEST
 //		
-//		User u1 = new User("UserTest", "LastTest", "PassTest", "RoleTest", "test@mail", "333444555", new Date());
-//
-//		UserDAO userDAO = new UserDAO(main.em);
-//		
-//		userDAO.insertUser(u1);
-//		
-//		List<User> userList = userDAO.selectUser();
+		User u1 = new User(2,"x","x","x","x","x","x","x","x",new Date());
+
+		UserDAO userDAO = new UserDAO(main.em);
+		
+		userDAO.insertUser(u1);
+		
+		List<User> userList = userDAO.selectUser();
 //
 //		for (User user : userList) {
 //			System.out.println(user);

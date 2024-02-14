@@ -46,6 +46,12 @@
   	<description></description>
   	<servlet-class>servlet.AddressServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SelectUserServlet</servlet-name>
+  	<display-name>SelectUserServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlet.SelectUserServlet</servlet-class>
+  </servlet>
 
   
 <!--   mapping -->
@@ -79,6 +85,10 @@
   <servlet-mapping>
   	<servlet-name>AddressServlet</servlet-name>
   	<url-pattern>/AddressServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SelectUserServlet</servlet-name>
+  	<url-pattern>/SelectUserServlet</url-pattern>
   </servlet-mapping>
 
 

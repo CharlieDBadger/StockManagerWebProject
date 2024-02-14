@@ -1,22 +1,28 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class FormularioTest
- */
-public class FormularioTest extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import entities.User;
+import enums.UserENUM;
+import jakarta.servlet.RequestDispatcher;
 
+/**
+ * Servlet implementation class QueryUserListServlet
+ */
+public class SelectUserServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public FormularioTest() {
+    public SelectUserServlet() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -24,8 +30,15 @@ public class FormularioTest extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at:1 ").append(request.getContextPath());
+		
+		List <User> userList = UserENUM.INSTANCE.getUserList();
+		
+		// Redirección a JSP
+		request.setAttribute("userList", userList);
+
+		RequestDispatcher rd = request.getRequestDispatcher("UserList.jsp");
+		// Se envia al JSP
+		rd.forward(request, response);
 	}
 
 	/**
