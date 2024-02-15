@@ -51,20 +51,20 @@ public class UserServlet extends HttpServlet {
 
 		User searchUser = null;
 
-		try {
-			searchUser = userDAO.selectUserByDNI(request.getParameter("dni"));
-		} catch (NoResultException e) {
-			searchUser = null;
-		}
-
-		if (searchUser != null) {
-			request.setAttribute("searchUser", searchUser);
+		if(request.getParameter("delete")!=null) {
+			
+			userDAO.deleteUserById(Long.parseLong(request.getParameter("delete")));
+			
+		}else if(request.getParameter("delete")!=null) {
+			
+			searchUser = userDAO.selectUserByDNI(request.getParameter("delete"));
+			
 			// Redirección a JSP
-			RequestDispatcher rd = request.getRequestDispatcher("UserForm.jsp");
+			request.setAttribute("userSelected", searchUser);
+
+			RequestDispatcher rd = request.getRequestDispatcher("UserInserted.jsp");
 			// Se envia al JSP
 			rd.forward(request, response);
-		} else {
-			doPost(request, response);
 		}
 
 	}
