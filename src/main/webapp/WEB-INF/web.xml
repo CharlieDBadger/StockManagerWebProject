@@ -47,10 +47,10 @@
   	<servlet-class>servlet.AddressServlet</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>SelectUserServlet</servlet-name>
-  	<display-name>SelectUserServlet</display-name>
+  	<servlet-name>UserListServlet</servlet-name>
+  	<display-name>UserListServlet</display-name>
   	<description></description>
-  	<servlet-class>servlet.SelectUserServlet</servlet-class>
+  	<servlet-class>servlet.UserListServlet</servlet-class>
   </servlet>
 
   
@@ -87,8 +87,8 @@
   	<url-pattern>/AddressServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>SelectUserServlet</servlet-name>
-  	<url-pattern>/SelectUserServlet</url-pattern>
+  	<servlet-name>UserListServlet</servlet-name>
+  	<url-pattern>/UserListServlet</url-pattern>
   </servlet-mapping>
 
 

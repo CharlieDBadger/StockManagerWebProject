@@ -17,19 +17,19 @@
         <div class="logo"></div>
         <form id="createUser" action="/StockManagerWebProject/UserServlet" method="post">
             <label for="name">Nombre:</label><br>
-            <input type="text" id="name" name="name" placeholder="Introduce tu Nombre" required>
+            <input value="a" type="text" id="name" name="name" placeholder="Introduce tu Nombre" required>
             <br>
             <label for="lastName">Apellido:</label><br>
-            <input type="text" id="lastName" name="lastName" placeholder="Introduce tu Apellido" required>
+            <input value="a" type="text" id="lastName" name="lastName" placeholder="Introduce tu Apellido" required>
             <br>
             <label for="dni">DNI:</label><br>
-            <input type="text" id="dni" name="dni" placeholder="Introduce tu DNI" required>
+            <input value="a" type="text" id="dni" name="dni" placeholder="Introduce tu DNI" required>
             <br>
             <label for="email">Email:</label><br>
-            <input type="text" id="email" name="email" placeholder="Introduce tu Email" required>
+            <input value="a" type="text" id="email" name="email" placeholder="Introduce tu Email" required>
             <br>
             <label for="password">Contraseña:</label><br>
-            <input type="password" id="password" name="password" placeholder="Introduce tu Contraseña" required>
+            <input value="a" type="password" id="password" name="password" placeholder="Introduce tu Contraseña" required>
             <br>
              <label for="idUser">ID Usuario:</label><br>
             <input type="text" readonly id="idUser" name="idUser" value ="<% %>" placeholder="No se le ha asignado un id" required>
@@ -41,7 +41,7 @@
             </select><br>
             <br>
 		    <label for="telephone">Telefono: </label><br>
-            <input type="text" id="telephone" name="telephone" placeholder="Introduce tu Telefono" required>
+            <input value="a" type="text" id="telephone" name="telephone" placeholder="Introduce tu Telefono" required>
             <br>
             <label for="gender">Sexo:</label><br>
             <input type="radio" id="male" name="gender" value="male" required>

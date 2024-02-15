@@ -51,16 +51,16 @@ public class UserServlet extends HttpServlet {
 
 		User searchUser = null;
 
-		if(request.getParameter("delete")!=null) {
-			
+		if (request.getParameter("delete") != null) {
+
 			userDAO.deleteUserById(Long.parseLong(request.getParameter("delete")));
-			
-		}else if(request.getParameter("delete")!=null) {
-			
-			searchUser = userDAO.selectUserByDNI(request.getParameter("delete"));
-			
+
+		} else if (request.getParameter("modify") != null) {
+
+			searchUser = userDAO.selectUserByDNI(request.getParameter("modify"));
+
 			// Redirección a JSP
-			request.setAttribute("userSelected", searchUser);
+			request.setAttribute("userToModify", searchUser);
 
 			RequestDispatcher rd = request.getRequestDispatcher("UserInserted.jsp");
 			// Se envia al JSP
@@ -80,58 +80,51 @@ public class UserServlet extends HttpServlet {
 		// Conexión
 		UserDAO userDAO = new UserDAO(em);
 
-		if (request.getParameter("delete") != null) {
-			userDAO.deleteUserByDni(request.getParameter("delete"));
-			System.out.println("Usuario Eliminado");
-		} else {
-			// Recolección de datos.
-			String id = request.getParameter("idUser");
-			long idLong = 0;
-			try {
-				idLong = Long.parseLong(id);
-			} catch (NumberFormatException e) {
-			}
-
-			String name = request.getParameter("name");
-			String lastName = request.getParameter("lastName");
-			String dni = request.getParameter("dni");
-			String password = request.getParameter("password");
-			String role = request.getParameter("role");
-			String mail = request.getParameter("email");
-			String phone = request.getParameter("telephone");
-			String gender = request.getParameter("gender");
-
-			String birth = request.getParameter("birth");
-
-			Date dateBirth;
-			try {
-				dateBirth = Tools.convertStringToDate(birth);
-			} catch (ParseException e) {
-				dateBirth = null;
-				e.printStackTrace();
-			}
-
-//		System.out.println("Formato cumpleaños" + birth);
-
-			// Creación de Objeto
-			user = new User(name, lastName, dni, password, role, mail, phone, gender, dateBirth);
-
-			// Inserción o actualización a DDBB
-			if (idLong == 0) {
-				userDAO.insertUser(user);
-			} else if (idLong != 0) {
-				user.setId(idLong);
-				userDAO.updateUser(idLong, user);
-			}
-			// Redirección a JSP
-			request.setAttribute("userSelected", user);
-
-			RequestDispatcher rd = request.getRequestDispatcher("UserInserted.jsp");
-			// Se envia al JSP
-			rd.forward(request, response);
-
+		// Recolección de datos.
+		String id = request.getParameter("idUser");
+		long idLong = 0;
+		try {
+			idLong = Long.parseLong(id);
+		} catch (NumberFormatException e) {
 		}
 
+		String name = request.getParameter("name");
+		String lastName = request.getParameter("lastName");
+		String dni = request.getParameter("dni");
+		String password = request.getParameter("password");
+		String role = request.getParameter("role");
+		String mail = request.getParameter("email");
+		String phone = request.getParameter("telephone");
+		String gender = request.getParameter("gender");
+
+		String birth = request.getParameter("birth");
+
+		// Conversión fechaString -> fechaDate
+		// System.out.println("Formato cumpleaños" + birth);
+		Date dateBirth;
+		try {
+			dateBirth = Tools.convertStringToDate(birth);
+		} catch (ParseException e) {
+			dateBirth = null;
+			e.printStackTrace();
+		}
+
+		// Creación de Objeto
+		user = new User(name, lastName, dni, password, role, mail, phone, gender, dateBirth);
+
+		// Inserción o actualización a DDBB
+		if (idLong == 0) {
+			userDAO.insertUser(user);
+		} else if (idLong != 0) {
+			user.setId(idLong);
+			userDAO.updateUser(idLong, user);
+		}
+		// Redirección a JSP
+		request.setAttribute("userSelected", user);
+
+		RequestDispatcher rd = request.getRequestDispatcher("UserInserted.jsp");
+		// Se envia al JSP
+		rd.forward(request, response);
 	}
 
 }

@@ -13,6 +13,7 @@
 </head>
 <body>
 	<h1>Inserción Completa</h1>
+	   <form id="createUser" action="/StockManagerWebProject/UserServlet" method="get">
 	<table>
 		<thead>
 			<tr>
@@ -34,8 +35,8 @@
 		%>
 		<tbody>
 			<tr>
-				<td><button id="delete" onclick="enviarDatos('<%=user.getDni()%>')">Borrar</button></td>
-				<td><button id="modify" onclick="enviarDatos('<%=user.getId()%>')">Modificar</button></td>
+				<td><button name="delete" type="submit" value="<%=user.getId()%>">Borrar</button></td>
+				<td><button name="modify" type="submit" value="<%=user.getDni()%>">Modificar</button></td>
 				<td><%=user.getName()%></td>
 				<td><%=user.getLastName()%></td>
 				<td><%=user.getDni()%></td>
@@ -51,5 +52,6 @@
 	<%
 	}
 	%>
+	</form>
 </body>
 </html>

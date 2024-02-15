@@ -15,13 +15,13 @@ import jakarta.servlet.RequestDispatcher;
 /**
  * Servlet implementation class QueryUserListServlet
  */
-public class SelectUserServlet extends HttpServlet {
+public class UserListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectUserServlet() {
+    public UserListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
