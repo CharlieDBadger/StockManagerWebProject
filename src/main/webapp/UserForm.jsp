@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="contenedor cf">
-        <div class="logo"></div>
+        <div class="logo">
         <form id="createUser" action="/StockManagerWebProject/UserServlet" method="post">
         		<%
 		User user = (User) request.getAttribute("userToModify");
@@ -74,11 +74,14 @@
             <br>
             <input type="submit" value="<%= user == null ? "Enviar" : "Actualizar"%>">
         </form>
-        <% %>
-          <form id="createUser" action="/StockManagerWebProject/UserServlet" method="get">
-          
-          </form>
-        <% %>
+       	</div>
     </div>
+ 
+      <%if (user != null ){ %>
+          <form id="createUser" action="/StockManagerWebProject/UserServlet" method="get">
+          <button name="delete" type="submit" value="<%=user.getId()%>">Borrar</button>
+          </form>
+        <% } %>
+        
 </body>
 </html>
