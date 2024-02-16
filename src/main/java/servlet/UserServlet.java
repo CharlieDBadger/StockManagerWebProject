@@ -62,7 +62,7 @@ public class UserServlet extends HttpServlet {
 			// Redirección a JSP
 			request.setAttribute("userToModify", searchUser);
 
-			RequestDispatcher rd = request.getRequestDispatcher("UserInserted.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("UserForm.jsp");
 			// Se envia al JSP
 			rd.forward(request, response);
 		}
@@ -75,7 +75,7 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		User user;
 		// Conexión
 		UserDAO userDAO = new UserDAO(em);
