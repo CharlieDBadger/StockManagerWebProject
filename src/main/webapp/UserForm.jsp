@@ -74,6 +74,11 @@
             <br>
             <input type="submit" value="<%= user == null ? "Enviar" : "Actualizar"%>">
         </form>
+        <% %>
+          <form id="createUser" action="/StockManagerWebProject/UserServlet" method="get">
+          
+          </form>
+        <% %>
     </div>
 </body>
 </html>
