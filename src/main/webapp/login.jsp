@@ -14,7 +14,7 @@
 <body>
     <div class="contenedor cf">
         <div class="logo"></div>
-			<form id="login" action="/StockManagerWebProject/LoginServlet" method="get">
+			<form id="login" action="/StockManagerWebProject/LoginServlet" method="post">
             <label for="userName">Usuario:</label>
             <input type="text" id="userName" name="userName" placeholder="Introduce tu Usuario" required><br>
             <label for="userPassword">Password:</label>

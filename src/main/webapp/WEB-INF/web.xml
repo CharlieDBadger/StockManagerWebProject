@@ -72,7 +72,7 @@
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
-  	<url-pattern>/logintest</url-pattern>
+  	<url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>ConexionJSP</servlet-name>
