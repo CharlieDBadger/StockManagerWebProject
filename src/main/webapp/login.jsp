@@ -56,11 +56,11 @@
             <form class="login-form" id="login" action="/StockManagerWebProject/LoginServlet" method="post">
                 <div class="form-group">
                     <p>Usuario</p>
-                    <input type="text" class="form-control" placeholder="Introduce tu usuario" required>
+                    <input type="text" name="userName" class="form-control" placeholder="Introduce tu usuario" required>
                 </div>
                 <div class="form-group">
                     <p>Contraseña</p>
-                    <input type="password" class="form-control" placeholder="Introduce tu contraseña" required>
+                    <input type="password" name="userPassword" class="form-control" placeholder="Introduce tu contraseña" required>
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="rememberMe">
