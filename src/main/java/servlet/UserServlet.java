@@ -75,7 +75,7 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		User user;
 		// Conexión
 		UserDAO userDAO = new UserDAO(em);
@@ -100,7 +100,7 @@ public class UserServlet extends HttpServlet {
 		String birth = request.getParameter("birth");
 
 		// Conversión fechaString -> fechaDate
-		// System.out.println("Formato cumpleaños" + birth);
+//		System.out.println("Formato cumpleaños " + birth);
 		Date dateBirth;
 		try {
 			dateBirth = Tools.convertStringToDate(birth);
@@ -108,7 +108,10 @@ public class UserServlet extends HttpServlet {
 			dateBirth = null;
 			e.printStackTrace();
 		}
-
+		
+//		System.out.println(Tools.convertDateToString(dateBirth));
+	
+		
 		// Creación de Objeto
 		user = new User(name, lastName, dni, password, role, mail, phone, gender, dateBirth);
 

@@ -41,7 +41,7 @@ public class User {
 	@Column(columnDefinition = "VARCHAR(15)", name = "USER_PHONE")
 	private String phone;
 
-	@Column(columnDefinition = "VARCHAR(6)", name = "USER_GENDER")
+	@Column(columnDefinition = "VARCHAR(10)", name = "USER_GENDER")
 	private String gender;
 
 	@Column(name = "USER_BIRTH")
