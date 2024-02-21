@@ -92,7 +92,6 @@
 				<th>Mail</th>
 				<th>Telefono</th>
 				<th>Genero</th>
-				<th>Fecha de nacimiento</th>
 			</tr>
 		</thead>
 		<%
@@ -110,7 +109,6 @@
 				<td><%=user.getMail()%></td>
 				<td><%=user.getPhone()%></td>
 				<td><%=user.getGender()%></td>
-				<td><%=user.getBirth()%></td>
 			</tr>
 			<!-- Puedes agregar más filas de datos aquí -->
 		</tbody>
