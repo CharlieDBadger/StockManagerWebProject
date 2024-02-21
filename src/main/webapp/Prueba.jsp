@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="entities.User,java.util.List"%>
+    pageEncoding="UTF-8" import="entities.User,tools.Tools"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listado</title>
+    <title>Titulo de la pagina que se carga</title>
     <!-- Enlace al CSS de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -77,48 +77,8 @@
                 <button type="button" class="btn btn-primary" id="logoutButton">Cerrar Sesión</button>
 
                 <h2 class="text-center col-12 mb-4 mt-4">Bienvenido! <%= session.getAttribute("usuario") %></h2>
-
-	<h1>Inserción Completa</h1>
-	   <form id="createUser" action="/StockManagerWebProject/UserServlet" method="get">
-	<table>
-		<thead>
-			<tr>
-				<th>Borrar</th>
-				<th>Modificar</th>
-				<th>Nombre</th>
-				<th>Apellido</th>
-				<th>DNI</th>
-				<th>Rol</th>
-				<th>Mail</th>
-				<th>Telefono</th>
-				<th>Genero</th>
-				<th>Fecha de nacimiento</th>
-			</tr>
-		</thead>
-		<%
-		List<User> userList = (List<User>) request.getAttribute("userList");
-		for (User user : userList) {
-		%>
-		<tbody>
-			<tr>
-				<td><button name="delete" type="submit" value="<%=user.getId()%>">Borrar</button></td>
-				<td><button name="modify" type="submit" value="<%=user.getDni()%>">Modificar</button></td>
-				<td><%=user.getName()%></td>
-				<td><%=user.getLastName()%></td>
-				<td><%=user.getDni()%></td>
-				<td><%=user.getRole()%></td>
-				<td><%=user.getMail()%></td>
-				<td><%=user.getPhone()%></td>
-				<td><%=user.getGender()%></td>
-				<td><%=user.getBirth()%></td>
-			</tr>
-			<!-- Puedes agregar más filas de datos aquí -->
-		</tbody>
-	</table>
-	<%
-	}
-	%>
-	</form>
+                
+                <div class="container-form col-12 col-md-6 col-lg-3"><%= codigo de JAVA mostrando Formulario %></div>
             </div>
         </div>
     </div>
@@ -126,6 +86,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <div class="footer" align="center">Designed & Coded by Carlos & David</div>
+    <div class="footer" align="center"> Designed & Coded by Carlos & David</div>
 </body>
 </html>

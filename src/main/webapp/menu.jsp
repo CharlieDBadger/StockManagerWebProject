@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockManager 1.0</title>
     <!-- Enlace al CSS de Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -45,18 +46,19 @@
 		<%
 		User userLogged = (User) request.getAttribute("userLogged");
 		%>
-    <div class="container mt-5">
+     <div class="container mt-5">
         <div class="menu-container">
             <div class="form-group" align="center">
-                <button type="submit" class="btn btn-primary ">Altas</button>
+                <button type="button" class="btn btn-primary "><a href="#">Altas</a></button>
 
-                <button type="submit" class="btn btn-primary">Bajas</button>
+                <button type="button" class="btn btn-primary"><a href="#">Bajas</a></button>
 
-                <button type="submit" class="btn btn-primary">Consulta Listado</button>
+                <button type="button" class="btn btn-primary"><a href="#">Consulta Listado</a></button>
 
-                <button type="submit" class="btn btn-primary">Cerrar Sesión</button>
+                <button type="button" class="btn btn-primary" id="logoutButton">Cerrar Sesión</button>
 
-                <h2 class="text-center col-12 mb-4 mt-4">Bienvenido! <%= userLogged.getName() %></h2>
+                <h2 class="text-center col-12 mb-4 mt-4">Bienvenido! <%= session.getAttribute("usuario") %></h2>
+
             </div>
         </div>
     </div>
