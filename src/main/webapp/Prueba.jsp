@@ -68,11 +68,33 @@
  <div class="container mt-5">
         <div class="menu-container">
             <div class="form-group" align="center">
-                <button type="button" class="btn btn-primary "><a href="#">Altas</a></button>
+<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Altas</button>
+<div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Usuarios</a>
+    <a class="dropdown-item" href="#">Clientes</a>
+    <a class="dropdown-item" href="#">Articulos</a>
+    <a class="dropdown-item" href="#">Proovedores</a>
+    <a class="dropdown-item" href="#">Factura</a>
+    <a class="dropdown-item" href="#">Entrada</a>
+</div>
 
-                <button type="button" class="btn btn-primary"><a href="#">Bajas</a></button>
-
-                <button type="button" class="btn btn-primary"><a href="#">Consulta Listado</a></button>
+<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Bajas</button>
+<div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Usuarios</a>
+    <a class="dropdown-item" href="#">Clientes</a>
+    <a class="dropdown-item" href="#">Articulos</a>
+    <a class="dropdown-item" href="#">Proovedores</a>
+    <a class="dropdown-item" href="#">Factura</a>
+    <a class="dropdown-item" href="#">Entrada</a>
+</div>
+<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Consulta Listado</button>
+<div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Usuarios</a>
+    <a class="dropdown-item" href="#">Clientes</a>
+    <a class="dropdown-item" href="#">Articulos</a>
+    <a class="dropdown-item" href="#">Mov. Articulos</a>
+    <a class="dropdown-item" href="#">Proveedores</a>
+</div>
 
                 <button type="button" class="btn btn-primary" id="logoutButton">Cerrar Sesión</button>
 
