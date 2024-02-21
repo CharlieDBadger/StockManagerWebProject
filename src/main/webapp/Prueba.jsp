@@ -78,7 +78,7 @@
 
                 <h2 class="text-center col-12 mb-4 mt-4">Bienvenido! <%= session.getAttribute("usuario") %></h2>
                 
-                <div class="container-form col-12 col-md-6 col-lg-3"><%= codigo de JAVA mostrando Formulario %></div>
+<%--                 <div class="container-form col-12 col-md-6 col-lg-3"><%= codigo de JAVA mostrando Formulario %></div> --%>
             </div>
         </div>
     </div>
