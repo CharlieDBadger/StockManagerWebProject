@@ -65,7 +65,7 @@
     <script src="./assets/script.js"></script>
 </head>
 <body>
- <div class="container mt-5">
+ <div class="container col-12 md-9 lg-6 mt-5">
         <div class="menu-container">
             <div class="form-group" align="center">
                 <button type="button" class="btn btn-primary "><a href="#">Altas</a></button>
@@ -82,16 +82,16 @@
 	   <form id="createUser" action="/StockManagerWebProject/UserServlet" method="get">
 	<table>
 		<thead>
-			<tr>
-				<th>Borrar</th>
-				<th>Modificar</th>
-				<th>Nombre</th>
-				<th>Apellido</th>
-				<th>DNI</th>
-				<th>Rol</th>
-				<th>Mail</th>
-				<th>Telefono</th>
-				<th>Genero</th>
+			<tr align="center">
+				<th align="center">Borrar</th>
+				<th align="center">Modificar</th>
+				<th align="center">Nombre</th>
+				<th align="center">Apellido</th>
+				<th align="center">DNI</th>
+				<th align="center">Rol</th>
+				<th align="center">Mail</th>
+				<th align="center">Telefono</th>
+				<th align="center">Genero</th>
 			</tr>
 		</thead>
 		<%
@@ -99,16 +99,16 @@
 		for (User user : userList) {
 		%>
 		<tbody>
-			<tr>
+			<tr align="center">
 				<td><button name="delete" type="submit" value="<%=user.getId()%>">Borrar</button></td>
 				<td><button name="modify" type="submit" value="<%=user.getDni()%>">Modificar</button></td>
-				<td><%=user.getName()%></td>
-				<td><%=user.getLastName()%></td>
-				<td><%=user.getDni()%></td>
-				<td><%=user.getRole()%></td>
-				<td><%=user.getMail()%></td>
-				<td><%=user.getPhone()%></td>
-				<td><%=user.getGender()%></td>
+				<td align="center"><%=user.getName()%></td>
+				<td align="center"><%=user.getLastName()%></td>
+				<td align="center" ><%=user.getDni()%></td>
+				<td align="center"><%=user.getRole()%></td>
+				<td align="center"><%=user.getMail()%></td>
+				<td align="center"><%=user.getPhone()%></td>
+				<td align="center"><%=user.getGender()%></td>
 			</tr>
 			<!-- Puedes agregar más filas de datos aquí -->
 		</tbody>
