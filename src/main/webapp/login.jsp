@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - StockManager</title>
-        <!--JavaScrip & JQuery-->
-    <script src='./assets/jquery.min.js'></script>
-    <script src="./assets/script.js"></script>
+    <title>Stock Manager App</title>
+    <link rel="icon" type="image/icon" href="favicon.ico"/>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -53,14 +51,14 @@
     <div class="container mt-5">
         <div class="login-container">
             <h2 class="text-center mb-4">Inicio de Sesión</h2>
-            <form class="login-form" id="login" action="/StockManagerWebProject/LoginServlet" method="post">
+            <form class="login-form">
                 <div class="form-group">
                     <p>Usuario</p>
-                    <input type="text" name="userName" class="form-control" placeholder="Introduce tu usuario" required>
+                    <input type="text" class="form-control" placeholder="Introduce tu usuario">
                 </div>
                 <div class="form-group">
                     <p>Contraseña</p>
-                    <input type="password" name="userPassword" class="form-control" placeholder="Introduce tu contraseña" required>
+                    <input type="password" class="form-control" placeholder="Introduce tu contraseña">
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="rememberMe">
