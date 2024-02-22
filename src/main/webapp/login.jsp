@@ -51,14 +51,14 @@
     <div class="container mt-5">
         <div class="login-container">
             <h2 class="text-center mb-4">Inicio de Sesión</h2>
-            <form class="login-form">
+            <form class="login-form" action="/StockManagerWebProject/LoginServlet" method="post">
                 <div class="form-group">
                     <p>Usuario</p>
-                    <input type="text" class="form-control" placeholder="Introduce tu usuario">
+                    <input type="text" name="userName" class="form-control" placeholder="Introduce tu usuario">
                 </div>
                 <div class="form-group">
                     <p>Contraseña</p>
-                    <input type="password" class="form-control" placeholder="Introduce tu contraseña">
+                    <input type="password" name="userPassword" class="form-control" placeholder="Introduce tu contraseña">
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="rememberMe">
