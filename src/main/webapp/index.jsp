@@ -9,6 +9,9 @@
 <a href="/StockManagerWebProject/login.jsp">Login</a>
 <br>
 <a href="/StockManagerWebProject/AddressForm.jsp">AddressForm</a>
+<br>
+<a href="/StockManagerWebProject/UserListServlet">ListaUsuarios</a>
+
 </div>
 </div>
 
