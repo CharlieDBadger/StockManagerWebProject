@@ -57,7 +57,7 @@
 
                 <button type="button" class="btn btn-primary" id="logoutButton">Cerrar Sesión</button>
 
-                <h2 class="text-center col-12 mb-4 mt-4">Bienvenido! <%= session.getAttribute("usuario") %></h2>
+                <h2 class="text-center col-12 mb-4 mt-4">Bienvenido! <%= userLogged.getName() %></h2>
 
             </div>
         </div>

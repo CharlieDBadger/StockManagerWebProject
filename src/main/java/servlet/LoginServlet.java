@@ -52,9 +52,6 @@ public class LoginServlet extends HttpServlet {
 		
 		List <User> userList = UserENUM.INSTANCE.getUserList();
 		
-
-		
-		
 		for (User user : userList) {
 			if(user.getName().equals(loginName) && user.getPassword().equals(loginPassword)) {
 				// Redirección a JSP
