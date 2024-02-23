@@ -93,51 +93,6 @@
 	<div class="container mt-5">
 		<div class="menu-container">
 			<div class="form-group" align="center">
-				<div class="dropdown">
-					<!-- Botón que activa el dropdown -->
-					<!-- Elementos del dropdown -->
-					<button type="submit" class="btn btn-primary"
-						data-toggle="dropdown">Altas</button>
-
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Usuarios</a> <a
-							class="dropdown-item" href="#">Clientes</a> <a
-							class="dropdown-item" href="#">Articulos</a> <a
-							class="dropdown-item" href="#">Proveedores</a> <a
-							class="dropdown-item" href="#">Factura</a> <a
-							class="dropdown-item" href="#">Entrada</a>
-					</div>
-					<button type="submit" class="btn btn-primary"
-						data-toggle="dropdown">Bajas</button>
-
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Usuarios</a> <a
-							class="dropdown-item" href="#">Clientes</a> <a
-							class="dropdown-item" href="#">Articulos</a> <a
-							class="dropdown-item" href="#">Proveedores</a> <a
-							class="dropdown-item" href="#">Factura</a> <a
-							class="dropdown-item" href="#">Entrada</a>
-					</div>
-					<button type="submit" class="btn btn-primary"
-						data-toggle="dropdown">Consultas</button>
-
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Usuarios</a> <a
-							class="dropdown-item" href="#">Clientes</a> <a
-							class="dropdown-item" href="#">Articulos</a> <a
-							class="dropdown-item" href="#">Mov. Articulos</a> <a
-							class="dropdown-item" href="#">Proveedores</a>
-					</div>
-
-					<button type="submit" class="btn btn-primary">Cerrar
-						Sesión</button>
-				</div>
-
-				<h2 class="text-center col-12 mb-4 mt-4">
-					Bienvenido!
-					<%=session.getAttribute("usuario")%>
-				</h2>
-
                 <div class="contenedor cf">
         <div class="logo">
         <form id="createUser" action="/StockManagerWebProject/UserServlet" method="post">

@@ -126,7 +126,9 @@
                 </h2>
 
                 <div class="container-form col-12 col-md-6 col-lg-3" id="contenido">
-                        <jsp:include page="userForm.jsp" />
+             
+<%--                         <jsp:include page="UserForm.jsp" /> --%>
+                      <a href="/StockManagerWebProject/UserListServlet"></a>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@
 </head>
 <body>
 	<%
-	User userLogged = (User) request.getAttribute("userLogged");
+	User userLogged = (User) session.getAttribute("userLogged");
 	%>
 	<div class="container mt-5">
 		<div class="menu-container">
@@ -62,7 +62,7 @@
 
 				<h2 class="text-center col-12 mb-4 mt-4">
 					Bienvenido!
-					<%=userLogged.getName()%></h2>
+					<%= userLogged.getName() %></h2>
 				<%-- <div class="container-form col-12 col-md-6 col-lg-3"><%= codigo de JAVA mostrando Formulario %></div> --%>
 			</div>
 		</div>
