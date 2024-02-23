@@ -64,15 +64,11 @@ public class LoginServlet extends HttpServlet {
 				session.setAttribute("userLogged", user);
 
 				RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
+				
 				rd.forward(request, response);
 				
-//				break;
-//			}
-//		}
-//	}
 				
-				
-//				// Redirección a JSP
+//				// Asignar un objeto para mandarlo al JSP
 //				request.setAttribute("userLogged", user);
 //
 //				RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
