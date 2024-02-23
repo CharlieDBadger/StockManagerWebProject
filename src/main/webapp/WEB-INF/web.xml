@@ -14,37 +14,26 @@
   	<servlet-class>servlet.ServletPrueba</servlet-class>
   </servlet>
   
-  <servlet>
-  	<servlet-name>FormularioTest</servlet-name>
-  	<display-name>FormularioTest</display-name>
+    <servlet>
+  	<servlet-name>ConexionJSP</servlet-name>
+  	<display-name>ConexionJSP</display-name>
   	<description></description>
-  	<servlet-class>servlet.FormularioTest</servlet-class>
+  	<servlet-class>servlet.ConexionJSPServlet</servlet-class>
   </servlet>
-  
+
   <servlet>
   	<servlet-name>LoginServlet</servlet-name>
   	<display-name>LoginServlet</display-name>
   	<description></description>
   	<servlet-class>servlet.LoginServlet</servlet-class>
   </servlet>
-  <servlet>
-  	<servlet-name>ConexionJSP</servlet-name>
-  	<display-name>ConexionJSP</display-name>
-  	<description></description>
-  	<servlet-class>servlet.ConexionJSPServlet</servlet-class>
-  </servlet>
+
+<!-- USER SERVLETS -->
   <servlet>
   	<servlet-name>UserServlet</servlet-name>
   	<display-name>UserServlet</display-name>
   	<description></description>
   	<servlet-class>servlet.UserServlet</servlet-class>
-
-  </servlet>
-  <servlet>
-  	<servlet-name>AddressServlet</servlet-name>
-  	<display-name>AddressServlet</display-name>
-  	<description></description>
-  	<servlet-class>servlet.AddressServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>UserListServlet</servlet-name>
@@ -54,34 +43,26 @@
   </servlet>
 
   
-<!--   mapping -->
+<!--   MAPPING -->
   
   <servlet-mapping>
   	<servlet-name>ServletPrueba</servlet-name>
   	<url-pattern>/ServletPrueba</url-pattern>
   </servlet-mapping>
-  
-  <servlet-mapping>
-  	<servlet-name>FormularioTest</servlet-name>
-  	<url-pattern>/formulario</url-pattern>
+   <servlet-mapping>
+  	<servlet-name>ConexionJSP</servlet-name>
+  	<url-pattern>/ConexionJSP</url-pattern>
   </servlet-mapping>
-  
-
+ 
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>ConexionJSP</servlet-name>
-  	<url-pattern>/ConexionJSP</url-pattern>
-  </servlet-mapping>
+
+	<!-- USER MAPPING -->
   <servlet-mapping>
   	<servlet-name>UserServlet</servlet-name>
   	<url-pattern>/UserServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>AddressServlet</servlet-name>
-  	<url-pattern>/AddressServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>UserListServlet</servlet-name>
