@@ -14,9 +14,9 @@
 <link rel="stylesheet" href="assets/estilo.css">
 </head>
 <body>
-		<%
-		User userLogged = (User) request.getAttribute("userLogged");
-		%>
+	<%
+	User userLogged = (User) request.getAttribute("userLogged");
+	%>
 	<div class="container mt-5">
 		<div class="menu-container">
 			<div class="form-group" align="center">
@@ -35,7 +35,7 @@
 							class="dropdown-item" href="#">Entrada</a>
 					</div>
 					<button type="submit" class="btn btn-primary"
-						data-toggle="dropdown">Bajas</button>
+						data-toggle="dropdown">Consutas</button>
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="#">Usuarios</a> <a
@@ -46,7 +46,7 @@
 							class="dropdown-item" href="#">Entrada</a>
 					</div>
 					<button type="submit" class="btn btn-primary"
-						data-toggle="dropdown">Consultas</button>
+						data-toggle="dropdown">Listados</button>
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="#">Usuarios</a> <a
