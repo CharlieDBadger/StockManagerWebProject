@@ -35,25 +35,25 @@
 							class="dropdown-item" href="#">Entrada</a>
 					</div>
 					<button type="submit" class="btn btn-primary"
-						data-toggle="dropdown">Bajas</button>
-
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Usuarios</a> <a
-							class="dropdown-item" href="#">Clientes</a> <a
-							class="dropdown-item" href="#">Articulos</a> <a
-							class="dropdown-item" href="#">Proveedores</a> <a
-							class="dropdown-item" href="#">Factura</a> <a
-							class="dropdown-item" href="#">Entrada</a>
-					</div>
-					<button type="submit" class="btn btn-primary"
 						data-toggle="dropdown">Consultas</button>
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Usuarios</a> <a
-							class="dropdown-item" href="#">Clientes</a> <a
-							class="dropdown-item" href="#">Articulos</a> <a
-							class="dropdown-item" href="#">Mov. Articulos</a> <a
-							class="dropdown-item" href="#">Proveedores</a>
+						<a class="dropdown-item" href="#">Usuarios</a>
+						<a class="dropdown-item" href="#">Clientes</a>
+						<a class="dropdown-item" href="#">Articulos</a>
+						<a class="dropdown-item" href="#">Proveedores</a>
+						<a class="dropdown-item" href="#">Factura</a>
+						<a class="dropdown-item" href="#">Entrada</a>
+					</div>
+					<button type="submit" class="btn btn-primary"
+						data-toggle="dropdown">Listados</button>
+
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a> 
+						<a class="dropdown-item" href="#">Clientes</a>
+						<a class="dropdown-item" href="#">Articulos</a>
+						<a class="dropdown-item" href="#">Mov. Articulos</a>
+						<a class="dropdown-item" href="#">Proveedores</a>
 					</div>
 
 					<button type="submit" class="btn btn-primary">Cerrar
