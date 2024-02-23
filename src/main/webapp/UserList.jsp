@@ -78,7 +78,6 @@
 
                 <h2 class="text-center col-12 mb-4 mt-4">Bienvenido! <%= session.getAttribute("usuario") %></h2>
 
-	<h1>Inserción Completa</h1>
 	   <form id="createUser" action="/StockManagerWebProject/UserServlet" method="get">
 	<table>
 		<thead>
