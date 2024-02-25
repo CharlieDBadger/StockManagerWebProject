@@ -82,6 +82,7 @@ public class Address {
 		return "Address [id=" + id + ", name=" + name + ", province=" + province
 				+ ", city=" + city + ", costalCode=" + postalCode + "]";
 	}
+	
 
 	
 	// GETTERS AND SETTERS

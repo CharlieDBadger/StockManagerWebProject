@@ -50,7 +50,7 @@
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a> 
-						<a class="dropdown-item" href="#">Clientes</a>
+						<a class="dropdown-item" href="/UserForm.jps">Clientes</a>
 						<a class="dropdown-item" href="#">Articulos</a>
 						<a class="dropdown-item" href="#">Mov. Articulos</a>
 						<a class="dropdown-item" href="#">Proveedores</a>

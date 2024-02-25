@@ -137,4 +137,6 @@ public class Customer {
 	public void setObservation(String observation) {
 		this.observation = observation;
 	}
+	
+	
 }

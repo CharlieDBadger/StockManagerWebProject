@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="entities.Customer,entities.Address,tools.Tools" %>
+    pageEncoding="ISO-8859-1" import="entities.Supplier,entities.Address,tools.Tools" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,31 +11,31 @@
 <body>
     <div class="contenedor cf">
         <div class="logo">
-        <form id="createCustomer" action="/StockManagerWebProject/CustomerServlet" method="post">
+        <form id="createSupplier" action="/StockManagerWebProject/SupplierServlet" method="post">
         		<%
-		Customer customer = (Customer) request.getAttribute("customerToModify");
+		Supplier supplier = (Supplier) request.getAttribute("supplierToModify");
         Address address = null;
-        if (customer != null){
-        address = customer.getAddress();
+        if (supplier != null){
+        address = supplier.getAddress();
         }
 		%>
         	<p>Cliente</p>
             <label for="name">Nombre:</label><br>
-            <input value="<%= customer == null ? "" : customer.getName() %>" type="text" id="name" name="name" placeholder="Introduce tu Nombre" required>
+            <input value="<%= supplier == null ? "" : supplier.getName() %>" type="text" id="name" name="name" placeholder="Introduce la razón social" required>
             <br>
             
-            <label for="mobile">DNI:</label><br>
-            <input value="<%= customer == null ? "" : customer.getDni()%>" type="text" id="dni" name="dni" placeholder="Introduce tu DNI" required>
+            <label for="mobile">CIF:</label><br>
+            <input value="<%= supplier == null ? "" : supplier.getCif()%>" type="text" id="dni" name="dni" placeholder="Introduce tu DNI" required>
             <br>
             
             <label for="telephone">Telefono: </label><br>
-            <input value="<%= customer == null ? "" : customer.getMobile()%>" type="text" id="mobile" name="mobile" placeholder="Introduce tu Telefono" required>
+            <input value="<%= supplier == null ? "" : supplier.getMobile()%>" type="text" id="mobile" name="mobile" placeholder="Introduce tu Telefono" required>
             <br>
             
-            <label for="observation">Observacion sobre el Cliente: </label>
+            <label for="observation">Descripción de la actividad economica: </label>
             <br>
      		<textarea name="observation" rows="3" cols="50" >
-     		<%= customer == null ? "" : customer.getObservation()%>
+     		<%= supplier == null ? "" : supplier.getDescription()()%>
      		</textarea>
      		<br>
             
