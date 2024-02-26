@@ -28,8 +28,8 @@
 						data-toggle="dropdown">Altas</button>
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="/StockManagerWebProject/UserForm.jsp">Usuarios</a> <a
-							class="dropdown-item" href="CurstomerForm.jsp">Clientes</a> <a
+						<a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a> <a
+							class="dropdown-item" href="/StockManagerWebProject/UserForm.jsp">Clientes</a> <a
 							class="dropdown-item" href="ArticleForm.jsp">Articulos</a> <a
 							class="dropdown-item" href="SupplierForm.jsp">Proveedores</a> <a
 							class="dropdown-item" href="FacturaForm.jsp">Factura</a> <a
