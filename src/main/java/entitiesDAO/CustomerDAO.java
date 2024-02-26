@@ -97,12 +97,14 @@ public class CustomerDAO {
 	 *         values collected in the HTML form.
 	 * 
 	 */
-	public void updateCustomer(long customerModifiedId, Customer customerModified, Address addressModified,
+	public String updateCustomer(long customerModifiedId, Customer customerModified, Address addressModified,
 			EntityManager em) {
 
 		TypedQuery<Customer> query = em.createQuery("from Customer where id=?1", Customer.class);
 		query.setParameter(1, customerModifiedId);
 
+		String message;
+		
 		try {
 			Customer updatedCustomer = query.getSingleResult();
 			em.getTransaction().begin();
@@ -115,12 +117,17 @@ public class CustomerDAO {
 			em.merge(updatedCustomer);
 
 			em.getTransaction().commit();
+			message = "Usuario Añadido con exito.";
 		} catch (NoResultException nre) {
+			message = "Usuario no encontrado.";
 			System.out.println("Customer NOT found.");
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
 			e.printStackTrace();
 			em.getTransaction().rollback();
+			message = "Ha ocurrido un error. Intentelo de nuevo.";
+			System.out.println(message);
+
 		}
+		return message;
 	}
 }

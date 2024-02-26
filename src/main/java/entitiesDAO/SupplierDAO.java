@@ -17,14 +17,19 @@ public class SupplierDAO {
 		this.em = em;
 	}
 
-	public void insertSupplier(Supplier supplier) {
+	public String insertSupplier(Supplier supplier) {
 		em.getTransaction().begin();
+		String message;
 		try {
 			em.persist(supplier);
 			em.getTransaction().commit();
+			message = "Usuario insertado con exito.";
+
 		} catch (Exception e) {
 			em.getTransaction().rollback();
+			message = "Ha ocurrido un error, intente de nuevo.";
 		}
+		return message;
 	}
 
 	public void insertSupplierList(List<Supplier> suppliers) {
@@ -93,12 +98,15 @@ public class SupplierDAO {
 	 * @param addressModified
 	 * @param em
 	 */
-	public void updateSupplier(long supplierModifiedId, Supplier supplierModified, Address addressModified,
+	public String updateSupplier(long supplierModifiedId, Supplier supplierModified, Address addressModified,
 			EntityManager em) {
 
 		TypedQuery<Supplier> query = em.createQuery("from Supplier where id=?1", Supplier.class);
 		query.setParameter(1, supplierModifiedId);
 
+		String message;
+
+		
 		try {
 			Supplier updatedSupplier = query.getSingleResult();
 			em.getTransaction().begin();
@@ -111,13 +119,20 @@ public class SupplierDAO {
 			em.merge(updatedSupplier);
 
 			em.getTransaction().commit();
+			
+			message = "Proveedor añadido con exito.";
+
 		} catch (NoResultException nre) {
+			message = "Proveedor no encontrado.";
+
 			System.out.println("Supplier not found.");
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
 			e.printStackTrace();
 			em.getTransaction().rollback();
-		}
+			message = "Ha ocurrido un error. Intentelo de nuevo.";
+			System.out.println(message);
 
+		}
+		return message;
 	}
 }

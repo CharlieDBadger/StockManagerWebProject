@@ -17,14 +17,18 @@ public class UserDAO {
 		this.em = em;
 	}
 
-	public void insertUser(User user) {
+	public String insertUser(User user) {
 		em.getTransaction().begin();
+		String message;
 		try {
 			em.persist(user);
 			em.getTransaction().commit();
+			message = "Usuario insertado con exito.";
 		} catch (Exception e) {
 			em.getTransaction().rollback();
+			message = "Ha ocurrido un error, intente de nuevo.";
 		}
+		return message;
 	}
 
 	public void insertUserList(List<User> users) {
@@ -60,9 +64,9 @@ public class UserDAO {
 
 		TypedQuery<User> query = em.createQuery("from User where dni=?1", User.class);
 		query.setParameter(1, userDNI);
-		
+
 		User searchUser = query.getSingleResult();
-		
+
 		return searchUser;
 	}
 
@@ -79,7 +83,7 @@ public class UserDAO {
 			em.close();
 		}
 	}
-	
+
 	public void deleteUserByDni(String dni) {
 		try {
 			User searchUser = selectUserByDNI(dni);
@@ -115,10 +119,12 @@ public class UserDAO {
 	 * @param userModified This method receives the User object from the Servlet
 	 *                     with the values collected in the HTML form.
 	 */
-	public void updateUser(long userModifiedId, User userModified) {
+	public String updateUser(long userModifiedId, User userModified) {
 
 		TypedQuery<User> query = em.createQuery("from User where id=?1", User.class);
 		query.setParameter(1, userModifiedId);
+
+		String message;
 
 		try {
 			User updatedUser = query.getSingleResult();
@@ -135,12 +141,17 @@ public class UserDAO {
 			em.merge(updatedUser);
 
 			em.getTransaction().commit();
+
+			message = "Usuario Añadido con exito.";
 		} catch (NoResultException nre) {
+			message = "Usuario no encontrado.";
 			System.out.println("User NOT found.");
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
 			e.printStackTrace();
 			em.getTransaction().rollback();
+			message = "Ha ocurrido un error. Intentelo de nuevo.";
+			System.out.println(message);
 		}
+		return message;
 	}
 }

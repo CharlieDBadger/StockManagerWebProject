@@ -115,17 +115,19 @@ public class UserServlet extends HttpServlet {
 		// Creación de Objeto
 		user = new User(name, lastName, dni, password, role, mail, phone, gender, dateBirth);
 
+		
+		String message = null;
 		// Inserción o actualización a DDBB
 		if (idLong == 0) {
-			userDAO.insertUser(user);
+			message = userDAO.insertUser(user);
 		} else if (idLong != 0) {
 			user.setId(idLong);
-			userDAO.updateUser(idLong, user);
+			message= userDAO.updateUser(idLong, user);
 		}
 		// Redirección a JSP
-		request.setAttribute("userSelected", user);
+		request.setAttribute("message", message);
 
-		RequestDispatcher rd = request.getRequestDispatcher("UserInserted.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
 		// Se envia al JSP
 		rd.forward(request, response);
 	}

@@ -16,6 +16,7 @@
 <body>
 	<%
 	User userLogged = (User) session.getAttribute("userLogged");
+	String message = (String) request.getAttribute("message");
 	%>
 <div class="container col-12 md-9 lg-6 mt-5">
 		<div class="menu-container">
@@ -61,8 +62,8 @@
 				</div>
 
 				<h2 class="text-center col-12 mb-4 mt-4">
-					Bienvenido!
-					<%= userLogged.getName() %></h2>
+					<%= message == null ? "Bienvenido!" : message %>
+					<%= message != null ? userLogged.getName():"" %></h2>
 				<%-- <div class="container-form col-12 col-md-6 col-lg-3"><%= codigo de JAVA mostrando Formulario %></div> --%>
 			</div>
 		</div>
