@@ -51,6 +51,10 @@
             font-style: normal;
             color: bisque;
         }
+   		table {
+     		width: 100%;
+      		table-layout: auto;
+    	}
     </style>
     <script>
     localStorage.setItem('loggedIn', 'true');
@@ -112,37 +116,37 @@
 
 	   <form id="manipulateUser" action="/StockManagerWebProject/UserServlet" method="get">
 	<table>
-		<thead>
-			<tr align="center">
-				<th align="center">Borrar</th>
-				<th align="center">Modificar</th>
-				<th align="center">Nombre</th>
-				<th align="center">Apellido</th>
-				<th align="center">DNI</th>
-				<th align="center">Rol</th>
-				<th align="center">Mail</th>
-				<th align="center">Telefono</th>
-				<th align="center">Genero</th>
-			</tr>
-		</thead>
+      <thead>
+        <tr>
+          <th>Borrar</th>
+          <th>Modificar</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>DNI</th>
+          <th>Rol</th>
+          <th>Mail</th>
+          <th>Telefono</th>
+          <th>Genero</th>
+        </tr>
+      </thead>
 		<%
 		List<User> userList = (List<User>) request.getAttribute("userList");
 		for (User user : userList) {
 		%>
-		<tbody>
-			<tr align="center">
-				<td><button name="delete" type="submit" value="<%=user.getId()%>">Borrar</button></td>
-				<td><button name="modify" type="submit" value="<%=user.getDni()%>">Modificar</button></td>
-				<td align="center"><%=user.getName()%></td>
-				<td align="center"><%=user.getLastName()%></td>
-				<td align="center" ><%=user.getDni()%></td>
-				<td align="center"><%=user.getRole()%></td>
-				<td align="center"><%=user.getMail()%></td>
-				<td align="center"><%=user.getPhone()%></td>
-				<td align="center"><%=user.getGender()%></td>
-			</tr>
-			<!-- Puedes agregar más filas de datos aquí -->
-		</tbody>
+<tbody>
+        <tr>
+          <td><button name="delete" type="submit" value="<%=user.getId()%>"><img src="/assets/borrar.png"></button></td>
+          <td><button name="modify" type="submit" value="<%=user.getDni()%>"><img src="/assets/editar.png"></button></td>
+          <td><%=user.getName()%></td>
+          <td><%=user.getLastName()%></td>
+          <td><%=user.getDni()%></td>
+          <td><%=user.getRole()%></td>
+          <td><%=user.getMail()%></td>
+          <td><%=user.getPhone()%></td>
+          <td><%=user.getGender()%></td>
+        </tr>
+        <!-- Puedes agregar más filas de datos aquí -->
+      </tbody>
 	</table>
 	<%
 	}
