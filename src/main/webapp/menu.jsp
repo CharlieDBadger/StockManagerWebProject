@@ -29,7 +29,7 @@
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="UserForm.jsp">Usuarios</a> <a
-							class="dropdown-item" href="ClientForm.jsp">Clientes</a> <a
+							class="dropdown-item" href="CurstomerForm.jsp">Clientes</a> <a
 							class="dropdown-item" href="ArticleForm.jsp">Articulos</a> <a
 							class="dropdown-item" href="SupplierForm.jsp">Proveedores</a> <a
 							class="dropdown-item" href="FacturaForm.jsp">Factura</a> <a
@@ -39,10 +39,10 @@
 						data-toggle="dropdown">Consultas</button>
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="User.jsp">Usuarios</a>
-						<a class="dropdown-item" href="Cliente.jsp">Clientes</a>
+						<a class="dropdown-item" href="UserSearch.jsp">Usuarios</a>
+						<a class="dropdown-item" href="CustomerSearch.jsp">Clientes</a>
 						<a class="dropdown-item" href="Article.jsp">Articulos</a>
-						<a class="dropdown-item" href="Supplier.jsp">Proveedores</a>
+						<a class="dropdown-item" href="SupplierSearch.jsp">Proveedores</a>
 						<a class="dropdown-item" href="Factura.jsp">Factura</a>
 						<a class="dropdown-item" href="Entry.jsp">Entrada</a>
 					</div>
@@ -51,7 +51,7 @@
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="UserList.jsp">Usuarios</a> 
-						<a class="dropdown-item" href="ClientList.jsp">Clientes</a>
+						<a class="dropdown-item" href="CustomerList.jsp">Clientes</a>
 						<a class="dropdown-item" href="ArticleList.jsp">Articulos</a>
 						<a class="dropdown-item" href="MovArticleList.jsp">Mov. Articulos</a>
 						<a class="dropdown-item" href="SupplierList.jsp">Proveedores</a>
