@@ -41,7 +41,7 @@
             
             <p>Dirección</p>
             <label for="addressName">Nombre: </label><br>
-            <input value="<%= customer == null ? "" : address.getName()%>" type="text" id="addressName" name="addressName" placeholder="Introduce el nombre de la calle" required>
+            <input value="<%= address == null ? "" : address.getName()%>" type="text" id="addressName" name="addressName" placeholder="Introduce el nombre de la calle" required>
             <br> 
             <label for="provincias">Selecciona una provincia:</label> 
             <br> 
@@ -200,21 +200,21 @@
 			<br> 
 			<label for="addressCity">Ciudad : </label>
 			<br>
-            <input value="<%=customer == null ? "" : address.getCity()%>" type="text" id="cityAddress" name="cityAddress" placeholder="Introduce la ciudad" required>
+            <input value="<%=address == null ? "" : address.getCity()%>" type="text" id="cityAddress" name="cityAddress" placeholder="Introduce la ciudad" required>
             <br>
             
             <label for="addressPostalCode">Codigo Postal: </label><br>
-            <input value="<%= customer == null ? "" : address.getPostalCode()%>" type="text" id="pcAddress" name="pcAddress" placeholder="Introduce el Codigo Postal" required>
+            <input value="<%= address == null ? "" : address.getPostalCode()%>" type="text" id="pcAddress" name="pcAddress" placeholder="Introduce el Codigo Postal" required>
             <br>
             
-            <input type="submit" value="<%= customer == null ? "Enviar" : "Actualizar"%>">
+            <input type="submit" value="<%= supplier == null ? "Enviar" : "Actualizar"%>">
         </form>
        	</div>
     </div>
  
-      <%if (customer != null ){ %>
+      <%if (supplier != null ){ %>
           <form id="createUser" action="/StockManagerWebProject/UserServlet" method="get">
-          <button name="delete" type="submit" value="<%=customer.getId()%>">Borrar</button>
+          <button name="delete" type="submit" value="<%=supplier.getId()%>">Borrar</button>
           </form>
         <% } %>
         
