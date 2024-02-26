@@ -28,7 +28,7 @@
 						data-toggle="dropdown">Altas</button>
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="UserForm.jsp">Usuarios</a> <a
+						<a class="dropdown-item" href="/StockManagerWebProject/UserForm.jsp">Usuarios</a> <a
 							class="dropdown-item" href="CurstomerForm.jsp">Clientes</a> <a
 							class="dropdown-item" href="ArticleForm.jsp">Articulos</a> <a
 							class="dropdown-item" href="SupplierForm.jsp">Proveedores</a> <a
@@ -39,7 +39,7 @@
 						data-toggle="dropdown">Consultas</button>
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="UserSearch.jsp">Usuarios</a>
+						<a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a>
 						<a class="dropdown-item" href="CustomerSearch.jsp">Clientes</a>
 						<a class="dropdown-item" href="Article.jsp">Articulos</a>
 						<a class="dropdown-item" href="SupplierSearch.jsp">Proveedores</a>
@@ -50,7 +50,7 @@
 						data-toggle="dropdown">Listados</button>
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="UserList.jsp">Usuarios</a> 
+						<a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a> 
 						<a class="dropdown-item" href="CustomerList.jsp">Clientes</a>
 						<a class="dropdown-item" href="ArticleList.jsp">Articulos</a>
 						<a class="dropdown-item" href="MovArticleList.jsp">Mov. Articulos</a>
