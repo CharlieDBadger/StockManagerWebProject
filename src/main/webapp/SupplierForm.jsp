@@ -35,7 +35,7 @@
             <label for="observation">Descripción de la actividad economica: </label>
             <br>
      		<textarea name="observation" rows="3" cols="50" >
-     		<%= supplier == null ? "" : supplier.getDescription()()%>
+     		<%= supplier == null ? "" : supplier.getDescription()%>
      		</textarea>
      		<br>
             

@@ -17,46 +17,46 @@
 	<%
 	User userLogged = (User) session.getAttribute("userLogged");
 	%>
-	<div class="container mt-5">
+<div class="container col-12 md-9 lg-6 mt-5">
 		<div class="menu-container">
 			<div class="form-group" align="center">
 				<div class="dropdown">
 					<!-- Botón que activa el dropdown -->
 					<!-- Elementos del dropdown -->
-					<button type="submit" class="btn btn-primary"
+					<button type="button" class="btn btn-primary"
 						data-toggle="dropdown">Altas</button>
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Usuarios</a> <a
-							class="dropdown-item" href="#">Clientes</a> <a
-							class="dropdown-item" href="#">Articulos</a> <a
-							class="dropdown-item" href="#">Proveedores</a> <a
-							class="dropdown-item" href="#">Factura</a> <a
-							class="dropdown-item" href="#">Entrada</a>
+						<a class="dropdown-item" href="UserForm.jsp">Usuarios</a> <a
+							class="dropdown-item" href="ClientForm.jsp">Clientes</a> <a
+							class="dropdown-item" href="ArticleForm.jsp">Articulos</a> <a
+							class="dropdown-item" href="SupplierForm.jsp">Proveedores</a> <a
+							class="dropdown-item" href="FacturaForm.jsp">Factura</a> <a
+							class="dropdown-item" href="EntryForm.jsp">Entrada</a>
 					</div>
-					<button type="submit" class="btn btn-primary"
+					<button type="button" class="btn btn-primary"
 						data-toggle="dropdown">Consultas</button>
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Usuarios</a>
-						<a class="dropdown-item" href="#">Clientes</a>
-						<a class="dropdown-item" href="#">Articulos</a>
-						<a class="dropdown-item" href="#">Proveedores</a>
-						<a class="dropdown-item" href="#">Factura</a>
-						<a class="dropdown-item" href="#">Entrada</a>
+						<a class="dropdown-item" href="User.jsp">Usuarios</a>
+						<a class="dropdown-item" href="Cliente.jsp">Clientes</a>
+						<a class="dropdown-item" href="Article.jsp">Articulos</a>
+						<a class="dropdown-item" href="Supplier.jsp">Proveedores</a>
+						<a class="dropdown-item" href="Factura.jsp">Factura</a>
+						<a class="dropdown-item" href="Entry.jsp">Entrada</a>
 					</div>
-					<button type="submit" class="btn btn-primary"
+					<button type="button" class="btn btn-primary"
 						data-toggle="dropdown">Listados</button>
 
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a> 
-						<a class="dropdown-item" href="/UserForm.jps">Clientes</a>
-						<a class="dropdown-item" href="#">Articulos</a>
-						<a class="dropdown-item" href="#">Mov. Articulos</a>
-						<a class="dropdown-item" href="#">Proveedores</a>
+						<a class="dropdown-item" href="UserList.jsp">Usuarios</a> 
+						<a class="dropdown-item" href="ClientList.jsp">Clientes</a>
+						<a class="dropdown-item" href="ArticleList.jsp">Articulos</a>
+						<a class="dropdown-item" href="MovArticleList.jsp">Mov. Articulos</a>
+						<a class="dropdown-item" href="SupplierList.jsp">Proveedores</a>
 					</div>
 
-					<button type="submit" class="btn btn-primary">Cerrar
+					<button type="button" class="btn btn-primary">Cerrar
 						Sesión</button>
 				</div>
 

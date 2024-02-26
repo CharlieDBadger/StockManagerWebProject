@@ -65,16 +65,48 @@
     <script src="./assets/script.js"></script>
 </head>
 <body>
- <div class="container col-12 md-9 lg-6 mt-5">
-        <div class="menu-container">
-            <div class="form-group" align="center">
-                <button type="button" class="btn btn-primary "><a href="#">Altas</a></button>
+<div class="container col-12 md-9 lg-6 mt-5">
+		<div class="menu-container">
+			<div class="form-group" align="center">
+				<div class="dropdown">
+					<!-- Botón que activa el dropdown -->
+					<!-- Elementos del dropdown -->
+										<button type="button" class="btn btn-primary"
+						data-toggle="dropdown">Altas</button>
 
-                <button type="button" class="btn btn-primary"><a href="#">Bajas</a></button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="UserForm.jsp">Usuarios</a> <a
+							class="dropdown-item" href="ClientForm.jsp">Clientes</a> <a
+							class="dropdown-item" href="ArticleForm.jsp">Articulos</a> <a
+							class="dropdown-item" href="SupplierForm.jsp">Proveedores</a> <a
+							class="dropdown-item" href="FacturaForm.jsp">Factura</a> <a
+							class="dropdown-item" href="EntryForm.jsp">Entrada</a>
+					</div>
+					<button type="button" class="btn btn-primary"
+						data-toggle="dropdown">Consultas</button>
 
-                <button type="button" class="btn btn-primary"><a href="#">Consulta Listado</a></button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="User.jsp">Usuarios</a>
+						<a class="dropdown-item" href="Cliente.jsp">Clientes</a>
+						<a class="dropdown-item" href="Article.jsp">Articulos</a>
+						<a class="dropdown-item" href="Supplier.jsp">Proveedores</a>
+						<a class="dropdown-item" href="Factura.jsp">Factura</a>
+						<a class="dropdown-item" href="Entry.jsp">Entrada</a>
+					</div>
+					<button type="button" class="btn btn-primary"
+						data-toggle="dropdown">Listados</button>
 
-                <button type="button" class="btn btn-primary" id="logoutButton">Cerrar Sesión</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="UserList.jsp">Usuarios</a> 
+						<a class="dropdown-item" href="ClientList.jsp">Clientes</a>
+						<a class="dropdown-item" href="ArticleList.jsp">Articulos</a>
+						<a class="dropdown-item" href="MovArticleList.jsp">Mov. Articulos</a>
+						<a class="dropdown-item" href="SupplierList.jsp">Proveedores</a>
+					</div>
+
+					<button type="button" class="btn btn-primary">Cerrar
+						Sesión</button>
+				</div>
 
                 <h2 class="text-center col-12 mb-4 mt-4">Bienvenido! <%= session.getAttribute("usuario") %></h2>
 
