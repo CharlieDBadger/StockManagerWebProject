@@ -24,37 +24,36 @@
 				<div class="dropdown">
 					<!-- Botón que activa el dropdown -->
 					<!-- Elementos del dropdown -->
-					<button type="button" class="btn btn-primary"
+					<button type="button" class="btn btn-primary 1"
 						data-toggle="dropdown">Altas</button>
-
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a> <a
-							class="dropdown-item" href="/StockManagerWebProject/UserForm.jsp">Clientes</a> <a
-							class="dropdown-item" href="ArticleForm.jsp">Articulos</a> <a
-							class="dropdown-item" href="SupplierForm.jsp">Proveedores</a> <a
-							class="dropdown-item" href="FacturaForm.jsp">Factura</a> <a
-							class="dropdown-item" href="EntryForm.jsp">Entrada</a>
+						<a class="dropdown-item" href="/StockManagerWebProject/UserForm.jsp">Usuarios</a> <a
+							class="dropdown-item" href="#1">Clientes</a> <a
+							class="dropdown-item" href="#2">Articulos</a> <a
+							class="dropdown-item" href="#3">Proveedores</a> <a
+							class="dropdown-item" href="#4">Factura</a> <a
+							class="dropdown-item" href="#5">Entrada</a>
 					</div>
-					<button type="button" class="btn btn-primary"
+					
+					<button type="button" class="btn btn-primary 2"
 						data-toggle="dropdown">Consultas</button>
-
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a>
-						<a class="dropdown-item" href="CustomerSearch.jsp">Clientes</a>
-						<a class="dropdown-item" href="Article.jsp">Articulos</a>
-						<a class="dropdown-item" href="SupplierSearch.jsp">Proveedores</a>
-						<a class="dropdown-item" href="Factura.jsp">Factura</a>
-						<a class="dropdown-item" href="Entry.jsp">Entrada</a>
+						<a class="dropdown-item" href="#">Usuarios</a>
+						<a class="dropdown-item" href="#">Clientes</a>
+						<a class="dropdown-item" href="#">Articulos</a>
+						<a class="dropdown-item" href="#">Proveedores</a>
+						<a class="dropdown-item" href="#">Factura</a>
+						<a class="dropdown-item" href="#">Entrada</a>
 					</div>
-					<button type="button" class="btn btn-primary"
+					
+					<button type="button" class="btn btn-primary 3"
 						data-toggle="dropdown">Listados</button>
-
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a> 
-						<a class="dropdown-item" href="CustomerList.jsp">Clientes</a>
-						<a class="dropdown-item" href="ArticleList.jsp">Articulos</a>
-						<a class="dropdown-item" href="MovArticleList.jsp">Mov. Articulos</a>
-						<a class="dropdown-item" href="SupplierList.jsp">Proveedores</a>
+						<a class="dropdown-item" href="#4">Clientes</a>
+						<a class="dropdown-item" href="#3">Articulos</a>
+						<a class="dropdown-item" href="#2">Mov. Articulos</a>
+						<a class="dropdown-item" href="#1">Proveedores</a>
 					</div>
 
 					<button type="button" class="btn btn-primary">Cerrar
@@ -63,7 +62,7 @@
 
 				<h2 class="text-center col-12 mb-4 mt-4">
 					<%= message == null ? "Bienvenido!" : message %>
-					<%= message != null ? userLogged.getName():"" %></h2>
+					<%= message == null ? userLogged.getName():"" %></h2>
 				<%-- <div class="container-form col-12 col-md-6 col-lg-3"><%= codigo de JAVA mostrando Formulario %></div> --%>
 			</div>
 		</div>

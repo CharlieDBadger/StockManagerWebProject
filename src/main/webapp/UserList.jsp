@@ -189,11 +189,12 @@ tbody td {
 								<th>Genero</th>
 							</tr>
 						</thead>
-						<%
+					
+						<tbody>
+							<%
 						List<User> userList = (List<User>) request.getAttribute("userList");
 						for (User user : userList) {
 						%>
-						<tbody>
 							<tr>
 								<td><button name="delete" type="submit"
 										value="<%=user.getId()%>">
@@ -211,11 +212,12 @@ tbody td {
 								<td><%=user.getPhone()%></td>
 								<td><%=user.getGender()%></td>
 							</tr>
+							<%
+							}
+							%>
 						</tbody>
 					</table>
-					<%
-					}
-					%>
+					
 				</form>
 			</div>
 		</div>
