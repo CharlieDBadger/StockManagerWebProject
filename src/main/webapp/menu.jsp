@@ -24,8 +24,8 @@
 				<div class="dropdown">
 					<!-- Botón que activa el dropdown -->
 					<!-- Elementos del dropdown -->
-					<button type="button" class="btn btn-primary"
-						data-toggle="altas">Altas</button>
+					<button type="button" class="btn btn-primary 1"
+						data-toggle="dropdown">Altas</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="/StockManagerWebProject/UserForm.jsp">Usuarios</a> <a
 							class="dropdown-item" href="#1">Clientes</a> <a
@@ -35,8 +35,8 @@
 							class="dropdown-item" href="#5">Entrada</a>
 					</div>
 					
-					<button type="button" class="btn btn-primary"
-						data-toggle="consultas">Consultas</button>
+					<button type="button" class="btn btn-primary 2"
+						data-toggle="dropdown">Consultas</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="#">Usuarios</a>
 						<a class="dropdown-item" href="#">Clientes</a>
@@ -46,8 +46,8 @@
 						<a class="dropdown-item" href="#">Entrada</a>
 					</div>
 					
-					<button type="button" class="btn btn-primary"
-						data-toggle="listados">Listados</button>
+					<button type="button" class="btn btn-primary 3"
+						data-toggle="dropdown">Listados</button>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a> 
 						<a class="dropdown-item" href="#4">Clientes</a>
@@ -61,8 +61,8 @@
 				</div>
 
 				<h2 class="text-center col-12 mb-4 mt-4">
-					<%= message == null ? "Bienvenido!" : message %>
-					<%= message == null ? userLogged.getName():"" %></h2>
+					Bienvenido!
+					<%=session.getAttribute("usuario")%></h2>
 				<%-- <div class="container-form col-12 col-md-6 col-lg-3"><%= codigo de JAVA mostrando Formulario %></div> --%>
 			</div>
 		</div>
