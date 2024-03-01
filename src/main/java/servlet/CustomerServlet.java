@@ -49,11 +49,17 @@ public class CustomerServlet extends HttpServlet {
 
 		if (request.getParameter("delete") != null) {
 
-			customerDAO.deleteCustomerById(Long.parseLong(request.getParameter("delete")));
+			String message = customerDAO.deleteCustomerById(Long.parseLong(request.getParameter("delete")));
+			
+			request.setAttribute("message", message);
 
-		} else if (request.getParameter("modify") != null) {}
+			RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
+			// Se envia al JSP
+			rd.forward(request, response);
 
-		searchCustomer = customerDAO.selectCustomerByDNI(request.getParameter("modify"));
+		} else if (request.getParameter("modify") != null) {
+
+			searchCustomer = customerDAO.selectCustomerByDNI(request.getParameter("modify"));
 
 			// Redirección a JSP
 			request.setAttribute("customerToModify", searchCustomer);
@@ -63,7 +69,7 @@ public class CustomerServlet extends HttpServlet {
 			rd.forward(request, response);
 		}
 
-	
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -75,7 +81,7 @@ public class CustomerServlet extends HttpServlet {
 		// Objetos inicializados.
 		Customer customer;
 		Address address;
-		
+
 		// Conexión.
 		CustomerDAO customerDAO = new CustomerDAO(em);
 
@@ -91,7 +97,6 @@ public class CustomerServlet extends HttpServlet {
 		String mobile = request.getParameter("mobile");
 		String observation = request.getParameter("observation");
 
-		
 		// Recoleccion de datos Dirección
 		String addressName = request.getParameter("addressName");
 		String province = request.getParameter("province");
@@ -99,20 +104,22 @@ public class CustomerServlet extends HttpServlet {
 		String postalCode = request.getParameter("pcAddress");
 
 		// Creación de Address
-		address = new Address(addressName,province,city,postalCode);
-		
+		address = new Address(addressName, province, city, postalCode);
+
 		// Creación de objeto Customer
-		customer = new Customer(name,dni,mobile,address,observation);
+		customer = new Customer(name, dni, mobile, address, observation);
 
 		// Inicialización mensaje
 		String message = null;
-		
+
 		// Inserción o actualización a DDBB
 		if (idLong == 0) {
+			System.out.println("Pasa por inserción");
 			message = customerDAO.insertCustomer(customer);
 		} else if (idLong != 0) {
+			System.out.println("Pasa por actualización");
 			customer.setId(idLong);
-			message= customerDAO.updateCustomer(idLong, customer);
+			message = customerDAO.updateCustomer(idLong, customer);
 		}
 		// Redirección a JSP
 		request.setAttribute("message", message);

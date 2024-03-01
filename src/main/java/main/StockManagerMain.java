@@ -192,15 +192,15 @@ public class StockManagerMain {
 //		
 //		//TEST CUSTOMER
 //		
-//		Address customerAddress = new Address ("Calle","Tarragona","cataluña","test"); 
-//		Customer customerTest = new Customer ("CustomerTest","asdqwe","333333333",customerAddress,"ObservationTest");
-//		
-//		CustomerDAO customerDao = new CustomerDAO (main.em);
-//		
-//		customerDao.insertCustomer(customerTest);
-//		
+		Address customerAddress = new Address ("Calle","Tarragona","cataluña","test"); 
+		Customer customerTest = new Customer ("CustomerTest","asdqwe","333333333",customerAddress,"ObservationTest");
+		
+		CustomerDAO customerDao = new CustomerDAO (main.em);
+		
+		customerDao.insertCustomer(customerTest);
+		
 //		List<Customer> customerList = customerDao.selectCustomer();
-//
+
 //		customerList.forEach(customer -> logger.info(customer));
 //		
 //		

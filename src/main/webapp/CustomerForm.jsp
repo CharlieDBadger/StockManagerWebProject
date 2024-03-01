@@ -20,6 +20,9 @@
         }
 		%>
         	<p>Cliente</p>
+        	
+        	<input name="idCustomer" value="<%= customer == null ? "" : customer.getId()%>" type="hidden" id="customerId">
+        	
             <label for="name" >Nombre:</label><br>
             <input name="name" value="<%= customer == null ? "" : customer.getName() %>" type="text" id="name" placeholder="Introduce tu Nombre" required>
             <br>

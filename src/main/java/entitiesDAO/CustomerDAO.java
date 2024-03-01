@@ -72,16 +72,20 @@ public class CustomerDAO {
 		return searchCustomer;
 	}
 
-	public void deleteCustomerById(long id) {
+	public String deleteCustomerById(long id) {
+		String message = null;
+		
 		try {
 			Customer search = em.find(Customer.class, id);
 			em.getTransaction().begin();
 			em.remove(search);
 			em.getTransaction().commit();
+			message = "Cliente eliminado.";
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 			e.printStackTrace();
 		}
+		return message;
 	}
 
 	public void deleteCustomerByDNI(String customerDNI) {
