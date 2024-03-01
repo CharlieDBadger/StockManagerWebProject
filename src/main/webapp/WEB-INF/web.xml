@@ -41,6 +41,18 @@
   	<description></description>
   	<servlet-class>servlet.UserListServlet</servlet-class>
   </servlet>
+    <servlet>
+  	<servlet-name>CustomerServlet</servlet-name>
+  	<display-name>CustomerServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlet.CustomerServlet</servlet-class>
+  </servlet>
+    <servlet>
+  	<servlet-name>CustomerListServlet</servlet-name>
+  	<display-name>CustomerListServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlet.CustomerListServlet</servlet-class>
+  </servlet>
 
   
 <!--   MAPPING -->
@@ -69,6 +81,15 @@
   	<url-pattern>/UserListServlet</url-pattern>
   </servlet-mapping>
 
+	<!-- CUSTOMER MAPPING -->
+  <servlet-mapping>
+  	<servlet-name>CustomerServlet</servlet-name>
+  	<url-pattern>/CustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CustomerListServlet</servlet-name>
+  	<url-pattern>/CustomerListServlet</url-pattern>
+  </servlet-mapping>
 
 
 </web-app>

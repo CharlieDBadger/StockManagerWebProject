@@ -70,18 +70,20 @@ public class UserDAO {
 		return searchUser;
 	}
 
-	public void deleteUserById(long id) {
+	public String deleteUserById(long id) {
+		String message = null;
+		
 		try {
 			User search = em.find(User.class, id);
 			em.getTransaction().begin();
 			em.remove(search);
 			em.getTransaction().commit();
+			message = "Usuario eliminado.";
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 			e.printStackTrace();
-		} finally {
-			em.close();
 		}
+		return message;
 	}
 
 	public void deleteUserByDni(String dni) {
@@ -142,7 +144,7 @@ public class UserDAO {
 
 			em.getTransaction().commit();
 
-			message = "Usuario Añadido con exito.";
+			message = "Usuario actualizado con exito.";
 		} catch (NoResultException nre) {
 			message = "Usuario no encontrado.";
 			System.out.println("User NOT found.");

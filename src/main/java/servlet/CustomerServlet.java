@@ -1,14 +1,11 @@
 package servlet;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.util.Date;
 
-import entities.User;
-import entitiesDAO.UserDAO;
-import enums.UserENUM;
+import entities.Address;
+import entities.Customer;
+import entitiesDAO.CustomerDAO;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.NoResultException;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
@@ -18,20 +15,19 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import tools.JpaUtil;
-import tools.Tools;
 
 /**
  * Servlet implementation class UserServlet
  */
 @WebInitParam(name = "persistenceUnit", value = "HibernateOracle")
-public class UserServlet extends HttpServlet {
+public class CustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private EntityManager em = JpaUtil.getEM("HibernateOracle");
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public UserServlet() {
+	public CustomerServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -47,33 +43,27 @@ public class UserServlet extends HttpServlet {
 
 		// Modificación, recibe los datos de UserList
 
-		UserDAO userDAO = new UserDAO(em);
+		CustomerDAO customerDAO = new CustomerDAO(em);
 
-		User searchUser = null;
+		Customer searchCustomer = null;
 
 		if (request.getParameter("delete") != null) {
 
-			String message = userDAO.deleteUserById(Long.parseLong(request.getParameter("delete")));
-			
-			request.setAttribute("message", message);
+			customerDAO.deleteCustomerById(Long.parseLong(request.getParameter("delete")));
 
-			RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
-			// Se envia al JSP
-			rd.forward(request, response);
+		} else if (request.getParameter("modify") != null) {}
 
-		} else if (request.getParameter("modify") != null) {
-
-			searchUser = userDAO.selectUserByDNI(request.getParameter("modify"));
+		searchCustomer = customerDAO.selectCustomerByDNI(request.getParameter("modify"));
 
 			// Redirección a JSP
-			request.setAttribute("userToModify", searchUser);
+			request.setAttribute("customerToModify", searchCustomer);
 
-			RequestDispatcher rd = request.getRequestDispatcher("UserForm.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("CustomerForm.jsp");
 			// Se envia al JSP
 			rd.forward(request, response);
 		}
 
-	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -82,53 +72,47 @@ public class UserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		User user;
-		// Conexión
-		UserDAO userDAO = new UserDAO(em);
+		// Objetos inicializados.
+		Customer customer;
+		Address address;
+		
+		// Conexión.
+		CustomerDAO customerDAO = new CustomerDAO(em);
 
-		// Recolección de datos.
-		String id = request.getParameter("idUser");
+		// Recolección de datos Cliente.
+		String id = request.getParameter("idCustomer");
 		long idLong = 0;
 		try {
 			idLong = Long.parseLong(id);
 		} catch (NumberFormatException e) {
 		}
-
 		String name = request.getParameter("name");
-		String lastName = request.getParameter("lastName");
 		String dni = request.getParameter("dni");
-		String password = request.getParameter("password");
-		String role = request.getParameter("role");
-		String mail = request.getParameter("email");
-		String phone = request.getParameter("telephone");
-		String gender = request.getParameter("gender");
-
-		String birth = request.getParameter("birth");
-
-		// Conversión fechaString -> fechaDate
-//		System.out.println("Formato cumpleaños " + birth);
-		Date dateBirth;
-		try {
-			dateBirth = Tools.convertStringToDate(birth);
-		} catch (ParseException e) {
-			dateBirth = null;
-			e.printStackTrace();
-		}
-		
-//		System.out.println(Tools.convertDateToString(dateBirth));
-	
-		
-		// Creación de Objeto
-		user = new User(name, lastName, dni, password, role, mail, phone, gender, dateBirth);
+		String mobile = request.getParameter("mobile");
+		String observation = request.getParameter("observation");
 
 		
+		// Recoleccion de datos Dirección
+		String addressName = request.getParameter("addressName");
+		String province = request.getParameter("province");
+		String city = request.getParameter("cityAddress");
+		String postalCode = request.getParameter("pcAddress");
+
+		// Creación de Address
+		address = new Address(addressName,province,city,postalCode);
+		
+		// Creación de objeto Customer
+		customer = new Customer(name,dni,mobile,address,observation);
+
+		// Inicialización mensaje
 		String message = null;
+		
 		// Inserción o actualización a DDBB
 		if (idLong == 0) {
-			message = userDAO.insertUser(user);
+			message = customerDAO.insertCustomer(customer);
 		} else if (idLong != 0) {
-			user.setId(idLong);
-			message= userDAO.updateUser(idLong, user);
+			customer.setId(idLong);
+			message= customerDAO.updateCustomer(idLong, customer);
 		}
 		// Redirección a JSP
 		request.setAttribute("message", message);
