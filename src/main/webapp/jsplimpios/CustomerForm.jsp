@@ -20,16 +20,19 @@
         }
 		%>
         	<p>Cliente</p>
-            <label for="name">Nombre:</label><br>
-            <input value="<%= customer == null ? "" : customer.getName() %>" type="text" id="name" name="name" placeholder="Introduce tu Nombre" required>
+        	
+        	<input name="idCustomer" value="<%= customer == null ? "" : customer.getId()%>" type="hidden" id="customerId">
+        	
+            <label for="name" >Nombre:</label><br>
+            <input name="name" value="<%= customer == null ? "" : customer.getName() %>" type="text" id="name" placeholder="Introduce tu Nombre" required>
             <br>
             
-            <label for="mobile">DNI:</label><br>
-            <input value="<%= customer == null ? "" : customer.getDni()%>" type="text" id="dni" name="dni" placeholder="Introduce tu DNI" required>
+            <label for="dni">DNI:</label><br>
+            <input name="dni" value="<%= customer == null ? "" : customer.getDni()%>" type="text" id="dni" placeholder="Introduce tu DNI" required>
             <br>
             
-            <label for="telephone">Telefono: </label><br>
-            <input value="<%= customer == null ? "" : customer.getMobile()%>" type="text" id="mobile" name="mobile" placeholder="Introduce tu Telefono" required>
+            <label for="mobile">Telefono: </label><br>
+            <input name="mobile" value="<%= customer == null ? "" : customer.getMobile()%>" type="text" id="mobile" placeholder="Introduce tu Telefono" required>
             <br>
             
             <label for="observation">Observacion sobre el Cliente: </label>
@@ -41,11 +44,11 @@
             
             <p>Dirección</p>
             <label for="addressName">Nombre: </label><br>
-            <input value="<%= customer == null ? "" : address.getName()%>" type="text" id="addressName" name="addressName" placeholder="Introduce el nombre de la calle" required>
+            <input name="addressName" value="<%= customer == null ? "" : address.getName()%>" type="text" id="addressName" placeholder="Introduce el nombre de la calle" required>
             <br> 
             <label for="provincias">Selecciona una provincia:</label> 
             <br> 
-            <select id="provincias" name="provincias">
+            <select id="provincias" name="province">
 					<option value="Álava"
 						<%if (address != null && address.getProvince().equals("Álava")) {%>
 						selected <%}%>>Álava</option>
@@ -198,12 +201,12 @@
 						selected <%}%>>Zaragoza</option>
 				</select> 
 			<br> 
-			<label for="addressCity">Ciudad : </label>
+			<label for="cityAddress">Ciudad : </label>
 			<br>
             <input value="<%=customer == null ? "" : address.getCity()%>" type="text" id="cityAddress" name="cityAddress" placeholder="Introduce la ciudad" required>
             <br>
             
-            <label for="addressPostalCode">Codigo Postal: </label><br>
+            <label for="pcAddress">Codigo Postal: </label><br>
             <input value="<%= customer == null ? "" : address.getPostalCode()%>" type="text" id="pcAddress" name="pcAddress" placeholder="Introduce el Codigo Postal" required>
             <br>
             
@@ -213,7 +216,7 @@
     </div>
  
       <%if (customer != null ){ %>
-          <form id="createUser" action="/StockManagerWebProject/UserServlet" method="get">
+          <form id="delete" action="/StockManagerWebProject/CustomerServlet" method="get">
           <button name="delete" type="submit" value="<%=customer.getId()%>">Borrar</button>
           </form>
         <% } %>
