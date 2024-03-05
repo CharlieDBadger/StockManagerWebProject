@@ -1,2 +1,8 @@
-MENU- USERLIST and USERFORM OK ! NO TOCAR.
-Revisar UserForm no da OK cuando añades usuario a la BBDD.
+Creacion de nuevo CSS propio.
+Aplicación, Configuración y Optimización de Bootstrap 5.0
+Configuracion de Script Bootstrap para DownDrops.
+Configuracion de Script Bootstrap para Generacion de Tablas y Filtros.
+------------------------------------------------------------------------
+Configuracion y Optimizacion de WEB Responsive.
+Generación de Tablas y Filas en funcion de los datos recibidos de Servlet. (Backend)
+
