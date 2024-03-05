@@ -73,33 +73,33 @@ public class StockManagerMain {
 		 */
 
 		// ADDRESS TEST
-		AddressDAO addressDAO = new AddressDAO(main.em);
-
-		Address a1 = new Address("Calle1", "Madrid", "Pinto", "28320");
-		
-		Address a2 = new Address("CalleDelete", "Madrid", "Pinto", "28320");
-
-		addressDAO.insertAddress(a1);
-		addressDAO.insertAddress(a2);
-
-		List<Address> addressList = addressDAO.selectAddress();
-
-		System.out.println("Cafe");
-				
-		System.out.println("Get by name Test");
-		
-		List <Address> addressByNameList = addressDAO.getAddressByName("CalleDelete");
-		
-		a1.setCity("Calle Actualizada");
-		
-		addressDAO.updateAddress(a1.getId(), a1);
-		
-		List <Address> updatedList = addressDAO.selectAddress();
-		
-		for (Address address : updatedList) {
-			System.out.println(address);
-		}
-		
+//		AddressDAO addressDAO = new AddressDAO(main.em);
+//
+//		Address a1 = new Address("Calle1", "Madrid", "Pinto", "28320");
+//		
+//		Address a2 = new Address("CalleDelete", "Madrid", "Pinto", "28320");
+//
+//		addressDAO.insertAddress(a1);
+//		addressDAO.insertAddress(a2);
+//
+//		List<Address> addressList = addressDAO.selectAddress();
+//
+//		System.out.println("Cafe");
+//				
+//		System.out.println("Get by name Test");
+//		
+//		List <Address> addressByNameList = addressDAO.getAddressByName("CalleDelete");
+//		
+//		a1.setCity("Calle Actualizada");
+//		
+//		addressDAO.updateAddress(a1.getId(), a1);
+//		
+//		List <Address> updatedList = addressDAO.selectAddress();
+//		
+//		for (Address address : updatedList) {
+//			System.out.println(address);
+//		}
+//		
 //		addressDAO.deleteAddressByName("CalleDelete");
 		
 		
@@ -149,8 +149,9 @@ public class StockManagerMain {
 //		supplierList.forEach(supplier -> logger.info(supplier));
 //
 //		// USER TEST
-//		
-		User u1 = new User(2,"x","x","x","x","x","x","x","x",new Date());
+		logger.info("PRUEBA LOGGER");
+		
+		User u1 = new User("x","x","x","x","x","x","x","x",new Date());
 
 		UserDAO userDAO = new UserDAO(main.em);
 		
@@ -192,12 +193,12 @@ public class StockManagerMain {
 //		
 //		//TEST CUSTOMER
 //		
-		Address customerAddress = new Address ("Calle","Tarragona","cataluña","test"); 
-		Customer customerTest = new Customer ("CustomerTest","asdqwe","333333333",customerAddress,"ObservationTest");
-		
-		CustomerDAO customerDao = new CustomerDAO (main.em);
-		
-		customerDao.insertCustomer(customerTest);
+//		Address customerAddress = new Address ("Calle","Tarragona","cataluña","test"); 
+//		Customer customerTest = new Customer ("CustomerTest","asdqwe","333333333",customerAddress,"ObservationTest");
+//		
+//		CustomerDAO customerDao = new CustomerDAO (main.em);
+//		
+//		customerDao.insertCustomer(customerTest);
 		
 //		List<Customer> customerList = customerDao.selectCustomer();
 

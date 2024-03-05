@@ -2,6 +2,9 @@ package entitiesDAO;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import entities.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
@@ -10,6 +13,8 @@ import jakarta.persistence.TypedQuery;
 
 public class UserDAO {
 	private EntityManager em;
+	private static final Logger logger = LogManager.getLogger(User.class);
+
 
 	// CONSTRUCTOR
 	public UserDAO(EntityManager em) {
@@ -24,9 +29,11 @@ public class UserDAO {
 			em.persist(user);
 			em.getTransaction().commit();
 			message = "Usuario insertado con exito.";
+			logger.info("Usuario insertado con exito.");
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 			message = "Ha ocurrido un error, intente de nuevo.";
+			logger.info("Ha ocurrido un error, intente de nuevo.");
 		}
 		return message;
 	}
@@ -34,7 +41,7 @@ public class UserDAO {
 	public void insertUserList(List<User> users) {
 		em.getTransaction().begin();
 		try {
-
+			logger.info("Insertando listado de usuarios.");
 			for (User user : users) {
 				em.persist(user);
 			}
@@ -46,12 +53,13 @@ public class UserDAO {
 	}
 
 	public List<User> selectUser() {
+		logger.info("Consultando listado de Usuarios");
 		return em.createQuery("from User", User.class).getResultList();
 	}
 
 	public List<User> getUserByName(String userName) {
 		List<User> users;
-
+		logger.info("Consultando usuario por nombre: " + userName);
 		Query query = em.createQuery("from User ue where ue.name=?1", User.class);
 
 		query.setParameter(1, userName);
@@ -61,7 +69,8 @@ public class UserDAO {
 	}
 
 	public User selectUserByDNI(String userDNI) throws NoResultException {
-
+		
+		logger.info("Consultando Usuario por DNI: " + userDNI);
 		TypedQuery<User> query = em.createQuery("from User where dni=?1", User.class);
 		query.setParameter(1, userDNI);
 
@@ -79,6 +88,7 @@ public class UserDAO {
 			em.remove(search);
 			em.getTransaction().commit();
 			message = "Usuario eliminado.";
+			logger.info("Usuario eliminado.");
 		} catch (Exception e) {
 			em.getTransaction().rollback();
 			e.printStackTrace();
@@ -145,14 +155,15 @@ public class UserDAO {
 			em.getTransaction().commit();
 
 			message = "Usuario actualizado con exito.";
+			logger.info("Usuario actualizado con exito.");
 		} catch (NoResultException nre) {
 			message = "Usuario no encontrado.";
-			System.out.println("User NOT found.");
+			logger.info("Usuario no encontrado.");
 		} catch (Exception e) {
 			e.printStackTrace();
 			em.getTransaction().rollback();
 			message = "Ha ocurrido un error. Intentelo de nuevo.";
-			System.out.println(message);
+			logger.info("Ha ocurrido un error. Intentelo de nuevo.");
 		}
 		return message;
 	}

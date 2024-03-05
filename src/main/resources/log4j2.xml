@@ -30,6 +30,11 @@
 			<AppenderRef ref="LogToConsole" />
 			 <AppenderRef ref="rollingFile"/>
 		</Logger>
+			<Logger name="src.main.java" level="info"
+			additivity="false">
+			<AppenderRef ref="LogToConsole" />
+			 <AppenderRef ref="rollingFile"/>
+		</Logger>
 		<Root level="trace">
 			<AppenderRef ref="LogToConsole" />
 			 <AppenderRef ref="rollingFile"/>
