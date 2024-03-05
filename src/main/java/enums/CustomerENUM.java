@@ -13,16 +13,14 @@ public enum CustomerENUM {
 
 	private List<Customer> CustomerList;
 
-	private CustomerENUM() {
 
+	public List<Customer> getCustomerList() {
 		EntityManager em = JpaUtil.getEM("HibernateOracle");
 
 		CustomerDAO customerDao = new CustomerDAO(em);
 
 		this.CustomerList = customerDao.selectCustomer();
-	}
-
-	public List<Customer> getCustomerList() {
+		
 		return CustomerList;
 	}
 

@@ -13,16 +13,13 @@ public enum UserENUM {
 
 	private List<User> userList;
 
-	private UserENUM() {
-
+	public List<User> getUserList() {
+		
 		EntityManager em = JpaUtil.getEM("HibernateOracle");
 
 		UserDAO userDao = new UserDAO(em);
 
 		this.userList = userDao.selectUser();
-	}
-
-	public List<User> getUserList() {
 		return userList;
 	}
 
