@@ -1,210 +1,172 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="entities.User,tools.Tools"%>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Manager App</title>
-    <link rel="icon" type="image/icon" href="favicon.ico"/>
-    <!-- Enlace al CSS de Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        /* Estilos personalizados Archivo Alta Usuario*/
-        body {
-            background-color: #323334;
-            /* Color de fondo gris oscuro */
-        }
-
-        .menu-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-            /* Color de fondo del formulario */
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            /* Sombra suave */
-        }
-
-        .menu-label {
-            color: #ffffff;
-            /* Color blanco para la etiqueta "Menú" */
-            font-size: 14px;
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        .menu-container .btn-primary {
-            background-color: #818181;
-            /* Color de botón gris claro */
-            border: none;
-        }
-
-        .menu-container .btn-primary:hover {
-            background-color: #606263;
-            /* Color de botón gris oscuro al pasar el ratón */
-        }
-
-        .footer {
-            position: center;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-style: normal;
-            color: bisque;
-        }
-
-        /* Personalizar el color de fondo del dropdown para que sea el mismo que btn-primary */
-        .dropdown-menu {
-            background-color: #818181;
-            color: white;
-        }
-
-        /* Personalizar el color de fondo de las opciones del dropdown cuando se seleccionan */
-        .dropdown-menu .dropdown-item:focus,
-        .dropdown-menu .dropdown-item:hover {
-            background-color: #343a40;
-            color: white;
-        }
-
-        /* Personalizar el color de fondo del botón para que sea gris */
-        .btn-primary {
-            background-color: #6c757d;
-            border-color: #6c757d;
-        }
-
-        /* Personalizar el color de fondo del botón cuando se pasa por encima o se selecciona */
-        .btn-primary:hover,
-        .btn-primary:focus,
-        .btn-primary:active {
-            background-color: #5a6268;
-            border-color: #545b62;
-        }
-    </style>
-    <script>
-    localStorage.setItem('loggedIn', 'true');
-    var loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
-    document.getElementById('logoutButton').addEventListener('click', function() {
-        localStorage.setItem('loggedIn', 'false');
-        alert('Has cerrado la sesión');
-    });
-    </script>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Creacion de Proyecto JAVA Hibernate-MAVEN-Bootstrap-CSS-HTML-Responsive">
+    <meta name="authors" content="Carlos & David">
+    <title>StockManager v.2</title>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/imgs/favicon.ico" type="image/x-icon">
+    <!-- Coleccion de font icons -->
+    <link rel="stylesheet" href="assets/themify-icons.css">
+    <!-- Bootstrap + stilo CSS -->
+	<link rel="stylesheet" href="assets/stock.css">
 </head>
 <body>
-<div class="container col-12 md-9 lg-6 mt-5">
-		<div class="menu-container">
-			<div class="form-group" align="center">
-				<div class="dropdown">
-					<!-- Botón que activa el dropdown -->
-					<!-- Elementos del dropdown -->
-					<button type="button" class="btn btn-primary"
-						data-toggle="dropdown">Altas</button>
 
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="UserForm.jsp">Usuarios</a> <a
-							class="dropdown-item" href="ClientForm.jsp">Clientes</a> <a
-							class="dropdown-item" href="ArticleForm.jsp">Articulos</a> <a
-							class="dropdown-item" href="SupplierForm.jsp">Proveedores</a> <a
-							class="dropdown-item" href="FacturaForm.jsp">Factura</a> <a
-							class="dropdown-item" href="EntryForm.jsp">Entrada</a>
-					</div>
-					<button type="button" class="btn btn-primary"
-						data-toggle="dropdown">Consultas</button>
-
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="User.jsp">Usuarios</a>
-						<a class="dropdown-item" href="Cliente.jsp">Clientes</a>
-						<a class="dropdown-item" href="Article.jsp">Articulos</a>
-						<a class="dropdown-item" href="Supplier.jsp">Proveedores</a>
-						<a class="dropdown-item" href="Factura.jsp">Factura</a>
-						<a class="dropdown-item" href="Entry.jsp">Entrada</a>
-					</div>
-					<button type="button" class="btn btn-primary"
-						data-toggle="dropdown">Listados</button>
-
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="UserList.jsp">Usuarios</a> 
-						<a class="dropdown-item" href="ClientList.jsp">Clientes</a>
-						<a class="dropdown-item" href="ArticleList.jsp">Articulos</a>
-						<a class="dropdown-item" href="MovArticleList.jsp">Mov. Articulos</a>
-						<a class="dropdown-item" href="SupplierList.jsp">Proveedores</a>
-					</div>
-
-					<button type="button" class="btn btn-primary">Cerrar
-						Sesión</button>
-				</div>
-        <form class="container mt-5" id="createUser" action="/StockManagerWebProject/UserServlet" method="post">
-        		<%
+       		<%
 		User user = (User) request.getAttribute("userToModify");
 		%>
-        
-            <label for="name">Nombre:</label><br>
-            <input value="<%= user == null ? "" : user.getName() %>" type="text" id="name" name="name" placeholder="Introduce tu Nombre" required>
-            <br>
-            
-            <label for="lastName">Apellido:</label><br>
-            <input value="<%= user == null ? "" : user.getLastName()%>" type="text" id="lastName" name="lastName" placeholder="Introduce tu Apellido" required>
-            <br>
-            
-            <label for="dni">DNI:</label><br>
-            <input value="<%= user == null ? "" : user.getDni()%>" type="text" id="dni" name="dni" placeholder="Introduce tu DNI" required>
-            <br>
-            
-            <label for="email">Email:</label><br>
-            <input value="<%= user == null ? "" : user.getMail()%>" type="text" id="email" name="email" placeholder="Introduce tu Email" required>
-            <br>
-            
-            <label for="password">Contraseña:</label><br>
-            <input value="<%= user == null ? "" : user.getPassword()%>" type="password" id="password" name="password" placeholder="Introduce tu Contraseña" required>
-            <br>
-            
-             <label for="idUser">ID Usuario:</label><br>
-            <input value ="<%= user == null ? "" : user.getId()%>" type="text" readonly id="idUser" name="idUser"  placeholder="No se le ha asignado un id" required>
-            <br>
-            
-            <label for="telephone">Telefono: </label><br>
-            <input value="<%= user == null ? "" : user.getPhone()%>" type="text" id="telephone" name="telephone" placeholder="Introduce tu Telefono" required>
-            <br>
-            
-            <label for="role">Rol de Usuario</label><br>
-            <select id="role" name="role" required>
-                <option value="Usuario" <% if (user == null || !user.getRole().equals("Admin")) { %> selected <% } %>>Usuario</option>
-                <option value="Admin" <% if (user != null && user.getRole().equals("Admin")) { %> selected <% } %>>Administrador</option>
-            </select>
-            <br>
-            <br>
-            
-            <label for="gender">Sexo:</label><br>
-            <input type="radio" id="male" name="gender" value="Masculino" <% if (user != null && user.getGender().equals("Masculino")) { %> checked <% } %> required>
-            <label for="male">Masculino</label><br>
-            <input type="radio" id="female" name="gender" value="Femenino" <% if (user != null && user.getGender().equals("Femenino")) { %> checked <% } %> required>
-            <label for="female">Femenino</label><br>
-            <input type="radio" id="other" name="gender" value="Otro" <% if (user != null && user.getGender().equals("Otro")) { %> checked <% } %> required>
-            <label for="other">Otro</label><br>
-            <br>
-            
-            <label for="birth">Fecha de Nacimiento: </label><br>
-            <%if (user == null){ %>
-            <input type="date" name="birth" id="birth"><br>
-            	<%}else if (user != null) { %>
-           	 	<input type="date" name="birth" id="birth" readonly value= "<%=Tools.convertDateToString(user.getBirth())%>" >
-            	<%} %>
-            <br>
-            <input type="submit" value="<%= user == null ? "Enviar" : "Actualizar"%>">
-        </form>
-       	</div>
-    </div>
- 
-      <%if (user != null ){ %>
-          <form id="createUser" action="/StockManagerWebProject/UserServlet" method="get">
-          <button name="delete" type="submit" value="<%=user.getId()%>">Borrar</button>
-          </form>
-        <% } %>
+    <!-- Menu Dropdown y cabecera responsive-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand">
+                <h4><strong class="text-primary">Stock</strong><strong><span class="text-bold">Manager</span></strong></h4>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Altas
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="UserForm.jsp">Usuarios</a></li>
+                            <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
+                            <li><a class="dropdown-item" href="Ref3">Articulos</a></li>
+                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>
+                            <!-- <li><a class="dropdown-item" href="Ref4">Facturas</a></li>
+                        <li><a class="dropdown-item" href="Ref5">Entrada</a></li> -->
+                        </ul>
+                    </li>
+                    <!-- Nuevo botÃ³n de dropdown "Consultas" -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink2" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Consultas
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink2">
+                            <li><a class="dropdown-item" href="Ref1">Usuarios</a></li>
+                            <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
+                            <li><a class="dropdown-item" href="Ref3">Articulos</a></li>
+                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>
+                            <!-- <li><a class="dropdown-item" href="#">Proveedores</a></li>
+                            <li><a class="dropdown-item" href="#">Facturas</a></li>
+                            <li><a class="dropdown-item" href="#">Entrada</a></li> -->
+                        </ul>
+                    </li>
+                    <!-- Nuevo botÃ³n de dropdown "Consultas" -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink2" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Listados
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink2">
+                            <li><a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a></li>
+                            <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
+                            <li><a class="dropdown-item" href="Ref3">Articulos</a></li>
+                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>
+                        </ul>
+                    </li>
+                    <!-- BotÃ³n "Cerrar SesiÃ³n" -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cerrar SesiÃ³n</a>
+                    </li>
+                </ul>
             </div>
-    <!-- Enlace a los scripts de Bootstrap (opcional) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <div class="footer" align="center">Designed & Coded by Carlos & David</div>
-</body>
+        </div>
+    </nav>
+    <!-- Navegador y Menu Responsive-->
+<header class="d-flex justify-content-center">
+        <div class="header col-md-4 mt-4 mb-4 justify-content-center d-md-block">
+            <form class="header-form">
+                <form class="container " id="createUser" action="/StockManagerWebProject/UserServlet" method="post">
+                    <div class="head"><strong>Formulario<span class="text-primary"> Alta</span></strong></div>
+                    <br>
+                    <div class="container">
+                        <div class="form-group">
+                            <label class="text-primary" for="dni"><strong>Nombre:</strong></label><br>
+                            <input type="text" name="name" value="<%= user == null ? "" : user.getName() %>" id="name" class="form-control" placeholder="Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-primary" for="lastName"><strong>Apellido:</strong></label><br>
+                            <input type="text" name="lastName" value="<%= user == null ? "" : user.getLastName()%>" id="lastName" class="form-control" placeholder="Apellido" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-primary" for="dni"><strong>DNI:</strong></label><br>
+                            <input type="text" name="dni" value="<%= user == null ? "" : user.getDni()%>" id="dni" class="form-control" placeholder="Introduce DNI" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-primary" for="email"><strong>Email:</strong></label><br>
+                            <input type="email" name="email" value="<%= user == null ? "" : user.getMail()%>" id="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-primary" for="password"><strong>Password:</strong></label><br>
+                            <input type="password" name="password" value="<%= user == null ? "" : user.getPassword()%>" id="password" class="form-control" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-primary" for="idUser" ><strong>ID Usuarios:</strong></label><br>
+                            <input type="text" name="idUser" value="<%= user == null ? "" : user.getId()%>" id="idUser" class="form-control" placeholder="No se le ha asignado un ID" readonly>
+                        </div>
+                        <!-- Validado solo coge numeros, ningun caracter o simbolo. Y tienen que ser 9 Digitos-->
+                        <div class="form-group">
+                            <label class="text-primary" for="telephone"><strong>Telefono:</strong></label><br>
+                            <input type="tel" pattern="[0-9]{9}" maxlength="9"  name="telephone" value="<%= user == null ? "" : user.getPhone()%>" id="telephone" class="form-control" placeholder="Telefono" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-primary" for="role"><strong>Cargo:</strong></label><br>
+                        <select id="role" name="role" required>
+                            <option class="text-muted" disabled>Seleccione Cargo</option>
+                            <option value="Usuario" <% if (user == null || !user.getRole().equals("Admin")) { %> selected <% } %>>Usuario</option>
+                            <option value="Admin" <% if (user != null && user.getRole().equals("Admin")) { %> selected <% } %>>Admin</option>
+                        </select>
+                        </div>
+                        <label class="text-primary" for="gender"><strong>Genero:</strong></label><br>
+                        <div class="form-check-inline text-center">
+                            <label class="text-primary" for="male"><strong>Masculino</strong></label><br>
+                            <input type="radio" name="gender" id="male" value="Masculino" <% if (user != null && user.getGender().equals("Masculino")) { %> checked <% } %> class="form-control" placeholder=Masculino required>
+                            <label class="text-primary" for="male"><strong>Femenino</strong></label><br>
+                            <input type="radio" name="gender" id="female" value="Femenino" <% if (user != null && user.getGender().equals("Femenino")) { %> checked <% } %> class="form-control" placeholder=Femenino required>
+                            <label class="text-primary" for="male"><strong>Otro</strong></label><br>
+                            <input type="radio" name="gender" id="other" value="Otro" <% if (user != null && user.getGender().equals("Otro")) { %> checked <% } %> class="form-control" placeholder=Otro required>
+                        </div>
+                        <br><br>
 
+                        <div class="form-group">
+                            <label class="text-primary" for="birth"><strong>Fecha de Nacimiento:</strong></label><br>
+                            <input type="date" name="birth" value="<%=Tools.convertDateToString(user.getBirth())%>" id="birth"><br>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        <button type="submit" class="btn btn-primary btn-primary btn-block"><strong><%= user == null ? "Enviar" : "Actualizar"%></strong></button>
+                        <%if (user != null ){ %>
+         				<button name="delete" type="submit" formaction="/StockManagerWebProject/UserServlet" formmethod = "get" value="<%=user.getId()%>">Borrar</button>
+       					 <% } %>
+                    </div>
+                </div>
+            </form> 
+        </form> 
+    </div>
+</header>
+<!-- Pie de Pagina / Creditos -->
+<footer class="navbar navbar-fixed-bottom py-3 bg-dark text-light"> 
+    <div class="container text-center">
+        <p class="mb-1 media-body font-weight-light">Desing and Code by: <a href="https://github.com/CharlieDBadger/"> Carlos</a> and <a href="https://github.com/DPM81Dev/">David</a></p>
+    </div>
+</footer>
+	<!-- JQuery,Bootstrap, JS  -->
+    <script src="assets/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/bootstrap/bootstrap.bundle.js"></script>
+	<script src="assets/bootstrap/bootstrap.affix.js"></script>
+    <script src="assets/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
