@@ -19,9 +19,9 @@
 			<tr>
 				<th>Borrar</th>
 				<th>Modificar</th>
-				<th>Nombre</th>
+				<th><button name="ascendentName" type="submit" value="ascendentName">Nombre</button></th>
 				<th>Apellido</th>
-				<th>DNI</th>
+				<th><button name="ascendentDni" type="submit" value="ascendentDni">DNI</button></th>
 				<th>Rol</th>
 				<th>Mail</th>
 				<th>Telefono</th>
@@ -46,12 +46,13 @@
 				<td><%=user.getGender()%></td>
 				<td><%=user.getBirth()%></td>
 			</tr>
+			<%
+	}
+	%>
 			<!-- Puedes agregar más filas de datos aquí -->
 		</tbody>
 	</table>
-	<%
-	}
-	%>
+	
 	</form>
 </body>
 </html>

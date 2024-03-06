@@ -1,15 +1,25 @@
-17:29:26.635 [main] DEBUG org.jboss.logging logProvider - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
-17:29:26.732 [main] INFO  org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: HibernateOracle]
-17:29:26.780 [main] INFO  org.hibernate.Version logVersion - HHH000412: Hibernate ORM core version 5.6.12.Final
-17:29:26.943 [main] INFO  org.hibernate.annotations.common.Version <clinit> - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-17:29:27.143 [main] WARN  org.hibernate.orm.connections.pooling configure - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
-17:29:27.182 [main] INFO  org.hibernate.orm.connections.pooling buildCreator - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:XE]
-17:29:27.183 [main] INFO  org.hibernate.orm.connections.pooling buildCreator - HHH10001001: Connection properties: {password=****, user=curso}
-17:29:27.183 [main] INFO  org.hibernate.orm.connections.pooling buildCreator - HHH10001003: Autocommit mode: false
-17:29:27.187 [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl <init> - HHH000115: Hibernate connection pool size: 20 (min=1)
-17:29:27.393 [main] INFO  org.hibernate.dialect.Dialect <init> - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
-17:29:27.675 [main] WARN  org.hibernate.boot.internal.InFlightMetadataCollectorImpl addIdentifierGenerator - HHH000069: Duplicate generator name ADDRESSGEN
-17:29:28.172 [main] INFO  org.hibernate.orm.connections.access getIsolatedConnection - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1068176] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-17:29:28.330 [main] INFO  org.hibernate.orm.connections.access getIsolatedConnection - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@718989fa] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-17:29:28.689 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-17:29:28.807 [main] INFO  entities.User insertUser - Usuario insertado con exito.
+17:23:55.579 [main] DEBUG org.jboss.logging logProvider - Logging Provider: org.jboss.logging.Log4j2LoggerProvider
+17:23:55.708 [main] INFO  org.hibernate.jpa.internal.util.LogHelper logPersistenceUnitInformation - HHH000204: Processing PersistenceUnitInfo [name: HibernateOracle]
+17:23:55.758 [main] INFO  org.hibernate.Version logVersion - HHH000412: Hibernate ORM core version 5.6.12.Final
+17:23:55.933 [main] INFO  org.hibernate.annotations.common.Version <clinit> - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+17:23:56.171 [main] WARN  org.hibernate.orm.connections.pooling configure - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+17:23:56.215 [main] INFO  org.hibernate.orm.connections.pooling buildCreator - HHH10001005: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@localhost:1521:XE]
+17:23:56.215 [main] INFO  org.hibernate.orm.connections.pooling buildCreator - HHH10001001: Connection properties: {password=****, user=curso}
+17:23:56.216 [main] INFO  org.hibernate.orm.connections.pooling buildCreator - HHH10001003: Autocommit mode: false
+17:23:56.219 [main] INFO  org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl <init> - HHH000115: Hibernate connection pool size: 20 (min=1)
+17:23:56.479 [main] INFO  org.hibernate.dialect.Dialect <init> - HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+17:23:56.821 [main] WARN  org.hibernate.boot.internal.InFlightMetadataCollectorImpl addIdentifierGenerator - HHH000069: Duplicate generator name ADDRESSGEN
+17:23:57.508 [main] INFO  org.hibernate.orm.connections.access getIsolatedConnection - HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@718989fa] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+17:23:57.912 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator initiateService - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+17:23:58.049 [main] INFO  entities.User insertUser - Usuario insertado con exito.
+17:23:58.055 [main] INFO  entities.User insertUser - Usuario insertado con exito.
+17:23:58.060 [main] INFO  entities.User insertUser - Usuario insertado con exito.
+17:23:58.065 [main] INFO  entities.User insertUser - Usuario insertado con exito.
+17:23:58.070 [main] INFO  entities.User insertUser - Usuario insertado con exito.
+17:23:58.075 [main] INFO  entities.User insertUser - Usuario insertado con exito.
+17:23:58.080 [main] INFO  entities.User insertUser - Usuario insertado con exito.
+17:23:58.083 [main] INFO  entities.User insertUser - Usuario insertado con exito.
+17:23:58.089 [main] INFO  entities.User insertUser - Usuario insertado con exito.
+17:23:58.094 [main] INFO  entities.User insertUser - Usuario insertado con exito.
+17:23:58.095 [main] INFO  entities.User ascListName - Consultando listado de Usuarios
+17:23:58.201 [main] INFO  entities.User ascListDNI - Consultando listado de Usuarios

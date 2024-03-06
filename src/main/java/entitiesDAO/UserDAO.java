@@ -167,4 +167,21 @@ public class UserDAO {
 		}
 		return message;
 	}
+	
+//	CONSULTA LISTADO PORDEN DESCENDENTE
+	
+	public List <User> ascListName (){
+			
+		logger.info("Consultando listado de Usuarios");
+		return em.createQuery("from User u ORDER BY u.name ASC", User.class).getResultList();
+	}
+	
+	public List <User> ascListDNI (){
+		
+		logger.info("Consultando listado de Usuarios");
+		return em.createQuery("from User u ORDER BY u.dni ASC", User.class).getResultList();
+	}
+	
+	
+	
 }

@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 
 import entities.User;
 import entitiesDAO.UserDAO;
@@ -71,7 +72,27 @@ public class UserServlet extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("UserForm.jsp");
 			// Se envia al JSP
 			rd.forward(request, response);
-		}
+		} else if (request.getParameter("ascendentName") != null) {
+
+			List <User> userListNameAsc = userDAO.ascListName();
+
+			// Redirección a JSP
+			request.setAttribute("userList", userListNameAsc);
+
+			RequestDispatcher rd = request.getRequestDispatcher("UserList.jsp");
+			// Se envia al JSP
+			rd.forward(request, response);}
+		
+		else if (request.getParameter("ascendentDni") != null) {
+
+			List <User> userListNameAsc = userDAO.ascListDNI();
+
+			// Redirección a JSP
+			request.setAttribute("userList", userListNameAsc);
+
+			RequestDispatcher rd = request.getRequestDispatcher("UserList.jsp");
+			// Se envia al JSP
+			rd.forward(request, response);}
 
 	}
 

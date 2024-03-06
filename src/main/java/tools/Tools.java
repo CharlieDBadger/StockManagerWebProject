@@ -57,5 +57,12 @@ public class Tools {
 		
 		return sdf.format(dateString);
 	}
+	
+	public static String convertDateToStringList(Date dateString){
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		
+		return sdf.format(dateString);
+	}
 
 }
