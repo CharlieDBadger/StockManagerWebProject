@@ -48,6 +48,9 @@
     </style>
 </head>
 <body>
+ <%
+		String user = (String) request.getAttribute("message");
+		%>
     <div class="container mt-5">
         <div class="login-container">
             <h2 class="text-center mb-4">Inicio de Sesión</h2>
