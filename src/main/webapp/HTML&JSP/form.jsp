@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="entities.User,tools.Tools"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +14,6 @@
 	<link rel="stylesheet" href="assets/stock.css">
 </head>
 <body>
-
-       		<%
-		User user = (User) request.getAttribute("userToModify");
-		%>
     <!-- Menu Dropdown y cabecera responsive-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -47,7 +41,7 @@
                         <li><a class="dropdown-item" href="Ref5">Entrada</a></li> -->
                         </ul>
                     </li>
-                    <!-- Nuevo botÃ³n de dropdown "Consultas" -->
+                    <!-- Nuevo botón de dropdown "Consultas" -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink2" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -63,7 +57,7 @@
                             <li><a class="dropdown-item" href="#">Entrada</a></li> -->
                         </ul>
                     </li>
-                    <!-- Nuevo botÃ³n de dropdown "Consultas" -->
+                    <!-- Nuevo botón de dropdown "Consultas" -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink2" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,9 +70,9 @@
                             <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>/li>
                         </ul>
                     </li>
-                    <!-- BotÃ³n "Cerrar SesiÃ³n" -->
+                    <!-- Botón "Cerrar Sesión" -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cerrar SesiÃ³n</a>
+                        <a class="nav-link" href="#">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -94,62 +88,59 @@
                     <div class="container">
                         <div class="form-group">
                             <label class="text-primary" for="dni"><strong>Nombre:</strong></label><br>
-                            <input type="text" name="name" value="<%= user == null ? "" : user.getName() %>" id="name" class="form-control" placeholder="Nombre" required>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Nombre" required>
                         </div>
                         <div class="form-group">
                             <label class="text-primary" for="lastName"><strong>Apellido:</strong></label><br>
-                            <input type="text" name="lastName" value="<%= user == null ? "" : user.getLastName()%>" id="lastName" class="form-control" placeholder="Apellido" required>
+                            <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Apellido" required>
                         </div>
                         <div class="form-group">
                             <label class="text-primary" for="dni"><strong>DNI:</strong></label><br>
-                            <input type="text" name="dni" value="<%= user == null ? "" : user.getDni()%>" id="dni" class="form-control" placeholder="Introduce DNI" required>
+                            <input type="text" name="dni" id="dni" class="form-control" placeholder="Introduce DNI" required>
                         </div>
                         <div class="form-group">
                             <label class="text-primary" for="email"><strong>Email:</strong></label><br>
-                            <input type="email" name="email" value="<%= user == null ? "" : user.getMail()%>" id="email" class="form-control" placeholder="Email" required>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
                         </div>
                         <div class="form-group">
                             <label class="text-primary" for="password"><strong>Password:</strong></label><br>
-                            <input type="password" name="password" value="<%= user == null ? "" : user.getPassword()%>" id="password" class="form-control" placeholder="Password" required>
+                            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
                         </div>
                         <div class="form-group">
                             <label class="text-primary" for="idUser" disabled><strong>ID Usuarios:</strong></label><br>
-                            <input type="text" name="idUser" value="<%= user == null ? "" : user.getId()%>" id="idUser" class="form-control" placeholder="No se le ha asignado un ID">
+                            <input type="text" name="idUser" id="idUser" class="form-control" placeholder="No se le ha asignado un ID">
                         </div>
                         <!-- Validado solo coge numeros, ningun caracter o simbolo. Y tienen que ser 9 Digitos-->
                         <div class="form-group">
                             <label class="text-primary" for="telephone"><strong>Telefono:</strong></label><br>
-                            <input type="tel" pattern="[0-9]{9}" maxlength="9" minlength="9" name="telephone" value="<%= user == null ? "" : user.getPhone()%>" id="telephone" class="form-control" placeholder="Telefono" required>
+                            <input type="tel" pattern="[0-9]{9}" maxlength="9" minlength="9" name="telephone" id="telephone" class="form-control" placeholder="Telefono" required>
                         </div>
                         <div class="form-group">
                             <label class="text-primary" for="role"><strong>Cargo:</strong></label><br>
                         <select id="role" name="role" required>
                             <option class="text-muted" disabled>Seleccione Cargo</option>
-                            <option value="Usuario" <% if (user == null || !user.getRole().equals("Admin")) { %> selected <% } %>>Usuario</option>
-                            <option value="Admin" <% if (user != null && user.getRole().equals("Admin")) { %> selected <% } %>>Admin</option>
+                            <option>Usuario</option>
+                            <option>Admin</option>
                         </select>
                         </div>
                         <label class="text-primary" for="gender"><strong>Genero:</strong></label><br>
                         <div class="form-check-inline text-center">
                             <label class="text-primary" for="male"><strong>Masculino</strong></label><br>
-                            <input type="radio" name="gender" id="male" value="Masculino" <% if (user != null && user.getGender().equals("Masculino")) { %> checked <% } %> class="form-control" placeholder=Masculino required>
+                            <input type="radio" name="gender" id="male" value="Masculino" class="form-control" placeholder=Masculino required>
                             <label class="text-primary" for="male"><strong>Femenino</strong></label><br>
-                            <input type="radio" name="gender" id="female" value="Femenino" <% if (user != null && user.getGender().equals("Femenino")) { %> checked <% } %> class="form-control" placeholder=Femenino required>
+                            <input type="radio" name="gender" id="female" value="Femenino" class="form-control" placeholder=Femenino required>
                             <label class="text-primary" for="male"><strong>Otro</strong></label><br>
-                            <input type="radio" name="gender" id="other" value="Otro" <% if (user != null && user.getGender().equals("Otro")) { %> checked <% } %> class="form-control" placeholder=Otro required>
+                            <input type="radio" name="gender" id="other" value="Otro" class="form-control" placeholder=Otro required>
                         </div>
                         <br><br>
 
                         <div class="form-group">
                             <label class="text-primary" for="birth"><strong>Fecha de Nacimiento:</strong></label><br>
-                            <input type="date" name="birth" value="<%=Tools.convertDateToString(user.getBirth())%>" id="birth"><br>
+                            <input type="date" name="birth" id="birth"><br>
                         </div>
                     </div>
                     <div class="footer">
-                        <button type="submit" class="btn btn-primary btn-primary btn-block"><strong><%= user == null ? "Enviar" : "Actualizar"%></strong></button>
-                        <%if (user != null ){ %>
-         				<button name="delete" type="submit" formaction="/StockManagerWebProject/UserServlet" formmethod = "get" value="<%=user.getId()%>">Borrar</button>
-       					 <% } %>
+                        <button class="btn btn-primary btn-primary btn-block"><strong>Enviar</strong></button>
                     </div>
                 </div>
             </form> 
