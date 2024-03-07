@@ -86,7 +86,6 @@
     <!-- Navegador y Menu Responsive-->
 <header class="d-flex justify-content-center">
         <div class="header col-md-4 mt-4 mb-4 justify-content-center d-md-block">
-            <form class="header-form">
                 <form class="container " id="createUser" action="/StockManagerWebProject/UserServlet" method="post">
                     <div class="head"><strong>Formulario<span class="text-primary"> Alta</span></strong></div>
                     <br>
@@ -143,17 +142,16 @@
                             <label class="text-primary" for="birth"><strong>Fecha de Nacimiento:</strong></label><br>
                             <input type="date" name="birth" value="<%= user == null ? "" : Tools.convertDateToString(user.getBirth())%>" id="birth"><br>
                         </div>
-                        </form>
                     </div>
                     <div class="footer">
                         <button type="submit" class="btn btn-primary btn-block"><strong><%= user == null ? "Enviar" : "Actualizar"%></strong></button>
                         <%if (user != null ){ %>
          				<button name="delete" type="submit" formaction="/StockManagerWebProject/UserServlet" formmethod = "get" value="<%=user.getId()%>">Borrar</button>
        					 <% } %>
-                 </div>
-                 </form>
-            </form> 
-	    </div>
+                  </div>
+                </div>
+        </form> 
+    </div>
 </header>
 <!-- Pie de Pagina / Creditos -->
 <footer class="navbar navbar-fixed-bottom py-3 bg-dark text-light"> 
