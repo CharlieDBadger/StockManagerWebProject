@@ -84,9 +84,10 @@
         </div>
     </nav>
     <!-- Navegador y Menu Responsive-->
-<header class="d-flex justify-content-center">
+    <header class="d-flex justify-content-center">
         <div class="header col-md-4 mt-4 mb-4 justify-content-center d-md-block">
-                <form class="container " id="createUser" action="/StockManagerWebProject/UserServlet" method="post">
+            <form class="header-form container" id="createUser" action="/StockManagerWebProject/UserServlet"
+                method="post">
                     <div class="head"><strong>Formulario<span class="text-primary"> Alta</span></strong></div>
                     <br>
                     <div class="container">
@@ -144,15 +145,15 @@
                         </div>
                     </div>
                     <div class="footer">
-                        <button type="submit" class="btn btn-primary btn-block"><strong><%= user == null ? "Enviar" : "Actualizar"%></strong></button>
+                        <button type=submit class="btn btn-primary btn-block text-center mt-5 mb-4"><strong><%= user == null ? "Enviar" : "Actualizar"%></strong></button>
                         <%if (user != null ){ %>
          				<button name="delete" type="submit" formaction="/StockManagerWebProject/UserServlet" formmethod = "get" value="<%=user.getId()%>">Borrar</button>
        					 <% } %>
-                  </div>
                 </div>
-        </form> 
-    </div>
-</header>
+            </div>
+        </form>
+        </div>
+    </header>
 <!-- Pie de Pagina / Creditos -->
 <footer class="navbar navbar-fixed-bottom py-3 bg-dark text-light"> 
     <div class="container text-center">
