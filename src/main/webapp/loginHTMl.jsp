@@ -67,7 +67,7 @@
                             <li><a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a></li>
                             <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
                             <li><a class="dropdown-item" href="Ref3">Articulos</a></li>
-                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>/li>
+                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>
                         </ul>
                     </li>
                     <!-- Botón "Cerrar Sesión" -->
@@ -80,77 +80,36 @@
     </nav>
     <!-- Navegador y Menu Responsive-->
 <header class="d-flex justify-content-center">
-        <div class="header col-md-4 mt-4 mb-4 justify-content-center d-md-block">
+        <div class="header col-md-4 mt-4 justify-content-center d-md-block">
             <form class="header-form">
                 <form class="container " id="createUser" action="/StockManagerWebProject/UserServlet" method="post">
-                    <div class="head"><strong>Formulario<span class="text-primary"> Alta</span></strong></div>
+                    <div class="head"><strong> Formulario <span class="text-primary">Login</span></strong></div>
                     <br>
                     <div class="container">
                         <div class="form-group">
-                            <label class="text-primary" for="dni"><strong>Nombre:</strong></label><br>
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="text-primary" for="lastName"><strong>Apellido:</strong></label><br>
-                            <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Apellido" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="text-primary" for="dni"><strong>DNI:</strong></label><br>
-                            <input type="text" name="dni" id="dni" class="form-control" placeholder="Introduce DNI" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="text-primary" for="email"><strong>Email:</strong></label><br>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                            <label class="text-primary" for="usuario"><strong>Usuario</strong></label><br>
+                            <input type="text" name="userName" id="userName" class="form-control" placeholder="Usuario" required>
                         </div>
                         <div class="form-group">
                             <label class="text-primary" for="password"><strong>Password:</strong></label><br>
                             <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
                         </div>
-                        <div class="form-group">
-                            <label class="text-primary" for="idUser" disabled><strong>ID Usuarios:</strong></label><br>
-                            <input type="text" name="idUser" id="idUser" class="form-control" placeholder="No se le ha asignado un ID">
-                        </div>
-                        <!-- Validado solo coge numeros, ningun caracter o simbolo. Y tienen que ser 9 Digitos-->
-                        <div class="form-group">
-                            <label class="text-primary" for="telephone"><strong>Telefono:</strong></label><br>
-                            <input type="tel" pattern="[0-9]{9}" maxlength="9" minlength="9" name="telephone" id="telephone" class="form-control" placeholder="Telefono" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="text-primary" for="role"><strong>Cargo:</strong></label><br>
-                        <select id="role" name="role" required>
-                            <option class="text-muted" disabled>Seleccione Cargo</option>
-                            <option>Usuario</option>
-                            <option>Admin</option>
-                        </select>
-                        </div>
-                        <label class="text-primary" for="gender"><strong>Genero:</strong></label><br>
-                        <div class="form-check-inline text-center">
-                            <label class="text-primary" for="male"><strong>Masculino</strong></label><br>
-                            <input type="radio" name="gender" id="male" value="Masculino" class="form-control" placeholder=Masculino required>
-                            <label class="text-primary" for="male"><strong>Femenino</strong></label><br>
-                            <input type="radio" name="gender" id="female" value="Femenino" class="form-control" placeholder=Femenino required>
-                            <label class="text-primary" for="male"><strong>Otro</strong></label><br>
-                            <input type="radio" name="gender" id="other" value="Otro" class="form-control" placeholder=Otro required>
-                        </div>
-                        <br><br>
-
-                        <div class="form-group">
-                            <label class="text-primary" for="birth"><strong>Fecha de Nacimiento:</strong></label><br>
-                            <input type="date" name="birth" id="birth"><br>
-                        </div>
+                    </div>
+                    <div class="form-group text-dark text-center">
+                        <p><!-- Mensaje de error --></p>
                     </div>
                     <div class="footer">
                         <button class="btn btn-primary btn-primary btn-block"><strong>Enviar</strong></button>
                     </div>
                 </div>
+                </form> 
             </form> 
-        </form> 
     </div>
 </header>
 <!-- Pie de Pagina / Creditos -->
-<footer class="navbar navbar-fixed-bottom py-3 bg-dark text-light"> 
+<footer class="footer py-3 bg-dark text-light"> 
     <div class="container text-center">
-        <p class="mb-1 media-body font-weight-light">Desing & Code by: <a href="https://github.com/CharlieDBadger/"> Carlos</a> & <a href="https://github.com/DPM81Dev/">David</a></p>
+        <p class="mb-1 media-body font-weight-light">Desing and Code by: <a href="https://github.com/CharlieDBadger/"> Carlos</a>and <a href="https://github.com/DPM81Dev/">David</a></p>
     </div>
 </footer>
 	<!-- JQuery,Bootstrap, JS  -->
