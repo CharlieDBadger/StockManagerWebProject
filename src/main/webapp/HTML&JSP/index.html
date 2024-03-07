@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,7 +20,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand">
-                <h4><strong class="text-primary">Stock</strong><strong><span class="text-bold">Manager</span></strong></h4>
+                <h4><strong class="text-primary">Stock</strong><strong><span class="text-bold">Manager</span></strong>
+                </h4>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
@@ -36,9 +37,9 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="UserForm.jsp">Usuarios</a></li>
-                            <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
+                            <!-- <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
                             <li><a class="dropdown-item" href="Ref3">Articulos</a></li>
-                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>
+                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li> -->
                             <!-- <li><a class="dropdown-item" href="Ref4">Facturas</a></li>
                         <li><a class="dropdown-item" href="Ref5">Entrada</a></li> -->
                         </ul>
@@ -50,10 +51,10 @@
                             Consultas
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink2">
-                            <li><a class="dropdown-item" href="Ref1">Usuarios</a></li>
+                            <!-- <li><a class="dropdown-item" href="Ref1">Usuarios</a></li>
                             <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
                             <li><a class="dropdown-item" href="Ref3">Articulos</a></li>
-                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>
+                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li> -->
                             <!-- <li><a class="dropdown-item" href="#">Proveedores</a></li>
                             <li><a class="dropdown-item" href="#">Facturas</a></li>
                             <li><a class="dropdown-item" href="#">Entrada</a></li> -->
@@ -67,14 +68,14 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink2">
                             <li><a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a></li>
-                            <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
+                            <!-- <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
                             <li><a class="dropdown-item" href="Ref3">Articulos</a></li>
-                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>/li>
+                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>/li> -->
                         </ul>
                     </li>
                     <!-- Botón "Cerrar Sesión" -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.jsp">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -105,7 +106,7 @@
     <!-- Pie de Pagina / Creditos -->
     <footer class="navbar navbar-fixed-bottom py-3 bg-dark text-light">
         <div class="container text-center">
-            <p class="mb-1 media-body font-weight-light">Desing & Code by: <a href="https://github.com/CharlieDBadger/">
+            <p class="mb-1 media-body font-weight-light">Design & Code by: <a href="https://github.com/CharlieDBadger/">
                     Carlos</a> & <a href="https://github.com/DPM81Dev/">David</a></p>
         </div>
     </footer>

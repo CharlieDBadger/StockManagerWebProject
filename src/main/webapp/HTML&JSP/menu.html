@@ -20,7 +20,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand">
-                <h4><strong class="text-primary">Stock</strong><strong><span class="text-bold">Manager</span></strong></h4>
+                <h4><strong class="text-primary">Stock</strong><strong><span class="text-bold">Manager</span></strong>
+                </h4>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
@@ -36,9 +37,9 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" href="UserForm.jsp">Usuarios</a></li>
-                            <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
+                            <!-- <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
                             <li><a class="dropdown-item" href="Ref3">Articulos</a></li>
-                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>
+                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li> -->
                             <!-- <li><a class="dropdown-item" href="Ref4">Facturas</a></li>
                         <li><a class="dropdown-item" href="Ref5">Entrada</a></li> -->
                         </ul>
@@ -50,10 +51,10 @@
                             Consultas
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink2">
-                            <li><a class="dropdown-item" href="Ref1">Usuarios</a></li>
+                            <!-- <li><a class="dropdown-item" href="Ref1">Usuarios</a></li>
                             <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
                             <li><a class="dropdown-item" href="Ref3">Articulos</a></li>
-                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>
+                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li> -->
                             <!-- <li><a class="dropdown-item" href="#">Proveedores</a></li>
                             <li><a class="dropdown-item" href="#">Facturas</a></li>
                             <li><a class="dropdown-item" href="#">Entrada</a></li> -->
@@ -67,14 +68,14 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink2">
                             <li><a class="dropdown-item" href="/StockManagerWebProject/UserListServlet">Usuarios</a></li>
-                            <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
+                            <!-- <li><a class="dropdown-item" href="Ref2">Clientes</a></li>
                             <li><a class="dropdown-item" href="Ref3">Articulos</a></li>
-                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>/li>
+                            <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>/li> -->
                         </ul>
                     </li>
                     <!-- Botón "Cerrar Sesión" -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.jsp">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -83,16 +84,18 @@
     <!-- Fin menu -->
     <header class="d-flex justify-content-center">
         <div class="header col-md-8 mt-4 mb-4 justify-content-center d-md-block w-100 text-nowrap">
-            <form class="header-form">
-                <form class="container" id="manipulateUser" action="/StockManagerWebProject/UserServlet" method="get">
-                    <div class="head mb-3" ><strong>Menu de<span class="text-primary"> Usuario</span></strong></div>
+            <form class="header-form container" id="manipulateUser" action="/StockManagerWebProject/UserServlet" method="get">
+                    <div class="head mb-3"><strong>Menu de<span class="text-primary"> Usuario</span></strong></div>
                     <div class="container">
-                        <div class="content mt-2 mb-5 text-dark text-center"><h3>Bienvenido Usuario</h3></div>
-                        <div class="content mt-2 mb-5 text-dark text-center"><strong><p>Las opciones disponibles, las tienes en el menu desplegable de la derecha.</p></strong></div>
+                        <div class="content mt-2 mb-5 text-dark text-center">
+                            <h3>Bienvenido <%=userName %></h3>
                         </div>
+                        <div class="content mt-2 mb-5 text-dark text-center"><strong>
+                                <p>Las opciones disponibles, las tienes en el menu desplegable de la derecha.</p>
+                            </strong></div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </header>
     <!-- Pie de Pagina / Creditos -->
