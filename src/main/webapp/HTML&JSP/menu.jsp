@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="entities.User,tools.Tools"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +46,7 @@
                         <li><a class="dropdown-item" href="Ref5">Entrada</a></li> -->
                         </ul>
                     </li>
-                    <!-- Nuevo botón de dropdown "Consultas" -->
+                    <!-- Nuevo botÃ³n de dropdown "Consultas" -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink2" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,7 +62,7 @@
                             <li><a class="dropdown-item" href="#">Entrada</a></li> -->
                         </ul>
                     </li>
-                    <!-- Nuevo botón de dropdown "Consultas" -->
+                    <!-- Nuevo botÃ³n de dropdown "Consultas" -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink2" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,14 +75,19 @@
                             <li><a class="dropdown-item" href="Ref3">Proveedores</a></li>/li> -->
                         </ul>
                     </li>
-                    <!-- Botón "Cerrar Sesión" -->
+                    <!-- BotÃ³n "Cerrar SesiÃ³n" -->
                     <li class="nav-item">
-                        <a class="nav-link" href="index.jsp">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.jsp">Cerrar SesiÃ³n</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    
+    <%
+		User user = (User) request.getAttribute("userToModify");
+		%>
+    
     <!-- Fin menu -->
     <header class="d-flex justify-content-center">
         <div class="header col-md-8 mt-4 mb-4 justify-content-center d-md-block w-100 text-nowrap">
@@ -88,7 +95,7 @@
                     <div class="head mb-3"><strong>Menu de<span class="text-primary"> Usuario</span></strong></div>
                     <div class="container">
                         <div class="content mt-2 mb-5 text-dark text-center">
-                            <h3>Bienvenido <%=userName %></h3>
+                            <h3>Bienvenido <%= user == null ? "" : user.getName() %></h3>
                         </div>
                         <div class="content mt-2 mb-5 text-dark text-center"><strong>
                                 <p>Las opciones disponibles, las tienes en el menu desplegable de la derecha.</p>
