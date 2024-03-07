@@ -12,7 +12,6 @@
 <script src="./assets/script.js"></script>
 </head>
 <body>
-	<h1>Inserción Completa</h1>
 	   <form id="createUser" action="/StockManagerWebProject/UserServlet" method="get">
 	<table>
 		<thead>

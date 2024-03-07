@@ -75,7 +75,7 @@
                     </li>
                     <!-- Botón "Cerrar Sesión" -->
                     <li class="nav-item">
-                        <a class="nav-link" href="index.jsp">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
                     </li>
                 </ul>
             </div>
@@ -95,9 +95,9 @@
                     <div>
                         <br>
                         <h5>URL Usuario</h5>
-                        <a href="/StockManagerWebProject/UserForm.jsp">UserForm</a>
+                        <a href="/StockManagerWebProject/UserForm.jsp">Nuevo Usuario</a>
                         <br>
-                        <a href="/StockManagerWebProject/UserListServlet">ListaUsuarios</a>
+                        <a href="/StockManagerWebProject/UserListServlet">Consulta de Usuarios</a>
                     </div>
                 </div>
             </div>

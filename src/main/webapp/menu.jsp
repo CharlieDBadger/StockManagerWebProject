@@ -77,7 +77,7 @@
                     </li>
                     <!-- BotÃ³n "Cerrar SesiÃ³n" -->
                     <li class="nav-item">
-                        <a class="nav-link" href="index.jsp">Cerrar SesiÃ³n</a>
+                        <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
                     </li>
                 </ul>
             </div>
@@ -85,12 +85,16 @@
     </nav>
     
     <%
-		User user = (User) request.getAttribute("userToModify");
+		User user = (User) request.getAttribute("userLogged");
+   		 String message = (String) request.getAttribute("message");
 		%>
     
     <!-- Fin menu -->
     <header class="d-flex justify-content-center">
         <div class="header col-md-8 mt-4 mb-4 justify-content-center d-md-block w-100 text-nowrap">
+        <% if (message!= null){ %>
+             <div class="head mb-3 text-center"><strong><h4><%=message%></h4></strong></div>
+             <% }%>
             <form class="header-form container" id="manipulateUser" action="/StockManagerWebProject/UserServlet" method="get">
                     <div class="head mb-3"><strong>Menu de<span class="text-primary"> Usuario</span></strong></div>
                     <div class="container">
@@ -108,7 +112,7 @@
     <!-- Pie de Pagina / Creditos -->
     <footer class="footer py-3 bg-dark text-light">
         <div class="container text-center">
-            <p class="mb-1 media-body font-weight-light">Desing & Code by: <a href="https://github.com/CharlieDBadger/">
+            <p class="mb-1 media-body font-weight-light">Design & Code by: <a href="https://github.com/CharlieDBadger/">
                     Carlos</a> & <a href="https://github.com/DPM81Dev/">David</a></p>
         </div>
     </footer>

@@ -1,0 +1,49 @@
+HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Popup sin marco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Estilos CSS (opcional) -->
+    <style>
+        /* Estilos para el popup */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenido de la página -->
+    <h1>Mensaje de error</h1>
+    <p>Ha ocurrido un error inesperado.</p>
+
+    <!-- Popup -->
+    <div class="popup">
+        <p>Este es un mensaje de error.</p>
+        <button onclick="cerrarPopup()">Aceptar</button>
+    </div>
+
+    <!-- Script para cerrar el popup -->
+    <script>
+        function cerrarPopup() {
+            // Ocultar el popup
+            document.querySelector('.popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+Código generado por IA. Revisar y usar cuidadosamente. Más información sobre preguntas frecuentes.
+En este ejemplo:
+
+El contenido del popup se encuentra dentro de un <div> con la clase .popup.
+El botón “Aceptar” llama a la función cerrarPopup(), que oculta el popup al hacer clic.
+Recuerda personalizar el contenido y los estilos según tus necesidades. ¡Espero que te sea útil! 🌟
