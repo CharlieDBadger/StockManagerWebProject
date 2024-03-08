@@ -149,7 +149,7 @@
                         <button type=submit class="btn btn-primary btn-block text-center mt-5 mb-4"><strong><%= user == null ? "Enviar" : "Actualizar"%></strong></button>
 
                         <%if (user != null ){ %>
-                        <button name="delete" type="submit" class="btn btn-primary btn-block text-center mt-5 mb-4" formaction="/StockManagerWebProject/UserServlet" formmethod = "get" value="<%=user.getId()%>">Borrar</button>
+                        <button name="delete" type="submit" class="btn btn-primary btn-block text-center mt-5 mb-4" formaction="/StockManagerWebProject/UserServlet" formmethod = "get" value="<%=user.getId()%>"><strong>Borrar</strong></button>
        					<% } %>
                 </div>
             </div>

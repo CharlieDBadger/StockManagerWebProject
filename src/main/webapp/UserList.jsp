@@ -105,26 +105,16 @@
 									class="table table-responsive width ml-auto d-block d-md-table">
 									<thead class="col-md-12" align="center">
 										<tr class="col-md-12">
-											<th scope="col-md-12"><button
-													class="btn btn-basic btn-sm">Editar</button></th>
-											<th scope="col-md-12"><button
-													class="btn btn-basic btn-sm">Borrar</button></th>
-											<th scope="col-md-12"><button
-													class="btn btn-basic btn-sm"name="ascendentName" type="submit" value="ascendentName">Nombre</button></th>
-											<th scope="col-md-12"><button
-													class="btn btn-basic btn-sm">Apellido</button></th>
-											<th scope="col-md-12"><button
-													class="btn btn-basic btn-sm" name="ascendentDni" type="submit" value="ascendentDni">DNI</button></th>
-											<th scope="col-md-12"><button
-													class="btn btn-basic btn-sm">Email</button></th>
-											<th scope="col-md-12"><button
-													class="btn btn-basic btn-sm">Telefono</button></th>
-											<th scope="col-md-12"><button
-													class="btn btn-basic btn-sm">Cargo</button></th>
-											<th scope="col-md-12"><button
-													class="btn btn-basic btn-sm">Genero</button></th>
-											<th scope="col-md-12"><button
-													class="btn btn-basic btn-sm">Fecha</button></th>
+											<th scope="col-md-12"><button class="btn btn-basic btn-sm">Editar</button></th>
+											<th scope="col-md-12"><button class="btn btn-basic btn-sm">Borrar</button></th>
+											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"name="ascendentName" type="submit" value="ascendentName"> Nombre </button></th>
+											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"> Apellido </button></th>
+											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm" name="ascendentDni" type="submit" value="ascendentDni"> DNI </button></th>
+											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"> Cargo </button></th>
+											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"> Email </button></th>
+											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"> Telefono </button></th>
+											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"> Genero </button></th>
+											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"> Fecha </button></th>
 										</tr>
 									</thead>
 		
