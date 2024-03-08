@@ -125,9 +125,9 @@
 		%>
 										<tr>
 											<td><button name="delete" type="submit"
-													value="<%=user.getId()%>"><img src="/assets/imgs/borrar.png"></button></td>
+													value="<%=user.getId()%>"><img src="assets/imgs/borrar.png"></button></td>
 											<td><button name="modify" type="submit"
-													value="<%=user.getDni()%>"><img src="/assets/imgs/editar.png">/button></td>
+													value="<%=user.getDni()%>"><img src="assets/imgs/editar.png"></button></td>
 											<td><%=user.getName()%></td>
 											<td><%=user.getLastName()%></td>
 											<td><%=user.getDni()%></td>
