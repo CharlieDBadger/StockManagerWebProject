@@ -147,15 +147,14 @@
                     </div>
                     <div class="footer">
                         <button type=submit class="btn btn-primary btn-block text-center mt-5 mb-4"><strong><%= user == null ? "Enviar" : "Actualizar"%></strong></button>
-                      AJUSTAAAAAAAAAAAAAAR
-                      
+
                         <%if (user != null ){ %>
-         				<button name="delete" type="submit" formaction="/StockManagerWebProject/UserServlet" formmethod = "get" value="<%=user.getId()%>">Borrar</button>
-       					 <% } %>
+                        <button name="delete" type="submit" class="btn btn-primary btn-block text-center mt-5 mb-4" formaction="/StockManagerWebProject/UserServlet" formmethod = "get" value="<%=user.getId()%>">Borrar</button>
+       					<% } %>
                 </div>
             </div>
         </form>
-        </div>
+      </div>
     </header>
 <!-- Pie de Pagina / Creditos -->
 <footer class="navbar navbar-fixed-bottom py-3 bg-dark text-light"> 
