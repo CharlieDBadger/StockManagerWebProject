@@ -105,16 +105,16 @@
 									class="table table-responsive width ml-auto d-block d-md-table">
 									<thead class="col-md-12" align="center">
 										<tr class="col-md-12">
-											<th scope="col-md-12"><button class="btn btn-basic btn-sm">Editar</button></th>
 											<th scope="col-md-12"><button class="btn btn-basic btn-sm">Borrar</button></th>
-											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"name="ascendentName" type="submit" value="ascendentName"> Nombre </button></th>
-											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"> Apellido </button></th>
-											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm" name="ascendentDni" type="submit" value="ascendentDni"> DNI </button></th>
-											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"> Cargo </button></th>
-											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"> Email </button></th>
-											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"> Telefono </button></th>
-											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"> Genero </button></th>
-											<th scope="col-md-12"><button href="#" class="btn btn-basic btn-sm"> Fecha </button></th>
+											<th scope="col-md-12"><button class="btn btn-basic btn-sm">Editar</button></th>
+											<th scope="col-md-12"><button class="btn btn-basic btn-sm" name="ascendentName" type="submit" value="ascendentName"> Nombre </button></th>
+											<th scope="col-md-12"><button class="btn btn-basic btn-sm" disabled="disabled"> Apellido </button></th>
+											<th scope="col-md-12"><button class="btn btn-basic btn-sm" name="ascendentDni" type="submit" value="ascendentDni"> DNI </button></th>
+											<th scope="col-md-12"><button class="btn btn-basic btn-sm" disabled="disabled"> Cargo </button></th>
+											<th scope="col-md-12"><button class="btn btn-basic btn-sm" disabled="disabled"> Email </button></th>
+											<th scope="col-md-12"><button class="btn btn-basic btn-sm" disabled="disabled"> Telefono </button></th>
+											<th scope="col-md-12"><button class="btn btn-basic btn-sm" disabled="disabled"> Genero </button></th>
+											<th scope="col-md-12"><button class="btn btn-basic btn-sm" disabled="disabled"> Fecha </button></th>
 										</tr>
 									</thead>
 		
@@ -125,9 +125,9 @@
 		%>
 										<tr>
 											<td><button name="delete" type="submit"
-													value="<%=user.getId()%>">Borrar</button></td>
+													value="<%=user.getId()%>"><img src="/assets/imgs/borrar.png"></button></td>
 											<td><button name="modify" type="submit"
-													value="<%=user.getDni()%>">Modificar</button></td>
+													value="<%=user.getDni()%>"><img src="/assets/imgs/editar.png">/button></td>
 											<td><%=user.getName()%></td>
 											<td><%=user.getLastName()%></td>
 											<td><%=user.getDni()%></td>
