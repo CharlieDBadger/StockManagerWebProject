@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="entities.User,java.util.List"%>
+	pageEncoding="UTF-8" import="entities.User,java.util.List,tools.Tools"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -135,7 +135,7 @@
 											<td><%=user.getMail()%></td>
 											<td><%=user.getPhone()%></td>
 											<td><%=user.getGender()%></td>
-											<td><%=user.getBirth()%></td>
+											<td><%=Tools.convertDateToStringList(user.getBirth())%></td>
 										</tr>
 	<%
 	}
