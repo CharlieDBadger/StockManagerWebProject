@@ -85,7 +85,7 @@
     </nav>
     
     <%
-		User user = (User) request.getAttribute("userLogged");
+		User user = (User) session.getAttribute("userLogged");
    		 String message = (String) request.getAttribute("message");
 		%>
     
@@ -95,7 +95,7 @@
         <% if (message!= null){ %>
              <div class="head mb-3 text-center"><strong><h4><%=message%></h4></strong></div>
              <% }%>
-            <form class="header-form container" id="manipulateUser" action="/StockManagerWebProject/UserServlet" method="get">
+            <form class="header-form container">
                     <div class="head mb-3"><strong>Menu de<span class="text-primary"> Usuario</span></strong></div>
                     <div class="container">
                         <div class="content mt-2 mb-5 text-dark text-center">

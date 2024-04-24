@@ -19,6 +19,8 @@ import jakarta.servlet.http.HttpSession;
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	String message;
 
 	/**
 	 * Default constructor.
@@ -55,28 +57,40 @@ public class LoginServlet extends HttpServlet {
 		String loginPassword = request.getParameter("userPassword");
 
 		List<User> userList = UserENUM.INSTANCE.getUserList();
+		User userLogged = null;
+		boolean check = false;
 
-		for (User user : userList) {
-			if (user.getName().equals(loginName) && user.getPassword().equals(loginPassword)) {
+		for (User userFromList : userList) {
+			if (userFromList.getName().equals(loginName) && userFromList.getPassword().equals(loginPassword)) {
 
-				HttpSession session = request.getSession();
-
-				session.setAttribute("userLogged", user);
-
-				RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
+				userLogged = userFromList;
 				
-				rd.forward(request, response);
-				
-				
-//				// Asignar un objeto para mandarlo al JSP
-//				request.setAttribute("userLogged", user);
-//
-//				RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
-//				// Se envia al JSP
-//				rd.forward(request, response);
-
+				check = true;
 				break;
 			}
+		}
+		
+		if (check) {
+			
+			HttpSession session = request.getSession();
+
+			session.setAttribute("userLogged", userLogged);
+
+			RequestDispatcher rd = request.getRequestDispatcher("menu.jsp");
+			
+			rd.forward(request, response);
+			
+		} else if (!check) {
+			
+			message = "Usuario y/o Contraseña no validos.";
+			
+			// Redirección a JSP
+			request.setAttribute("message", message);
+
+			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+			// Se envia al JSP
+			rd.forward(request, response);
+			
 		}
 	}
 

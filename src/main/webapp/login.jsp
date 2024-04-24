@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="assets/stock.css">
 </head>
 
+
+
 <body>
     <!-- Menu Dropdown y cabecera responsive-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -75,16 +77,21 @@
                     </li>
                     <!-- Botón "Cerrar Sesión" -->
                     <li class="nav-item">
-                        <a class="nav-link" href="index.jsp">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.jsp">Cerrar Sesion</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    
+     <%
+   		 String message = (String) request.getAttribute("message");
+		%>
+    
     <!-- Navegador y Menu Responsive-->
     <header class="d-flex justify-content-center">
         <div class="header col-md-4 mt-4 justify-content-center d-md-block">
-            <form class="header-form container" id="createUser" action="/StockManagerWebProject/UserServlet"
+            <form class="header-form container" id="createUser" action="/StockManagerWebProject/LoginServlet"
                 method="post">
                 <div class="head"><strong> Formulario <span class="text-primary">Login</span></strong></div>
                 <br>
@@ -96,12 +103,12 @@
                     </div>
                     <div class="form-group">
                         <label class="text-primary" for="password"><strong>Password:</strong></label><br>
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+                        <input type="password" name="userPassword" id="password" class="form-control" placeholder="Password"
                             required>
                     </div>
                 </div>
                 <div class="form-group text-dark text-center">
-                    <p><!-- Mensaje de error --></p>
+                    <p><%= message == null ? "" : message %></p>
                 </div>
                 <div class="footer">
                     <button class="btn btn-primary btn-block text-center mt-5 mb-4"><strong>Enviar</strong></button>
